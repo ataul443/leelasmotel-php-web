@@ -8,10 +8,8 @@
 
 
 {% block pageCss %}
-    <link rel="stylesheet" href="{{ base_url() }}/css/main.css">
-    <link rel="stylesheet" href="{{ base_url() }}/css/booking.css">
 
-    <link rel="stylesheet" href="{{ base_url() }}/css/mediastyle.css">
+    <link rel="stylesheet" href="{{ base_url() }}/css/booking.css">
 {% endblock %}
 
 
@@ -26,8 +24,11 @@
             </ul>
         </div>
     </div>
+
+    <!-- The Wrapper which is containing all the cards of the booking process -->
     <div id="wrapper">
         <div>
+            <!-- The First process Card (procard) for selecting the room -->
             <div id="bookRoom" class="procard bookRoom">
                 <div>
                     <h1 class="proHead">Select Your Room</h1>
@@ -77,6 +78,7 @@
                 </div>
             </div>
 
+            <!-- The Second process Card (procard) for giving the personal details -->
             <div id="bookDet" class="procard">
                 <div>
                     <h1 class="proHead">Booking details</h1>
@@ -125,6 +127,7 @@
                 </div>
             </div>
 
+            <!-- The Third process Card (procard) for payment method -->
             <div id="payCon" class="procard">
                 <div>
                     <h1 class="proHead">PayMent details</h1>
@@ -162,6 +165,7 @@
                 </div>
             </div>
 
+            <!-- The last process Card (procard) for telling the user that the room is booked -->
             <div id="bookComplete" class="procard">
                 <div>
                     <h1 class="proHead">Booking Complete!</h1>
@@ -170,104 +174,33 @@
             </div>
         </div>
     </div>
-{% endblock %}
 
-{% block externalJs %}
+    <div id="signuppage">
+        <div id="cross">
+            <span>&nbsp;</span>
+            <span>&nbsp;</span>
+        </div>
+        <div id="centerBox">
+            <!-- This Box Will go here and there to change from Signup to login -->
+            <!-- No change From BackEnd -->
+            <div id="main">
+                <div  class="text-white" id="box">
+                    <h1 class="display-3" id="head">New Here?</h1>
+                    <p class="lead" id="para">Sign up and discover a great amount  of new opportunities.</p>
+                    <button type="button" class="btn-1 btn" id="btn" onclick="myfunction()">Sign Up</button>
+                </div>
 
+                <!--This is the Sign Up Block-->
+                {% include 'templates/partials/signup.twig' %}
+
+
+                <!-- This is the Log In Block-->
+                {% include 'templates/partials/login.twig' %}
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block pageJs %}
-    <script>
-        $("#wrapper>div").css(
-            'height' , $("#bookDet").height()
-        );
-        $(".procard").css(
-            'height' , $("#bookDet").height()
-        );
-
-        var payConBtn = $("#payConbtn");
-        var bookroombtn = $("#bookRoomBtn");
-        var bookDetBtn = $("#bookdetbtn");
-        var bookRoom = $("#bookRoom")
-        var bookDet = $("#bookDet");
-        var payCon = $("#payCon");
-        var paySum = $("#bookComplete");
-
-        bookroombtn.click(function(){
-            summaryDet();
-            bookRoom.css(
-                'transform' , 'rotateY(90deg)'
-            );
-            bookDet.css(
-                'transform', 'rotateY(0deg)'
-            );
-            $("#cssmenu ul li:nth-of-type(4)").removeClass("doing").addClass("done");
-            $("#cssmenu ul li:nth-of-type(3)").removeClass("nextStep").addClass("doing");
-            $('html, body').animate({
-                scrollTop: $("#cssmenuCont").offset().top
-            }, 500);
-        });
-
-        bookDetBtn.click(function(){
-            bookDet.css(
-                'transform', 'rotateY(90deg)'
-            );
-            payCon.css(
-                'transform' , 'rotateY(0deg)'
-            );
-            $("#cssmenu ul li:nth-of-type(3)").removeClass("doing").addClass("done");
-            $("#cssmenu ul li:nth-of-type(2)").removeClass("nextStep").addClass("doing");
-            $('html, body').animate({
-                scrollTop: $("#cssmenuCont").offset().top
-            }, 500);
-        });
-
-        payConBtn.click(function(){
-            payCon.css(
-                'transform' , 'rotateY(90deg)'
-            );
-            paySum.css(
-                'transform', 'rotateY(0deg)'
-            )
-            $("#cssmenu ul li:nth-of-type(2)").removeClass("doing").addClass("done");
-            $("#cssmenu ul li:nth-of-type(1)").removeClass("nextStep").addClass("doing");
-            $('html, body').animate({
-                scrollTop: $("#cssmenuCont").offset().top
-            }, 500);
-        });
-        var s = $("#selRoomDiv #roomTypeSel");
-        var j = $("#selRoomDiv #priceSel");
-        var i;
-        $("#selectRoom>div").click(function(){
-            i = $(this).index();
-            $("#selectRoom, #bookRoom>div:nth-of-type(2)>p").slideUp(500, function(){
-                $("#bookRoom").removeClass("bookRoom");
-                $("#selectedRoom").attr('value', s[i].innerText);
-                $("#selectedPrice").attr('value', j[i].innerText);
-                $("#bookRoom form, #bookRoom>div:nth-of-type(3)").slideDown(500);
-            });
-        });
-
-
-
-        function summaryDet(){
-            var a = $("#selectedRoom").attr('value');
-            var x = $(".sumRoom");
-            var dateIn = $(".sumCheckIn");
-            var dateOut = $(".sumCheckOut");
-            var guest = $(".sumguest");
-            var roomno = $(".sumroomno");
-            for(z=0; z<2; z++)
-            {
-                x[z].innerText = a;
-                dateIn[z].innerText = $("#indate").val();
-                dateOut[z].innerText = $("#outdate").val();
-                guest[z].innerText = $("#selectGuest").val();
-                roomno[z].innerText = $("#selectRoomNo").val();
-            }
-        }
-
-
-
-    </script>
+    <script src="{{ base_url() }}/js/booking.js"></script>
 {% endblock %}

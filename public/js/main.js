@@ -36,6 +36,11 @@ var slide = ["https://i.imgur.com/g5kvcni.jpg", "https://i.imgur.com/hcRgjvs.jpg
         $("#logIn").click(function(){            
             $("#signuppage").slideDown(500, myLogIn());
         });
+        $("#accountPopUp").slideUp();
+        $("#account").click(function(){            
+            $("#accountPopUp").slideToggle(500);
+        });
+
             if($(window).width() <= 700){
                 var a = $("#checkAvail span:nth-of-type(1)");
                 var b = $("#checkAvail span:nth-of-type(2)");

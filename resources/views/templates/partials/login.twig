@@ -3,9 +3,10 @@
         <h1 class="display-4 quick">Welcome Back!</h1>
         <p class="text-muted" style="padding-top: 0; margin-top: 0; font-size: 13px">Enter Your Details To Continue Shopping.</p>
 
-        <form action="{{ path_for('auth.login') }}" method="post">
-            <input name="email" type="email" placeholder="E-mail Address">
-            <input name= "password" type="password" placeholder="Password">
+        <form action="{{ path_for('auth.login') }}" method="POST">
+            <input name="email" type="email" placeholder="E-mail Address" autocomplete="off">
+            <input name="password" type="password" placeholder="Password" autocomplete="off">
+            <label style="display: block; text-align: center; margin: 10px auto">Wrong Email id or password</label>
             <button type="submit" class="btn btn-success" id="login-btn">LOG IN</button>
         </form>
 

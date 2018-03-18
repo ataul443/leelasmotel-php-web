@@ -7,6 +7,9 @@
     <meta content='width=device-width, initial-scale=1.0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
+    <link rel="stylesheet" href="{{ base_url() }}/css/main.css">
+    <link rel="stylesheet" href="{{ base_url() }}/css/mediastyle.css">
+
     {% block pageCss %}
     {% endblock %}
 
@@ -34,9 +37,8 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
 </script>
-{% block externalJs %}
-{% endblock %}
-
+<script src="{{  base_url() }}/js/main.js"></script>
+<script src="{{ base_url() }}/js/signuppage.js"></script>
 {% block pageJs %}
 {% endblock %}
 
