@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    {% block pageCss %}
+    {% endblock %}
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,800|Roboto:400,500,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab|Merriweather|Quicksand|Raleway" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div id="navBar">
+{% include 'templates/partials/navigation.twig' %}
+</div>
+
+    {% block content %}{% endblock %}
+
+<footer>
+{% include 'templates/partials/footer.twig' %}
+</footer>
+
+
+{% block externalJs %}
+{% endblock %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+</script>
+
+{% block pageJs %}
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,273 @@
+{% extends 'templates/base.twig'  %}
+
+
+{% block title %}
+    Leelas Motel - An Elegant Stay |Booking
+{% endblock %}
+
+
+
+{% block pageCss %}
+    <link rel="stylesheet" href="{{ base_url() }}/css/main.css">
+    <link rel="stylesheet" href="{{ base_url() }}/css/booking.css">
+
+    <link rel="stylesheet" href="{{ base_url() }}/css/mediastyle.css">
+{% endblock %}
+
+
+{% block content %}
+    <div id="cssmenuCont">
+        <div id="cssmenu">
+            <ul>
+                <li class="nextStep">Booking Completed</li>
+                <li class="nextStep">Select Payment Method</li>
+                <li class="nextStep">Enter Booking Details</li>
+                <li class="doing">Select Room</li>
+            </ul>
+        </div>
+    </div>
+    <div id="wrapper">
+        <div>
+            <div id="bookRoom" class="procard bookRoom">
+                <div>
+                    <h1 class="proHead">Select Your Room</h1>
+                    <p class="proPara">Select the room details</p>
+                </div>
+                <div>
+                    <p>Room Type </p>
+                    <div id="selectRoom">
+
+                        <div>
+                            <div id="selRoomDiv">
+                                <p id="roomTypeSel">Standard Room</p>
+                                <span id="priceSel">$350</span>
+                            </div>
+                        </div><div>
+                            <div id="selRoomDiv">
+                                <p id="roomTypeSel">Deluxe Room</p>
+                                <span id="priceSel">$350</span>
+                            </div>
+                        </div><div>
+                            <div id="selRoomDiv">
+                                <p id="roomTypeSel">SuperDelux Room</p>
+                                <span id="priceSel">$350</span>
+                            </div>
+                        </div>
+                    </div>
+                    <form>
+                        <label>Room Type</label>
+                        <input id="selectedRoom" type="text" placeholder="Delux Room">
+                        <label>Price</label>
+                        <input type="text" id="selectedPrice">
+                        <label>Guest</label>
+                        <input id="selectGuest" type="number" placeholder="1 guest">
+                        <label>Number of Rooms</label>
+                        <input id="selectRoomNo" type="number" placeholder="1 room">
+                    </form>
+                </div>
+                <div>
+                    <div>
+                        <label>Check In</label>
+                        <input id="indate" type="date" value="">
+                    </div><div>
+                        <label>Check Out</label>
+                        <input id="outdate" type="date" value="">
+                    </div>
+                    <button id="bookRoomBtn">Continue</button>
+                </div>
+            </div>
+
+            <div id="bookDet" class="procard">
+                <div>
+                    <h1 class="proHead">Booking details</h1>
+                    <p class="proPara">Enter Your Personal Information below</p>
+                </div>
+                <div>
+                    <form>
+                        <label for="bookername">Name</label>
+                        <input id="bookername" type="text" placeholder="Your Name">
+
+                        <label for="bookerno">Contact Number</label>
+                        <input id="bookerno" type="tel" placeholder="Phone Number">
+
+                        <label for="bookerAdd">Address</label>
+                        <input id="bookerAdd" type="text" placeholder="Address-line 1">
+                        <input id="bookerAdd" type="text" placeholder="Address-line 2">
+                    </form>
+
+                    <button id="bookdetbtn">Continue</button>
+                </div>
+                <div class="summary">
+                    <div>
+                        <p>Summary</p>
+                        <p>Below is the summary of the room type, date and number of guest.</p>
+                        <p>Room Type</p>
+                        <p class="sumRoom">Hello</p>
+                        <div id="checkIn">
+                            <div>
+                                <p>Check In</p>
+                                <p class="sumCheckIn"></p>
+                            </div><div>
+                                <p>Check Out</p>
+                                <p class="sumCheckOut"></p>
+                            </div>
+                        </div>
+                        <div id="checkIn">
+                            <div>
+                                <p>Guest</p>
+                                <p class="sumguest"></p>
+                            </div><div>
+                                <p>Rooms</p>
+                                <p class="sumroomno"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="payCon" class="procard">
+                <div>
+                    <h1 class="proHead">PayMent details</h1>
+                    <p class="proPara">Choose your desired payment method</p>
+                </div>
+                <div>
+                    <button id="payConbtn">Continue</button>
+                </div>
+
+                <div class="summary">
+                    <div>
+                        <p>Summary</p>
+                        <p>Below is the summary of the room type, date and number of guest.</p>
+                        <p>Room Type</p>
+                        <p class="sumRoom">Hello</p>
+                        <div id="checkIn">
+                            <div>
+                                <p>Check In</p>
+                                <p class="sumCheckIn"></p>
+                            </div><div>
+                                <p>Check Out</p>
+                                <p class="sumCheckOut"></p>
+                            </div>
+                        </div>
+                        <div id="checkIn">
+                            <div>
+                                <p>Guest</p>
+                                <p class="sumguest"></p>
+                            </div><div>
+                                <p>Rooms</p>
+                                <p class="sumroomno"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="bookComplete" class="procard">
+                <div>
+                    <h1 class="proHead">Booking Complete!</h1>
+                    <p class="proPara">Thank You for choosing Leela Motel, we send to your email the details of your booking</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block externalJs %}
+
+{% endblock %}
+
+{% block pageJs %}
+    <script>
+        $("#wrapper>div").css(
+            'height' , $("#bookDet").height()
+        );
+        $(".procard").css(
+            'height' , $("#bookDet").height()
+        );
+
+        var payConBtn = $("#payConbtn");
+        var bookroombtn = $("#bookRoomBtn");
+        var bookDetBtn = $("#bookdetbtn");
+        var bookRoom = $("#bookRoom")
+        var bookDet = $("#bookDet");
+        var payCon = $("#payCon");
+        var paySum = $("#bookComplete");
+
+        bookroombtn.click(function(){
+            summaryDet();
+            bookRoom.css(
+                'transform' , 'rotateY(90deg)'
+            );
+            bookDet.css(
+                'transform', 'rotateY(0deg)'
+            );
+            $("#cssmenu ul li:nth-of-type(4)").removeClass("doing").addClass("done");
+            $("#cssmenu ul li:nth-of-type(3)").removeClass("nextStep").addClass("doing");
+            $('html, body').animate({
+                scrollTop: $("#cssmenuCont").offset().top
+            }, 500);
+        });
+
+        bookDetBtn.click(function(){
+            bookDet.css(
+                'transform', 'rotateY(90deg)'
+            );
+            payCon.css(
+                'transform' , 'rotateY(0deg)'
+            );
+            $("#cssmenu ul li:nth-of-type(3)").removeClass("doing").addClass("done");
+            $("#cssmenu ul li:nth-of-type(2)").removeClass("nextStep").addClass("doing");
+            $('html, body').animate({
+                scrollTop: $("#cssmenuCont").offset().top
+            }, 500);
+        });
+
+        payConBtn.click(function(){
+            payCon.css(
+                'transform' , 'rotateY(90deg)'
+            );
+            paySum.css(
+                'transform', 'rotateY(0deg)'
+            )
+            $("#cssmenu ul li:nth-of-type(2)").removeClass("doing").addClass("done");
+            $("#cssmenu ul li:nth-of-type(1)").removeClass("nextStep").addClass("doing");
+            $('html, body').animate({
+                scrollTop: $("#cssmenuCont").offset().top
+            }, 500);
+        });
+        var s = $("#selRoomDiv #roomTypeSel");
+        var j = $("#selRoomDiv #priceSel");
+        var i;
+        $("#selectRoom>div").click(function(){
+            i = $(this).index();
+            $("#selectRoom, #bookRoom>div:nth-of-type(2)>p").slideUp(500, function(){
+                $("#bookRoom").removeClass("bookRoom");
+                $("#selectedRoom").attr('value', s[i].innerText);
+                $("#selectedPrice").attr('value', j[i].innerText);
+                $("#bookRoom form, #bookRoom>div:nth-of-type(3)").slideDown(500);
+            });
+        });
+
+
+
+        function summaryDet(){
+            var a = $("#selectedRoom").attr('value');
+            var x = $(".sumRoom");
+            var dateIn = $(".sumCheckIn");
+            var dateOut = $(".sumCheckOut");
+            var guest = $(".sumguest");
+            var roomno = $(".sumroomno");
+            for(z=0; z<2; z++)
+            {
+                x[z].innerText = a;
+                dateIn[z].innerText = $("#indate").val();
+                dateOut[z].innerText = $("#outdate").val();
+                guest[z].innerText = $("#selectGuest").val();
+                roomno[z].innerText = $("#selectRoomNo").val();
+            }
+        }
+
+
+
+    </script>
+{% endblock %}

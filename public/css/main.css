@@ -1,0 +1,517 @@
+body{
+    margin: 0;
+    width: 100vw;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* background properties */
+
+*{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* SignUp And Login Page */
+
+#signuppage{
+    height: 100vh;
+    width: 100vw;
+    z-index: 333;
+    max-width: 100%;
+    background-color: rgba(0, 0, 0, 0.589);
+    position: fixed;
+    top: 0;
+    display: none;
+}
+
+#centerBox{
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    margin: auto;
+    width: 80%;
+    height:80%;
+    box-shadow: 1px 4px 8px 0 #000;
+}
+
+#main{
+    width: 100%;
+    height: 100%;
+    min-width: auto;
+    background-image: url("https://i.imgur.com/g5kvcni.jpg");
+    background-size: cover;
+    display: flex;
+    position: relative;
+}
+#box{
+    position: absolute;
+    left: 0;
+    margin: 0px 0px;
+    width: 40%;
+    height: 100%;
+    transition: left 1s ease;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    padding: 10vh 30px;
+    color: #fff;
+}
+.redbox{
+    position: absolute;
+    width: 0px;
+    height: 100%;
+    transition: width 1s ease;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.greenbox{
+    position: absolute;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    transition: width 1s ease;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#btn{
+    background-color: #ecc81a !important;
+}
+
+.btn{
+padding: 5px;
+font-size: 15px;
+border-radius: 50px;
+width: 150px;
+margin: 0 auto; 
+}
+
+.btn:focus{
+outline: 0;
+border: 0;
+}
+
+#signuppage .form-control:focus{
+border: none;
+}
+
+#signuppage .content{
+background-color: #ffffff;
+text-align: center;
+box-sizing: border-box;
+font-family: 'Raleway', sans-serif;
+}
+#signuppage input{
+    color: #000 !important;
+    border-bottom: 0.5px solid rgba(95, 92, 92, 0.562);
+    width: 70% !important;
+    margin: 0 auto;    
+    font-family: 'Quicksand', sans-serif !important;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+#signuppage label{
+    font-size: 0.8em;
+    color: crimson;
+    text-align: left;
+    width: 70%;
+}
+
+#signuppage ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #000;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-family: 'Quicksand', sans-serif ;
+  }
+
+#signuppage form{
+margin: 20px auto;
+text-align: center;
+font-size: 15px;
+}
+
+#signuppage input:focus{
+outline: none;
+border-bottom: 0.5px solid rgba(95, 92, 92, 0.562);
+}
+
+#signuppage h1{
+    margin: 10vh auto 20px;
+    font-size: 4em;
+}
+#signuppage p{
+    margin: 0px auto 10px;
+}
+
+
+#signuppage .btn-1{
+color: #333;
+box-shadow: 1px 3px 9px #000;
+width: auto;
+padding: 5px 20px;
+}
+
+#head{
+font-family: 'Merriweather', serif;
+font-size: 4em;
+}
+
+#para{
+font-family: 'Raleway', sans-serif;
+font-size: 1em;
+margin-bottom: 30px;
+}
+
+.quick{    
+font-family: 'Quicksand', sans-serif;
+}
+
+#signuppage input{
+    width: auto;
+}
+
+/* BANNER an its elements */
+#banner{
+    width: 100vw;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+}
+#slider{
+    height: 100%;
+    width: 100vw;
+    max-width: 100%;
+    position: absolute;
+    background-color: #000;
+    transition: all 0.5s ease;
+    z-index: -11;
+    margin: 0 auto;
+    background-size: cover;
+    background-position: center;
+    background-image: url("https://i.imgur.com/g5kvcni.jpg");
+}
+#nameHotel{
+    width: 100vw;
+    max-width: 100%;
+    padding: 15vh 0;
+    background-color: rgba(0, 0, 0, 0.452);
+    color: #fff;
+    display: grid;
+    text-align: center;
+    align-items: center;
+}
+
+#nameHotel div{
+    margin: 0 auto;
+    width: auto;
+}
+
+#nameHotel h1{
+    font-size: 4rem;    
+    font-family: 'Raleway', sans-serif;
+    padding: 0;
+    margin: 10px;
+    text-transform: uppercase;
+}
+#nameHotel h3{
+    font-size: 1.0rem;
+    font-family: 'Roboto',sans-serif;
+    margin: 0;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+#nameHotel h3::after{
+    display: block;
+    height: 10px;
+    width: 0.5in;
+    content: " ";
+    margin: 0 auto;
+    border-bottom: 1px solid #c7c7c7;
+    clear: both;
+}
+
+#navBar{
+    /* position: absolute; */
+    width: 100vw;
+    max-width: 100%;
+    background-color: #043156ea;
+    display: flex;
+    justify-content: flex-end;
+    /* top: 0; */
+}
+#navCont{   
+    min-width: 90vw;
+    margin: 0 0 0 1.5in;
+    padding: 10px 10px 10px 0px;
+    color: #fff; 
+    display: flex;
+    justify-content: space-between;
+}
+
+#navCont>div:nth-of-type(2) {
+    display: inline-block;
+}
+#navCont div{
+    display: inline-block;
+    font-family: 'Raleway', sans-serif;
+}
+
+#navCont button{
+    margin: 0 10px;
+}
+
+#navCont i{
+    display: none;
+}
+
+#account{
+    display: inline-block !important;
+    vertical-align: middle;
+    font-size: 25px;
+    color: #c7c7c7;
+    cursor: pointer;
+}
+#account:hover{
+    color: #fff;
+}
+
+#navCont ul{
+    list-style-type: none;
+    margin: 0;
+    font-family: 'Open Sans',sans-serif;
+}
+#navCont ul li{
+    display: inline-block;
+    padding: 10px;
+    width: max-content;
+    vertical-align: middle;
+}
+#navCont a{
+    text-decoration: none;
+    color: #c7c7c7;
+    padding: 10px;
+    font-size: 1em;
+}
+.selected{
+    font-weight: bold;
+}
+.selected a{
+    color: #fff !important;
+    font-size: 1.2em !important;
+}
+
+#navCont li:nth-of-type(4), #navCont li:nth-of-type(5){
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#navCont a:hover{
+    color: #fcfafa;
+}
+
+
+#navCont li:hover{ 
+    color: #000;
+}
+
+/* button */
+
+button{
+    width: 100px;
+    padding: 10px 20px;
+    border: 2px solid #ecc81a;
+    background-color: transparent;
+    border-radius: 20px;
+    color: #ecc81a;
+    font-weight: bold;
+    font-family: 'Open Sans',sans-serif;
+    margin: 10px auto;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+button{
+    margin: 0;
+}
+
+
+button:hover{
+    background-color: #ecc81a;
+    color: #fff;
+}
+button:focus{
+    outline: none;
+}
+
+button > span{
+    margin-right: 0 !important;
+    vertical-align: middle;
+}
+
+button{
+    transition: all 0.2s ease;
+}
+
+/* footer */
+
+
+footer{
+    background-image: url("https://www.webliststore.in/uploads/post-ad/02051704050246855944-hotel-images.jpg");
+}
+
+footer>div{
+    background-color: rgba(0, 0, 0, 0.864);
+    width: 100vw;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    color: #fff;
+    padding-top: 0.5in; 
+    padding-bottom: 0.125in; 
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+footer img{
+    justify-self: end;
+}
+
+footer>div ul
+{   
+    list-style-type: none;
+    margin: 0;
+    padding: 0px;
+}
+
+footer>div ul li{
+    margin: 10px 0;
+}
+footer>div ul li i{
+    margin: 0 10px;
+}
+
+footer>div ul li:nth-child(1){
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+footer>div:nth-of-type(2) ul li:nth-child(1){
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+footer a{
+    text-decoration: none;
+    color: #fff;    
+}
+
+#cross, #cross0{
+    transition: all 0.5s ease;
+    transform-origin: center;
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    z-index: 33;
+}
+#cross span, #cross0 span {
+    position: absolute;
+    background-color: #fff;
+    display: block;
+    transition: all 1s ease ;
+    top:20px;
+    left: 10px;
+    transform-origin: center;
+}
+
+#cross span{
+    background-color: #fff;
+    height: 3px;
+    width: 30px;
+}
+
+#cross0 span{
+    height: 2px;
+    width: 20px;
+}
+
+#cross span:nth-of-type(1), #cross0 span:nth-of-type(1){
+    transform: rotateZ(-45deg);
+}
+
+#cross span:nth-of-type(2), #cross0 span:nth-of-type(2){
+    transform: rotateZ(45deg);
+}
+
+/* input and select */
+
+input, select{
+    width: 100%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid white;
+    box-sizing: border-box;
+    background-color: transparent;
+    font-family: 'Lato', sans-serif !important;
+    font-size: small !important;
+    color: white;
+    font-weight: 700;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+
+
+/* releted to the My Account Icon */
+
+#accountKeeper{
+    position: relative;
+}
+
+#accountPopUp{
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 22;
+    display: none;
+    background-color: #fff;
+    height: auto;
+    width: 150px;
+    color: rgb(180, 178, 178);
+    padding: 5px 0px;
+    padding-top: 10px;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 0.8em;
+    box-sizing: border-box;
+    clip-path: polygon(0 10px, 80% 10px, 85% 0, 90% 10px, 100% 10px, 100% 100%, 0% 100%);
+}
+
+#accountPopUp p {
+    padding: 5px 10px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+#accountPopUp>p:nth-of-type(2){
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    content: " ";
+    border: 0;
+    border-bottom: 1px solid rgb(231, 227, 227);
+}
+
+#accountPopUp p:nth-of-type(1):hover,
+#accountPopUp p:nth-of-type(3):hover{ 
+    color: #339ff8;
+}

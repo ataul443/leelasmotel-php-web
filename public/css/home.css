@@ -1,0 +1,459 @@
+body{
+    margin: 0;
+    width: 100vw;
+    max-width: 100%;
+}
+h1{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2.2em;
+    font-weight: 700;
+}
+
+h3{
+    font-family: 'Roboto', sans-serif;
+}   
+
+p{
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+#checkAvail{
+    /* position: absolute; */
+    width: 100vw;
+    max-width: 100%;
+    background-color: #043156bf;
+    box-sizing: border-box;
+    /* bottom: 0; */
+}    
+#checkAvail form{
+    margin-bottom: 0 !important;
+}
+#checkAvail span{
+    display: inline-block;
+    margin-right: 20px;
+    width: auto;
+}
+
+#checkAvail span:nth-of-type(2), #checkAvail span:nth-of-type(1){
+    display: inline-block;
+}
+
+#checkAvail span:nth-of-type(1)
+{
+    margin-right: 10px;
+}
+#checkAvail input
+{
+    width: 15vw;
+    margin-right: 15px;
+}
+
+#checkAvail select
+{
+    width: 10vw;
+    margin-right: 15px;
+}
+
+#checkAvail select option{
+    background-color: #043156bf;
+    font-weight: bold;
+    outline: 2px solid rgb(240, 232, 234);
+}
+#checkAvail i{
+    color: #fff;
+}
+
+#checkAvail button{
+    border: 2px solid #fff;
+    background-color: transparent;
+    color: #fafafa;
+    border-radius: 0;
+    font-weight: bolder;
+    font-size: 0.8em;
+    width: auto;
+    min-width: auto;
+}
+
+#checkAvail button:hover{    
+    background-color: #fafafa;
+    color: #0d47a1;
+}
+
+
+#accommodation{
+    width: 100vw;
+    max-width: 100%;
+    background-image: url("https://i.imgur.com/mMwyu84.jpg");
+    display: grid;
+    box-sizing: border-box;
+    grid-template-columns: 40% 60%;
+    grid-template-areas: "one two";
+    margin: 1vw 0;
+    position: relative;
+}
+#accommodation>div:nth-of-type(1){
+    grid-area: one;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    display: grid;
+    align-items: center;
+}
+#accommodation>div:nth-of-type(1)>div{
+    text-transform: capitalize;
+    justify-self: end;
+    width: 80%;
+    margin-right: 50px;
+    color: rgba(86, 86, 86, 0.84);
+}
+
+#rooms{
+    background-color: rgba(0, 0, 0, 0.33);
+    display: grid;
+    position: relative;
+    grid-area: two;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 200px);
+    grid-auto-rows: 200px;
+    grid-gap: 20px;
+    padding: 2.5vw;
+    grid-template-areas:
+    "one two"
+    "three four";
+}
+#rooms>div{
+    height: 200px;
+    position: relative;
+}
+#rooms>div:nth-of-type(1){    
+    background-image: url("https://i.imgur.com/OvRQPrw.jpg");
+    grid-area: one;
+}
+#rooms>div:nth-of-type(2){    
+    background-image: url("http://www.dhdesigner.net/wp-content/uploads/2017/05/chic-wall-lamps-for-bedroom-wall-lamp-for-bedroom.jpg");
+    grid-area: two;
+}
+#rooms>div:nth-of-type(3){
+    background-image: url("https://vignette.wikia.nocookie.net/yakuza-mob-roleplay/images/9/93/Hotel-Room-With-A-View.jpg/revision/latest?cb=20141121164436");
+    grid-area: three;
+}
+#rooms>div:nth-of-type(4){
+    background-image: url("https://media.timeout.com/images/103639807/image.jpg");
+    grid-area: four;
+}
+#rooms>div>div{
+    position: absolute;
+    height: auto;
+    width: 40%;
+    background-color: #043156bf;
+    top: 0;
+    left: 2vw;
+    color: #fff;
+    padding: 10px 10px;
+    box-sizing: border-box;
+}
+
+#show{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    display: none;
+    transition: all 1s ease;
+    cursor: pointer;
+}
+
+
+#roomType{
+    text-transform: capitalize;
+    margin: 0;
+}
+#price{
+    margin: 0;
+    font-size: 2.5em;
+}
+
+#roomFull{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: none;
+    background-color: rgba(0, 0, 0, 0.903);
+    grid-column: 2 / 3;
+    z-index: 22;
+    display: none;
+    box-sizing: border-box;
+}
+
+#carousel0 {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;    
+    position: relative;
+    cursor: pointer;
+    overflow-y: hidden;
+}
+
+#roomDet{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+
+#roomDet>div {
+    height: auto;
+    width: fit-content;
+    background-color: #013966b0;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    box-shadow: none;
+    vertical-align: middle;
+    display: grid;
+    padding: 10px 10px 20px;
+    align-items: center;
+    justify-items: center;
+    transition: all ease 1s;
+}
+
+
+#roomDet>div  *{
+    color: rgb(233, 233, 233);
+    font-weight: 600;
+    display: inline-block;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    padding: 0 10px;
+    text-align: center;
+}
+
+#typePrice{
+    color: rgb(244, 244, 244) !important;
+    margin: 5px;
+    margin-bottom: 10px;
+}
+#roomDet button{
+    color: #fff;
+    font-size: 0.9em !important;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+
+#roomDet button:hover{    
+}
+
+#prev, #next{
+    margin: 0;
+    position: absolute;
+    top: 40%;
+    height: 50px;
+    width: 30px;
+    display: inline-grid;
+    justify-items: center;
+    align-items: center;
+    z-index: 11;
+    cursor: pointer;
+    background-color: rgba(238, 238, 238, 0.308);
+}
+
+#prev i , #next i {
+    font-size: 1em;
+}
+
+#next{
+    right: 0;
+}
+
+#prev:hover, #next:hover{   
+    background-color: rgba(238, 238, 238, 0.808);
+}
+
+#aboutUs, #ourBest{
+    box-sizing: border-box;
+    display: grid;
+    grid-gap: 50px;
+    padding: 0 10vw;
+    min-height: 400px;
+    margin-top: 50px;
+}
+
+
+#aboutUs{
+    grid-auto-columns: 60% 40%;
+    grid-template-areas: "one two";
+}
+#aboutUs>div, #ourBest>div{
+    min-height: 40vh;
+}
+#aboutUs>div:nth-of-type(1){
+    grid-area: one;
+    background-image: url("http://streamafrica.com/wp-content/uploads/2016/01/hotels-4.jpg");
+}
+#aboutUs>div:nth-of-type(2), #ourBest>div:nth-of-type(1){
+    grid-area: two;
+    display: grid;
+    align-items: center;
+}
+#ourBest>div:nth-of-type(2){
+    grid-area: one;
+    background-image: url("http://www.hotelroomsearch.net/im/hotels/it/hotel-table-1.jpg");    
+}
+#ourBest{
+    grid-auto-columns: 40% 60%;
+    grid-template-areas: "two one";
+}
+
+
+/* reviews */
+#reviews{
+    position: relative;
+    height: 50vh;
+    margin: 0 auto 50px;
+    background-image: url("http://kimokran.ca/wp/wp-content/uploads/2015/05/hotel-table.jpg");
+}
+
+#reviews div{
+    display: grid;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-items: center; 
+    background-color: rgba(0, 0, 0, 0.203);
+    transition: all 1s linear;
+}
+#reviews div div{
+    display: inline-flex;
+    justify-content: center;
+    align-content: center;
+    margin: 0 auto;
+    height: 100%;
+}
+#reviews div img{
+    float: left;
+    -webkit-mask-image: url("https://i.imgur.com/thuqTW0.png");
+    -webkit-mask-box-image-width: 100%;
+    -webkit-mask-size: cover;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    height: 70%;
+}
+#reviews div p{
+    width: 50%;
+    color: #fff;
+    margin-right: 20px;
+    font-size: 1.2em;
+}
+
+#reviews div i{
+    color: #fff;
+}
+
+#checkAvail p{
+    color: #fff;
+    font-weight: 700;
+    margin: 10px auto 0;
+    font-family: 'Open Sans',sans-serif;
+}
+
+
+
+#rooms>div{
+    transition: all ease 0.5s;
+    box-sizing: border-box;
+}
+
+#rooms>div:hover{
+    /* background-position: bottom; */
+    z-index: 11;
+    /* border: 5px solid rgba(0, 0, 0, 0.873); */
+    /* border-bottom: 5px solid #000; */
+    outline: 5px solid #053c698e;
+    box-shadow: inset 0px -5px 20px #000000b2;
+}
+
+#rooms>div:hover > #show{
+    display: block;
+}
+
+
+
+#prev, #next{
+    transition: all 0.5s ease;
+}
+
+
+#banner, #accommodation, #aboutUs, #ourBest{
+    margin-bottom: 1in;
+}
+
+#accommodation>div:nth-of-type(1)>div h1, 
+#aboutus h1, #ourbest h1
+{
+    font-size: 3em;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.788);
+}
+
+@keyframes btnchange1{
+    0%, 100% {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    
+    49% {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+    50% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+        color: inherit;
+    }
+    51% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+        color: rgb(8, 8, 8);
+    }
+    100% {
+        color: rgb(27, 27, 27);
+    }
+    
+}
+
+@keyframes btnchange2{
+    0%, 100% {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    
+    49% {
+        opacity: 1;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+    50% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+        color: inherit;
+    }
+    51% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+        color: rgb(17, 17, 17);
+    }
+    100% {
+        color: rgb(10, 10, 10);
+    }
+}

@@ -1,0 +1,305 @@
+{% extends 'templates/base.twig'  %}
+
+
+{% block title %}
+Leelas Motel - An Elegant Stay
+{% endblock %}
+
+
+
+{% block pageCss %}
+    <link rel="stylesheet" href="{{ base_url() }}/css/home.css">
+    <link rel="stylesheet" href="{{ base_url() }}/css/main.css">
+    <link rel="stylesheet" href="{{ base_url() }}/css/mediastyle.css">
+{% endblock %}
+
+
+
+{% block content %}
+    <div id="banner">
+        <div id="slider">
+        </div>
+        <div>
+            <div id="nameHotel">
+                <div>
+                    <h3>Welcome To</h3>
+                    <h1>Leelas Motel</h1>
+                </div>
+            </div>
+
+            <div id="checkAvail">
+                <center>
+                        <span>
+                            <p>
+                                Check Availability
+                            </p>
+                        </span>
+                    <span>
+                            <form action="{{ path_for('availability.check') }}" method="post">
+                                <input name="checkin" placeholder="Check In" type="date" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                <input name="checkout" placeholder="Check Out" type="date" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                <select name="adult">
+                                    <option value="1">Adult</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                                <select name="child">
+                                    <option value="1">Child</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                                <button type="submit" id="checkbtn">
+                                CHECK</button>
+                            </form>
+                        </span>
+                    <span>
+
+                        </span>
+                </center>
+            </div>
+        </div>
+    </div>
+    <div id="accommodation">
+        <div>
+            <div>
+                <h1>LUXURY
+                    <br>INTERIOR</h1>
+                <p>Interiors include textured wood accents, ocean-hued carpeting, vintage-inspired furniture, clean lines and
+                    sleek decor.</p>
+            </div>
+        </div>
+        <div id="rooms">
+            <div>
+                <div>
+                    <p id="roomType">Luxury Room</p>
+                    <span id="price">$350</span>
+                    <span>/day</span>
+                </div>
+                <p id="show">Show More...</p>
+            </div>
+            <div>
+                <div>
+                    <p id="roomType">Luxury Room</p>
+                    <span id="price">$450</span>
+                    <span>/day</span>
+                </div>
+                <p id="show">Show More...</p>
+            </div>
+            <div>
+                <div>
+                    <p id="roomType">Luxury Room</p>
+                    <span id="price">$750</span>
+                    <span>/day</span>
+                </div>
+                <p id="show">Show More...</p>
+            </div>
+            <div>
+                <div>
+                    <p id="roomType">Luxury Room</p>
+                    <span id="price">$150</span>
+                    <span>/day</span>
+                </div>
+                <p id="show">Show More...</p>
+            </div>
+        </div>
+        <div id="roomFull">
+            <div>
+                <div id="cross0">
+                    <span>&nbsp;</span>
+                    <span>&nbsp;</span>
+                </div>
+                <div id="prev">
+                    <i class="fas fa-angle-left"></i>
+                </div>
+                <div id="carousel0">
+                    <div id="roomDet">
+                        <div>
+                            <p id="typePrice"></p>
+                            <button>BOOK</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="next">
+                    <i class="fas fa-angle-right"></i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="aboutUs">
+        <div>
+        </div>
+        <div>
+            <div>
+                <h1>ABOUT US</h1>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+                    dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
+                    suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="ourBest">
+        <div>
+            <div>
+                <h1>OUR BEST</h1>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+                    dolore magna aliquam erat volutpat.</p>
+            </div>
+        </div>
+        <div></div>
+    </div>
+    <div id="reviews">
+        <div>
+            <div>
+                <img src="https://www.bluebayresorts.com/images_en/noticias/imgmed_63.jpg">
+                <p>
+                    <i class="material-icons">format_quote</i>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+                    aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
+                    lobortis nisl ut aliquip ex ea commodo consequat.
+                    <i class="material-icons">format_quote</i>
+                </p>
+            </div>
+        </div>
+        <div>
+            <div>
+                <img src="https://blog.directpay.online/hs-fs/hubfs/Imported_Blog_Media/shutterstock_159357962-4.jpg?t=1519029750742&width=800&height=534&name=shutterstock_159357962-4.jpg">
+                <p>
+                    <i class="material-icons">format_quote</i>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+                    aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
+                    lobortis nisl ut aliquip ex ea commodo consequat.
+                    <i class="material-icons">format_quote</i>
+                </p>
+            </div>
+        </div>
+        <div>
+            <div>
+                <img src="http://www.athome-hotel.com/jpg/c_e_9_3474-77107a5491a058abb52e721a9e678fd2/customers-reviews.jpg">
+                <p>
+                    <i class="material-icons">format_quote</i>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+                    aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
+                    lobortis nisl ut aliquip ex ea commodo consequat.
+                    <i class="material-icons">format_quote</i>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="signuppage">
+        <div id="cross">
+            <span>&nbsp;</span>
+            <span>&nbsp;</span>
+        </div>
+        <div id="centerBox">
+            <div id="main">
+                <div class="text-white" id="box">
+                    <h1 class="display-3" id="head">New Here?</h1>
+                    <p class="lead" id="para">Sign up and discover a great amount of new opportunities.</p>
+                    <button type="button" class="btn-1 btn" id="btn" onclick="myfunction()">Sign Up</button>
+                </div>
+
+                <!--Sign Up Block-->
+                {% include 'templates/partials/signup.twig' %}
+
+                <!--Log In Block-->
+                {% include 'templates/partials/login.twig' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block externalJs %}
+<script src="{{ base_url() }}/js/signuppage.js"></script>
+<script src="{{  base_url() }}/js/main.js"></script>
+{% endblock %}
+
+{% block pageJs %}
+<script>
+    var rev = $('#reviews>div');
+    var count = 0;
+    rev.css({
+        'display' : 'none'
+    })
+    function revslide() {
+        for (i = 0; i < 3; i++) {
+            if (i == count) {
+                rev[i].style.display = "block";
+            } else {
+                rev[i].style.display = "none";
+            }
+        }
+
+        count++;
+        count %= 3;
+    }
+    setInterval(revslide, 5000);
+
+    var roomfull = $('#roomFull');
+    var roomdiv = $('#rooms>div');
+    var roomDet = $('#rooms #roomType');
+    var roomPrice = $('#rooms #price');
+    var bgimg;
+    var typeDet = $("#typeDet");
+    var typePrice = $("#typePrice");
+
+    $('#cross0').click(function () {
+        roomfull.hide(500);
+    });
+    roomdiv.click(function(){
+        roomfull.show(500);
+        bgimg = $(this).index();
+        carousel0();
+    });
+    $('#prev').click(function () {
+        bgimg--;
+        carousel0();
+    });
+    $('#next').click(function () {
+        bgimg++;
+        carousel0();
+    });
+
+    function carousel0()
+    {
+        if(bgimg == roomdiv.length)
+            bgimg=0;
+        if(bgimg<0)
+            bgimg = roomdiv.length-1;
+        $('#carousel0').css({
+            'background-image': $(roomdiv[bgimg]).css('background-image')
+        });
+        $("#typeDet").text(roomDet[bgimg].innerText);
+        $("#typePrice").text(roomPrice[bgimg].innerText);
+
+    }
+
+    $("#linkAccomo").click(function () {
+        $('html, body').animate({
+            scrollTop: $("#accommodation").offset().top
+        }, 500); /*animation time length*/
+    });
+
+
+
+
+
+
+    // var carauselDiv0 = $('#carousel0');
+
+    // function carousel0()
+    // {
+    //     carauselDiv0.css({
+    //         'background-image': bgimg
+    //     });
+    // }
+
+
+</script>
+{% endblock %}

@@ -1,0 +1,308 @@
+#wrapper{
+    height: auto;
+    width: 100vw;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;    
+    padding: 10px 10vw;
+}
+
+#wrapper>div{
+    position: relative;
+    width: 80vw;
+    min-height: auto; 
+    height: auto;
+    box-sizing: border-box;
+}
+
+/* Process heading and Para */
+.proHead{
+    font-size: 1.8em;
+    margin: 0;
+    text-transform: capitalize;    
+    font-family: 'Raleway', sans-serif;
+    margin-bottom: 10px;
+}
+
+.proPara{
+    font-size: 1em;
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    color: rgb(53, 53, 53);
+}
+
+/* payment process nav bar (#paypro)  */
+#cssmenuCont{
+    padding: 10px;
+    padding-bottom: 5px;
+    position: sticky;
+    width: 100%;
+    z-index: 22;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+#cssmenu {
+    display: inline-block; /* The menu will have width as needed, not 100% */
+    position: relative;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1em;
+    width: 80vw;
+    border-radius: 2px; 
+}
+
+/* Menu */
+#cssmenu ul {
+    display: flex; /* A key part of our menu, displays items side by side, and allows reversing them */
+    flex-direction: row-reverse;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#cssmenu ul li {
+    margin: 0;
+    display: inline-block;
+    font-family: sans-serif;
+    font-size: 0.9em;
+    font-weight: 600;
+    padding: 12px 30px 12px 45px; /* Adjusting padding to get the proper space */
+    margin-left: -20px; /* Pull the items to the left, so the rounded right side will get over them */
+    color: white;
+    /* background-color: #428EFE; */
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 0 100px 100px 0; 
+    box-shadow: 6px 0px 9px rgba(0, 0, 0, 0.19);
+    transition: all 1s ease;
+}
+
+.done{    
+    background-color: #428EFE;
+}
+
+.doing{    
+    background-color: #ecc81a;
+}
+
+.nextStep{
+    background-color: #b3afaf;
+    cursor: not-allowed;
+}
+
+/* --------------------- */
+
+.procard{
+    display: grid;
+    grid-template-columns: 50% 50%; 
+    grid-template-areas: 
+    "one one"
+    "two three"
+    "two three";  
+    grid-column-gap: 30px;  
+    font-family: 'Merriweather', serif;
+    background-color: #fff;
+    color: #333;    
+    margin: 0 auto;
+    width: 100%;
+    min-height: 400px;
+    height: auto;
+    transition: all 1s ease;
+    position: absolute;
+}
+
+/* pro 1: booking details */
+
+.procard>div:nth-of-type(1){
+    grid-area: one;
+    padding: 30px;
+}
+
+.procard>div:nth-of-type(2){
+    grid-area: two;
+    padding: 5vh 5vh;
+    width: 90%;
+}
+#bookRoom>div:nth-of-type(3){
+    padding: 5vh;
+}
+
+#wrapper input{
+    border: none;
+    border-bottom: 1px solid #8b8a8a91;
+    width: 100%;
+    display: block;
+    padding: 10px;
+    margin-bottom: 20px;
+    transition: all 0.2s ease;
+    color: rgb(24, 24, 24) !important;
+    font-family: 'Raleway', sans-serif;
+}
+
+::-webkit-input-placeholder{
+    color: rgb(175, 175, 175);    
+font-family: 'Raleway', sans-serif;
+}
+
+#wrapper input:focus{
+    border: none;
+    outline: none;
+    border: 1px solid rgb(141, 141, 141);
+}
+
+#bookDet button, #bookRoom button{
+    float: right;
+    border-radius: 0;
+}
+
+#bookDet>div:nth-of-type(3){
+    grid-area: three;
+}
+
+/* pro 2: payment details */
+
+#payCon>div:nth-of-type(1){
+    grid-area: one;
+}
+
+#payCon>div:nth-of-type(2){
+    grid-area: two;
+}
+
+#payCon>div:nth-of-type(3){
+    grid-area: three;
+}
+
+.summary > div{
+    width: 70%;
+    margin: 0px auto;
+    padding: 10px;
+}
+
+#checkIn{
+    width: 100%;
+}
+
+#checkIn div{
+    box-sizing: border-box;
+    display: inline-block;
+    width: 50%;
+}
+
+.summary button, .summary input{
+    float: none !important;
+    margin: 10px auto;
+    width: 100%;
+    border: 1px solid rgb(141, 141, 141) !important;
+    border-radius: 0;
+}
+
+.summary input{
+    margin: 0;
+    margin-bottom: 10px !important;
+}
+
+.summary label{
+    font-size: 0.9em;
+    margin: 10px auto;
+}
+
+.summary p{
+    font-size: 0.9em;
+    color: rgb(46, 46, 46);
+    font-family: 'Raleway', sans-serif;
+    margin: 8px 0;
+}
+
+.summary>div>p:nth-of-type(2){
+    color: #999;
+    margin: 10px 0;
+}
+
+.summary>div>p:nth-of-type(1){
+    color: rgb(43, 42, 42);
+    font-size: 1em;
+    margin: 10px 0;
+}
+
+.sumRoom, .sumCheckIn, .sumCheckOut, .sumguest, .sumroomno{
+    border: 1px solid #eae9e9;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 10px;
+}
+
+
+#bookDet,
+#payCon,
+#bookComplete
+{
+    transform: rotateY(90deg);    
+}
+
+/* bookRoom Element Work */
+
+.bookRoom{
+    grid-template-areas: 
+    "one one"
+    "two two";
+    grid-auto-rows: 100px 200px;
+}
+
+#bookRoom>div:nth-of-type(3), #bookRoom form{
+    display: none;
+}
+
+#selectRoom{
+    width: 100%;
+    display: flex;
+}
+
+#selectRoom>div{
+    display: inline-block;
+    width: 31.3%;
+    margin: 1% 1%;
+    height: 150px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+#selectRoom p{
+    font-family: 'Raleway', sans-serif;
+}
+
+#selectRoom>div:nth-of-type(1){
+    background-image: url("https://i.imgur.com/OvRQPrw.jpg");
+}
+
+#selectRoom>div:nth-of-type(2){
+    background-image: url("https://media.timeout.com/images/103639807/image.jpg");
+}
+
+#selectRoom>div:nth-of-type(3){
+    background-image: url("https://vignette.wikia.nocookie.net/yakuza-mob-roleplay/images/9/93/Hotel-Room-With-A-View.jpg/revision/latest?cb=20141121164436");
+}
+
+#selectRoom>div:hover{
+    box-shadow: inset -2px -5px 20px 3px #0000007a;
+}
+
+#selectRoom>div:hover #selRoomDiv{
+    background-color: #000;
+}
+
+#selRoomDiv{
+    background-color: rgba(0, 0, 0, 0.449);
+    width: 60%;
+    padding: 10px;
+    color: #fff;
+    transition: all 0.5s ease;
+}
+#selRoomDiv *{
+    width: auto;
+    margin: 0;
+}
+
+#priceSel{
+    display: none;
+}

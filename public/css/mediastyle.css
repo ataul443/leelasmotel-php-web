@@ -1,0 +1,245 @@
+@media screen and (max-width: 700px)
+{
+    footer>div ul li i{
+        display: block;
+    }
+
+    #navCont {
+        width: 100vw;
+        max-width : 100%;
+        margin: 0;
+    }
+
+    #navCont li{
+        margin: 0 auto;
+    }
+
+    #checkAvail{
+        display: grid;
+        margin: 0;
+        width: 100% !important;
+        justify-items: center;
+        align-items: center;
+        grid-template-areas:
+        "one"
+        "two"
+        "three";
+        padding: 10px;   
+    }
+
+    #checkAvail input,   #checkAvail select{
+        display: inline-block;
+        width: 20%;
+    }
+    #checkAvail form input,  #checkAvail span, #checkAvail form select{
+        margin-right: 0;
+    }
+
+    #checkAvail span:nth-of-type(1){
+        grid-area: one;
+    }
+    #checkAvail span:nth-of-type(2){
+        grid-area: two;
+        width: 80vw;
+    }
+    #checkAvail span:nth-of-type(3){
+        grid-area: three;
+        width: 80vw;
+    }
+
+    #news>div>div h3{
+        font-size: 1.3em;
+    }
+    #reviews{
+        display: none;
+    }
+
+    footer>div{
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    footer ul{
+        text-align: center;
+    }
+
+    footer>div>div:nth-of-type(1){
+        grid-column: 1 / 3;
+    }
+    footer img{
+        width: 100%;
+    }
+
+    #navCont i{
+        display: inline-block;
+    }
+
+    #menu-icon{
+        cursor: pointer;
+        padding: 10px 20px;
+        width: auto;
+    }
+    
+    #navCont {
+        padding: 10px 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, auto);
+    }
+    #navCont>div:nth-of-type(2) {
+        display: none;
+        grid-column: 1 / 4;
+        grid-row: 2 / 3;
+        text-align: center;
+    }
+    #navCont>div:nth-of-type(2) ul {
+        margin-left: 0;
+        padding-left: 0;
+        margin-top: 20px;
+        box-sizing: border-box;
+    }
+    #navCont>div:nth-of-type(2) ul li{
+        display: block;
+    }
+    #navCont>div:nth-of-type(1){
+        text-align: center;
+    }
+
+    #navBar{
+        background-color: #043156;
+    }
+
+    #cross0{
+        height: 0.5in;
+        width: 0.5in;
+    }
+    #cross0 span {
+        position: absolute;
+        height: 1px;
+        width: 10px;
+        background-color: #fff;
+        display: block;
+        transition: all 1s ease ;
+        top:0.25in;
+        left: 0.125in;
+        transform-origin: center;
+    }
+
+    #accommodation{
+        grid-template-columns: 100%;
+        grid-template-areas: "one" "two";
+        margin: 1vw 0;
+    }
+
+    #roomFull{
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        height: 100vh;
+        width: 100vw;
+        max-width : 100%;
+        position: sticky;
+        top: 0;
+    }
+    #aboutUs, #ourBest{
+        padding: 0 5vw;
+        grid-column-gap: 20px;
+    }
+    #checkAvail span:nth-of-type(1){
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+    #checkAvail span:nth-of-type(2), #checkAvail span:nth-of-type(1){
+        display: none;
+    }
+    /* #checkAvail span:nth-of-type(2) *{
+        width: 75vw;
+    } */
+
+
+    #box{
+        padding: 10px;
+    }
+    input, select{
+        display: block;
+    }
+
+    #signuppage form{
+        margin: 20px auto;
+        text-align: center;
+        font-size: 15px;
+        }
+        #signuppage input{
+            padding: 10px;
+        }
+        #signuppage input:focus{
+        outline: none;
+        border: 0;
+        }
+        
+        #signuppage h1{
+            margin: 10px auto;
+            font-size: 2em;
+        }
+        #signuppage p{
+            margin: 0px auto 10px;
+        }
+        
+        
+        #signuppage .btn-1{
+        color: #333;
+        box-shadow: 1px 3px 9px #000;
+        width: auto;
+        padding: 5px 20px;
+        }
+        
+        #head{
+        font-family: 'Merriweather', serif;
+        font-size: 2em;
+        }
+        
+        #para{
+        font-family: 'Raleway', sans-serif;
+        font-size: 1em;
+        }
+
+}
+
+@media screen and (max-width: 450px)
+{
+
+    #signUp>span>span {
+        display: block;
+        text-align: center;
+    }
+
+    #signUp>span>span *{
+        width: 100%;
+    }
+
+    #gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    #gallery div{
+        height: 33.3vw;
+    }
+    #gallery div:nth-of-type(even){
+        display: none;
+    }
+    #aboutUs, #ourBest{
+        grid-auto-columns: 100%;
+        grid-template-areas: "two" "one";
+        margin: 50px auto;
+        padding: 0 2vw;
+    }
+    footer>div{
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+        grid-row-gap: 30px;
+    }
+    footer>div>div:nth-of-type(1){
+        grid-column: 1 / 2;
+    }
+    #rooms>div>div{
+        width: auto;
+    }
+}

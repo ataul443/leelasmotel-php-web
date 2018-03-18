@@ -1,0 +1,44 @@
+
+    <div id="navCont">
+        <i id="menu-icon" class="material-icons" style="color: #fff">menu</i>
+        <div style="padding: 10px;border: 1px solid #fff;font-size: 1.2em; display: grid;align-items: center;">
+            Leelas Motel
+        </div>
+        <div>
+            <ul>
+                <li class="selected">
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a id="linkAccomo"href="#">Accommodation</a>
+                </li>
+                <li>
+                    <a href="#">Contact Us</a>
+                </li>
+                {% if auth.check %}
+                    <!-- user name of the user -->
+                    <li>
+                        <a style="color: #fff">{{ auth.user.username }}</a>
+                    </li>
+                    <li id="accountKeeper">
+                        <i class="fas fa-user-circle" id="account"></i>
+                        <!-- pop up box with details and log out -->
+                        <div id="accountPopUp">
+                            <p>Your Profile</p>
+                            <p></p>
+                            <p>Log Out</p>
+                        </div>
+                    </li>
+                {% else %}
+                    <li>
+                        <button id="logIn">Log In</button>
+                    </li>
+                    <li>
+                        <button id="signUp">Sign Up</button>
+                    </li>
+                {% endif %}
+
+
+            </ul>
+        </div>
+    </div>
