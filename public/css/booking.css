@@ -111,6 +111,22 @@
     position: absolute;
 }
 
+#bookRoom{     
+    grid-template-areas: 
+    "one one"
+    "four four";  
+}
+
+#bookRoom form{
+    display: grid;
+    grid-template-columns: 50% 50%; 
+    grid-template-areas:
+    "two three"
+    "two three";  
+    grid-column-gap: 30px; 
+    grid-area: four;
+}
+
 /* pro 1: booking details */
 
 .procard>div:nth-of-type(1){
@@ -118,12 +134,12 @@
     padding: 30px;
 }
 
-.procard>div:nth-of-type(2){
+.procard>div:nth-of-type(2), #first{
     grid-area: two;
     padding: 5vh 5vh;
     width: 90%;
 }
-#bookRoom>div:nth-of-type(3){
+#bookRoom>div:nth-of-type(3), #second{
     padding: 5vh;
 }
 
@@ -242,16 +258,7 @@ font-family: 'Raleway', sans-serif;
 
 /* bookRoom Element Work */
 
-.bookRoom{
-    grid-template-areas: 
-    "one one"
-    "two two";
-    grid-auto-rows: 100px 200px;
-}
 
-#bookRoom>div:nth-of-type(3), #bookRoom form{
-    display: none;
-}
 
 #selectRoom{
     width: 100%;
@@ -306,3 +313,51 @@ font-family: 'Raleway', sans-serif;
 #priceSel{
     display: none;
 }
+
+#selectGuest{
+    display: block;
+}
+
+#selectGuestAdult, #selectGuestChild{
+    width: 48% !important;
+    display: inline-block !important;
+}
+
+#roomType input{
+    width: 80%;
+}
+
+#pricePerDay, #totalPrice, #roomType div input{
+    border: 1px solid rgb(141, 141, 141);
+    padding: 10px;
+    margin: 8px 0;
+}
+
+#totalPrice{
+    margin-bottom: 20px;
+}
+
+#check{
+    display: block;
+}
+
+#check div{
+    display: inline-block !important;
+    width: 48%;
+}
+
+#roomType div{
+    display: block;
+}
+
+#roomType div *{
+    display: inline-block !important;
+}
+
+#roomType div label{
+    width: 70%;
+}
+#roomType div input{
+    width: 25%;
+}
+

@@ -1,18 +1,22 @@
-$("#wrapper>div").css(
-    'height' , $("#bookDet").height()
-);
-$(".procard").css(
-    'height' , $("#bookDet").height()
-);
+    
+    var maxHt = Math.max.apply(null, $(".procard").map(function(){
+    return $(this).height();
+    }).get());
+
+    $("#wrapper>div").css(
+        'height' , $("#bookDet").height()
+    );
+    // $("#bookDet").height()
+    $(".procard").css(
+        'height' , $("#bookDet").height()
+    );
 
 var payConBtn = $("#payConbtn");
-var bookroombtn = $("#bookRoomBtn");
-var bookDetBtn = $("#bookdetbtn");
-var bookRoom = $("#bookRoom")
-var bookDet = $("#bookDet");
+
+
 var payCon = $("#payCon");
 var paySum = $("#bookComplete");
-
+/*
 bookroombtn.click(function(){
     summaryDet();
     bookRoom.css(
@@ -27,20 +31,8 @@ bookroombtn.click(function(){
         scrollTop: $("#cssmenuCont").offset().top
     }, 500);
 });
+*/
 
-bookDetBtn.click(function(){
-    bookDet.css(
-        'transform', 'rotateY(90deg)'
-    );
-    payCon.css(
-        'transform' , 'rotateY(0deg)'
-    );
-    $("#cssmenu ul li:nth-of-type(3)").removeClass("doing").addClass("done");
-    $("#cssmenu ul li:nth-of-type(2)").removeClass("nextStep").addClass("doing");
-    $('html, body').animate({
-        scrollTop: $("#cssmenuCont").offset().top
-    }, 500);
-});
 
  payConBtn.click(function(){
     payCon.css(
@@ -55,18 +47,21 @@ bookDetBtn.click(function(){
         scrollTop: $("#cssmenuCont").offset().top
     }, 500);
 });
-var s = $("#selRoomDiv #roomTypeSel");
+var k = $("#selRoomDiv #roomTypeSel");
 var j = $("#selRoomDiv #priceSel");
 var i;
+/*
 $("#selectRoom>div").click(function(){
         i = $(this).index();
         $("#selectRoom, #bookRoom>div:nth-of-type(2)>p").slideUp(500, function(){
             $("#bookRoom").removeClass("bookRoom");                   
-            $("#selectedRoom").attr('value', s[i].innerText);
-            $("#selectedPrice").attr('value', j[i].innerText);
+            $("#selectedRoom").innerText = s[i].innerText;
+            $("#selectedPrice").innerText = j[i].innerText;
             $("#bookRoom form, #bookRoom>div:nth-of-type(3)").slideDown(500); 
         });
 });
+*/
+
 
 
 
@@ -86,3 +81,5 @@ function summaryDet(){
         roomno[z].innerText = $("#selectRoomNo").val();
     }
 }
+
+

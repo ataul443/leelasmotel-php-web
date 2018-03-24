@@ -34,145 +34,144 @@
                     <h1 class="proHead">Select Your Room</h1>
                     <p class="proPara">Select the room details</p>
                 </div>
-                <div>
-                    <p>Room Type </p>
-                    <div id="selectRoom">
+                <form action="{{ path_for('roomAllot') }}" method="post">
+                    <div id="first">
+                    <label>Number of Rooms</label>
+                    <input id="selectRoomNo"  type="number" value="1">
 
+                    <div id="roomType">
                         <div>
-                            <div id="selRoomDiv">
-                                <p id="roomTypeSel">Standard Room</p>
-                                <span id="priceSel">$350</span>
-                            </div>
-                        </div><div>
-                            <div id="selRoomDiv">
-                                <p id="roomTypeSel">Deluxe Room</p>
-                                <span id="priceSel">$350</span>
-                            </div>
-                        </div><div>
-                            <div id="selRoomDiv">
-                                <p id="roomTypeSel">SuperDelux Room</p>
-                                <span id="priceSel">$350</span>
-                            </div>
+                            <label>Standard Room</label>
+                            <input name="standard" type="number" min="0" max="50" id="selectStdRoom" value="1">
+                        </div>
+                        <div>
+                            <label>Delux Room</label>
+                            <input name="delux" type="number" min="0" max="50" id="selectDeluxRoom" value="0">
+                        </div>
+                        <div>
+                            <label>Super Delux Room</label>
+                            <input name="royal" type="number" min="0" max="50" id="selectSuperRoom" value="0">
                         </div>
                     </div>
-                    <form>
-                        <label>Room Type</label>
-                        <input id="selectedRoom" type="text" placeholder="Delux Room">
-                        <label>Price</label>
-                        <input type="text" id="selectedPrice">
-                        <label>Guest</label>
-                        <input id="selectGuest" type="number" placeholder="1 guest">
-                        <label>Number of Rooms</label>
-                        <input id="selectRoomNo" type="number" placeholder="1 room">
-                    </form>
+            </div>
+            <div id="second">
+                <label>Guest</label>
+                <div id="selectGuest">
+                    <input name="adult" id="selectGuestAdult" type="number" placeholder="Adult">
+                    <input name="child" id="selectGuestChild" type="number" placeholder="Child">
                 </div>
-                <div>
+                <div id="check">
                     <div>
                         <label>Check In</label>
-                        <input id="indate" type="date" value="">
-                    </div><div>
+                        <input name="checkIn" id="indate" type="date" value="">
+                    </div>
+                    <div>
                         <label>Check Out</label>
-                        <input id="outdate" type="date" value="">
-                    </div>
-                    <button id="bookRoomBtn">Continue</button>
-                </div>
-            </div>
-
-            <!-- The Second process Card (procard) for giving the personal details -->
-            <div id="bookDet" class="procard">
-                <div>
-                    <h1 class="proHead">Booking details</h1>
-                    <p class="proPara">Enter Your Personal Information below</p>
-                </div>
-                <div>
-                    <form>
-                        <label for="bookername">Name</label>
-                        <input id="bookername" type="text" placeholder="Your Name">
-
-                        <label for="bookerno">Contact Number</label>
-                        <input id="bookerno" type="tel" placeholder="Phone Number">
-
-                        <label for="bookerAdd">Address</label>
-                        <input id="bookerAdd" type="text" placeholder="Address-line 1">
-                        <input id="bookerAdd" type="text" placeholder="Address-line 2">
-                    </form>
-
-                    <button id="bookdetbtn">Continue</button>
-                </div>
-                <div class="summary">
-                    <div>
-                        <p>Summary</p>
-                        <p>Below is the summary of the room type, date and number of guest.</p>
-                        <p>Room Type</p>
-                        <p class="sumRoom">Hello</p>
-                        <div id="checkIn">
-                            <div>
-                                <p>Check In</p>
-                                <p class="sumCheckIn"></p>
-                            </div><div>
-                                <p>Check Out</p>
-                                <p class="sumCheckOut"></p>
-                            </div>
-                        </div>
-                        <div id="checkIn">
-                            <div>
-                                <p>Guest</p>
-                                <p class="sumguest"></p>
-                            </div><div>
-                                <p>Rooms</p>
-                                <p class="sumroomno"></p>
-                            </div>
-                        </div>
+                        <input name="checkOut" id="outdate" type="date" value="">
                     </div>
                 </div>
+                <div>
+                    <label>Total Price</label>
+                    <p id="totalPrice">0</p>
+                </div>
+                <button type="submit" onclick="event.preventDefault();"  id="bookRoomBtn">Continue</button>
             </div>
+            </form>
+        </div>
 
-            <!-- The Third process Card (procard) for payment method -->
-            <div id="payCon" class="procard">
-                <div>
-                    <h1 class="proHead">PayMent details</h1>
-                    <p class="proPara">Choose your desired payment method</p>
-                </div>
-                <div>
-                    <button id="payConbtn">Continue</button>
-                </div>
+        <!-- The Second process Card (procard) for giving the personal details -->
+        <div id="bookDet" class="procard">
+            <div>
+                <h1 class="proHead">Booking details</h1>
+                <p class="proPara">Enter Your Personal Information below</p>
+            </div>
+            <div>
+                <form>
+                    <label for="bookername">Name</label>
+                    <input id="bookername" type="text" placeholder="Your Name">
 
-                <div class="summary">
-                    <div>
-                        <p>Summary</p>
-                        <p>Below is the summary of the room type, date and number of guest.</p>
-                        <p>Room Type</p>
-                        <p class="sumRoom">Hello</p>
-                        <div id="checkIn">
-                            <div>
-                                <p>Check In</p>
-                                <p class="sumCheckIn"></p>
-                            </div><div>
-                                <p>Check Out</p>
-                                <p class="sumCheckOut"></p>
-                            </div>
-                        </div>
-                        <div id="checkIn">
-                            <div>
-                                <p>Guest</p>
-                                <p class="sumguest"></p>
-                            </div><div>
-                                <p>Rooms</p>
-                                <p class="sumroomno"></p>
-                            </div>
+                    <label for="bookerno">Contact Number</label>
+                    <input id="bookerno" type="tel" placeholder="Phone Number">
+
+                    <label for="bookerAdd">Address</label>
+                    <input id="bookerAdd" type="text" placeholder="Address-line 1">
+                    <button onclick="event.preventDefault()" id="bookdetbtn">Continue</button>
+                </form>
+            </div>
+            <div class="summary">
+                <div>
+                    <p>Summary</p>
+                    <p>Below is the summary of the room type, date and number of guest.</p>
+                    <p>Room Type</p>
+                    <p class="sumRoom">Hello</p>
+                    <div id="checkIn">
+                        <div>
+                            <p>Check In</p>
+                            <p class="sumCheckIn"></p>
+                        </div><div>
+                            <p>Check Out</p>
+                            <p class="sumCheckOut"></p>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- The last process Card (procard) for telling the user that the room is booked -->
-            <div id="bookComplete" class="procard">
-                <div>
-                    <h1 class="proHead">Booking Complete!</h1>
-                    <p class="proPara">Thank You for choosing Leela Motel, we send to your email the details of your booking</p>
+                    <div id="checkIn">
+                        <div>
+                            <p>Guest</p>
+                            <p class="sumguest"></p>
+                        </div><div>
+                            <p>Rooms</p>
+                            <p class="sumroomno"></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- The Third process Card (procard) for payment method -->
+        <div id="payCon" class="procard">
+            <div>
+                <h1 class="proHead">PayMent details</h1>
+                <p class="proPara">Choose your desired payment method</p>
+            </div>
+            <div>
+                <button onclick="event.preventDefault()" id="payConbtn">Continue</button>
+            </div>
+
+            <div class="summary">
+                <div>
+                    <p>Summary</p>
+                    <p>Below is the summary of the room type, date and number of guest.</p>
+                    <p>Room Type</p>
+                    <p class="sumRoom">Hello</p>
+                    <div id="checkIn">
+                        <div>
+                            <p>Check In</p>
+                            <p class="sumCheckIn"></p>
+                        </div><div>
+                            <p>Check Out</p>
+                            <p class="sumCheckOut"></p>
+                        </div>
+                    </div>
+                    <div id="checkIn">
+                        <div>
+                            <p>Guest</p>
+                            <p class="sumguest"></p>
+                        </div><div>
+                            <p>Rooms</p>
+                            <p class="sumroomno"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- The last process Card (procard) for telling the user that the room is booked -->
+        <div id="bookComplete" class="procard">
+            <div>
+                <h1 class="proHead">Booking Complete!</h1>
+                <p class="proPara">Thank You for choosing Leela Motel, we send to your email the details of your booking</p>
+            </div>
+        </div>
+    </div>
     </div>
 
     <div id="signuppage">
@@ -203,4 +202,6 @@
 
 {% block pageJs %}
     <script src="{{ base_url() }}/js/booking.js"></script>
+    <script src="{{ base_url() }}/js/lib/roomAllotValidation.js"></script>
+    <script src="{{ base_url() }}/js/lib/bookingConfirmation.js"></script>
 {% endblock %}

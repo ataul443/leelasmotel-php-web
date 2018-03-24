@@ -386,17 +386,82 @@ p{
     transition: all 0.5s ease;
 }
 
-
-#banner, #accommodation, #aboutUs, #ourBest{
-    margin-bottom: 1in;
-}
-
 #accommodation>div:nth-of-type(1)>div h1, 
 #aboutus h1, #ourbest h1
 {
     font-size: 3em;
     font-weight: bold;
     color: rgba(0, 0, 0, 0.788);
+}
+#accommodation, #aboutUs, #ourBest{
+    margin-bottom: 1in;
+}
+#accommodation{
+    margin-top: 1in;
+}
+/* checkAvailResult Css */
+#checkAvailInfoBox{
+    margin: 0 auto 1in;
+    background-color: #184163;
+    padding: 0.5in;
+    display: none;
+}
+
+#checkAvailError{
+    margin: 0 auto 1in;
+    background-color: #e4192a;
+    padding: 0.5in;
+    display: none;
+}
+#checkAvailInfoBox > div, #checkAvailError>div{
+    width: 80%;
+    margin: 0 auto;
+}
+#checkAvailInfoBox > div:nth-of-type(1){
+    display: flex;
+    justify-content: space-between;
+}
+#checkAvailInfoBox > div:nth-of-type(1) p{
+    color: #eee;
+    font-size: 1.1em;
+}
+
+#checkAvailInfoBox > div:nth-of-type(1) p , #checkAvailError > div p, #checkAvailError > div li {
+    color: #eee;
+    font-size: 1.1em;
+}
+
+#availRooms p {
+    color: #000;
+    margin: 5px 10px;
+}
+
+#availRooms h3 {
+    margin: 10px 0;
+    font-family: 'Quicksand', sans-serif;
+}
+#availRooms{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-areas: "one two three";
+    grid-auto-columns: repeat(3, 1fr);
+    width: 80%;
+    margin: 0 auto;
+}
+#availRooms > div{
+    background-color: #eee;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+#stdRooms{
+    grid-area: one;
+}
+#deluxRooms{
+    grid-area: two;
+}
+#superDeluxRooms{
+    grid-area: three;
 }
 
 @keyframes btnchange1{

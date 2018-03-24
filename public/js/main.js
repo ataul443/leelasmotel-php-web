@@ -47,12 +47,104 @@ var slide = ["https://i.imgur.com/g5kvcni.jpg", "https://i.imgur.com/hcRgjvs.jpg
                 var c = $("#checkbtn");
                 c[0].innerText = "CHECK AVAILABILITY";
                 c.click(function(){
-                    a.slideToggle(500);
-                        b.slideToggle(500);
-                        if(c[0].innerText == "CHECK AVAILABILITY")
-                                c[0].innerText = "CHECK";
-                            else
-                                c[0].innerText = "CHECK AVAILABILITY";
-                            
+                    a.slideDown(500);
+                        b.slideDown(500, function(){
+                            c[0].innerText = "CHECK";
+                        });   
                 });
              }
+
+
+$("#logOutBtn").click(function(){
+    var urlFull = window.location.href;
+    var urlSplitArray = urlFull.split('public/');
+    var urlMain = urlSplitArray[0];
+    var url = urlMain + 'public/auth/login';
+    $.ajax({
+        type: "GET",
+        url: url,
+        success: function() {
+            window.location.href = urlMain + 'public/'
+        }
+    });
+    return false;
+})
+
+
+function checkInvalidState(element){
+    var elementVal = element.val();
+    if(elementVal != '' || elementVal != undefined){
+
+        return elementVal.trim();
+    }else{
+        return false;
+    }
+}
+
+function checkInvalidElement(element,value) {
+    var elementVal = checkInvalidState(element);
+    if(elementVal){
+        if(elementVal >= value){
+            return elementVal;
+        }else{
+            invalidIndicator(element);
+            return false;
+        }
+    }else{
+        invalidIndicator(element);
+        return false;
+    }
+}
+
+function checkInvalidDateElement(checkInElement,checkOutElement){
+    var checkIn = checkInElement.val();
+    var checkOut = checkOutElement.val();
+    if( checkIn == "" || checkOut == ""){
+        return false;
+    }
+    var checkInDate = new Date(checkIn);
+    var checkOutDate = new Date(checkOut);
+    var today = Date();
+
+    if(checkInDate < today || checkInDate >= checkOutDate || dateDiff(checkInDate,checkOutDate) > 45 ){
+        invalidIndicator(checkInElement);
+        return false;
+    }else{
+        return true;
+    }
+}
+
+function dateDiff(checkInDate,checkOutDate){
+    var timeDiff = Math.abs(checkInDate.getTime() - checkOutDate.getTime());
+    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+    return diffDays;
+}
+
+
+function invalidIndicator(element){
+    if(element.hasClass('incorrect')){
+        element.removeClass('incorrect');
+    }else{
+        element.addClass('incorrect');
+    }
+}
+
+function urlBuilder(afterPublicSegment){
+    var urlFull = window.location.href;
+    var urlSplitArray = urlFull.split('public/');
+    var urlMain = urlSplitArray[0];
+    var url = urlMain + 'public/' + afterPublicSegment;
+    return url;
+}
+
+function errorDisplay(element,cssFormer,cssLater,error){
+    if(element.css('display').toLowerCase() == cssFormer){
+        element.css('display',cssLater);
+    }
+    errorMapper(element,error);
+}
+
+function errorMapper(element,error){
+    element.text(error);
+}
+

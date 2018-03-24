@@ -52,20 +52,22 @@ class AuthController extends Controller
 
             switch ($token){
                 case 'WRONG_PASS':
-                    $response->withStatus(401);
+                    $response = $response->withStatus(401);
                     $_SESSION['validationErrors'] = 'Incorrect Password';
                     return $response->withJson(['status'=>'bad','code'=>401,'messages'=>[ $_SESSION['validationErrors']]]);
 
                 case 'NOT_EXISTS':
-                    $response->withStatus(401);
+                    $response = $response->withStatus(401);
                     $_SESSION['validationErrors'] = 'User Does Not Exist.';
                     return $response->withJson(['status'=>'bad','code'=>401,'messages'=>[ $_SESSION['validationErrors']]]);
 
                 default:
                     $_SESSION['userEmail'] = $email;
                     $response = $response->withHeader('Authentication',"Bearer $token");
-                    $response = $response->withStatus(200);
-                    return $this->view->render($response,'home.twig');
+
+                    //return $this->view->render($response,'home.twig');
+                    //return $response->withHeader('Location',$this->router->pathFor('home'));
+                return $response->withStatus(200);
             }
 
 
@@ -111,7 +113,7 @@ class AuthController extends Controller
                 $response = $response->withStatus(200);
                 $response = $response->withHeader('Authentication',$token);
                 $_SESSION['userEmail'] = $email;
-                return $response->withRedirect($this->router->pathFor('home'));
+                return $response->withHeader('Location',$this->router->pathFor('home'));
                 //return $response->withJson(['status'=>'ok','code'=>200,'messages'=>[]]);
             }
         }

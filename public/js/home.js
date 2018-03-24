@@ -61,3 +61,63 @@ var rev = $('#reviews>div');
                 scrollTop: $("#accommodation").offset().top
             }, 500); /*animation time length*/
         });
+
+        // checkAvailability funtion
+        $("#checkAvailInfoBox").slideUp(400);
+
+
+        $("#checkbtn").click(function(){
+            var flag = check();
+            if(flag){
+                if($(window).width() <= 700){
+                    if($("#checkbtn").text() == "CHECK")
+                    {
+                        $("#checkAvailInfoBox").slideToggle(400);
+                    }
+                }
+                else
+                    $("#checkAvailInfoBox").slideToggle(400);
+            }
+        });
+
+
+        function check(){
+            var checkin = $("#checkInCheck").val();
+            var checkout = $("#checkOutCheck").val();
+
+            //var adult = $("#selectGuestAdult").val();
+            //var child = $("#selectGuestChild").val();
+
+            if(checkin == "" || checkout == ""){
+                alert('Invalid Check In and Check Out Dates!');
+                return false;
+            }
+            var urlFull = window.location.href;
+            var urlSplitArray = urlFull.split('public/');
+            var urlMain = urlSplitArray[0];
+            var url = urlMain + 'public/availabilityCheck';
+
+
+            console.log("url",url);
+
+            $.post(url,
+                {checkin: checkin,
+                    checkout: checkout},function (data,result){
+                console.log(data);
+                    dataMapper(data);
+                });
+
+            return true;
+        };
+
+
+        function dataMapper(data){
+            var standardRoomsAvailable = data.status.standard.length;
+            var deluxRoomsAvailable = data.status.delux.length;
+            var royalRoomsAvailable = data.status.royal.length;
+
+            $("#stdRoomsAvail").text(standardRoomsAvailable);
+            $("#deluxRoomsAvail").text(deluxRoomsAvailable);
+            $("#superDeluxRoomsAvail").text(royalRoomsAvailable);
+
+        }

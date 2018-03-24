@@ -11,6 +11,7 @@ namespace App\Controllers\Auth;
 use App\Controllers\Controller;
 
 use App\Models\User;
+use App\Models\Customers;
 
 class AuthCheck extends Controller
 {
@@ -18,8 +19,10 @@ class AuthCheck extends Controller
     public function getUserData(){
         $email = isset($_SESSION['userEmail']);
         if($email){
+            $email = $_SESSION['userEmail'];
                 $this->username = User::where('email',$email)->value('username');
-                $this->user = ['username'=>$this->username,'email'=>$email];
+                $this->customerId = User::where('email',$email)->value('customerId');
+                $this->user = ['username'=>$this->username,'email'=>$email,'customerId'=>$this->customerId];
                 return $this->user;
 
         }else{
@@ -29,5 +32,27 @@ class AuthCheck extends Controller
 
     public function status(){
         return isset($_SESSION['userEmail']);
+    }
+
+    public function getUserPersonalInfo(){
+        $customer =$this->getUserData();
+        $customerId = $customer['customerId'];
+
+        if($customerId){
+            $customerIdFromCustomers = Customers::where('customerId',$customerId)->value('customerId');
+            if($customerIdFromCustomers){
+                $name = Customers::where('customerId',$customerId)->value('customerName');
+                $mobile = Customers::where('customerId',$customerId)->value('mobile');
+                $address = Customers::where('customerId',$customerId)->value('address');
+                $this->userPersonalData = ['name'=>$name,'mobile'=>$mobile,'address'=>$address,'customerId'=>$customerId];
+                return $this->userPersonalData;
+            }else{
+                $this->userPersonalData = ['customerId'=>$customerId];
+                return $this->userPersonalData;
+            }
+
+        }else{
+            return false;
+        }
     }
 }

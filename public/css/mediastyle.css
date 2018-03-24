@@ -128,7 +128,6 @@
     #accommodation{
         grid-template-columns: 100%;
         grid-template-areas: "one" "two";
-        margin: 1vw 0;
     }
 
     #roomFull{
@@ -242,4 +241,31 @@
     #rooms>div>div{
         width: auto;
     }
+
+    /* #cssmenu{
+        width: auto;
+        overflow: hidden;
+    }
+
+    #cssmenu ul li{
+        padding: 12px 30px 12px 20px;
+    }
+
+    #selectRoom{
+        display: block;
+    }
+    #selectRoom>div{
+        width: 98%;
+    } */
+/* 
+    .procard{
+        grid-column-gap: 0;
+        grid-template-areas: 
+        "one one"
+        "two two"
+        "three three";
+    }
+    .procard>div:nth-of-type(2){
+        width: auto;        
+    } */
 }

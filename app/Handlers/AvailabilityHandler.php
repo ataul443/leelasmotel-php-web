@@ -36,15 +36,29 @@ class AvailabilityHandler
 
     public function availableRooms(array $dates, array $allRooms)
     {
-        foreach ($dates as $date) {
-            $dataRoomFilledStr = Availability::where('date', $date)->value('roomFilled');
+        $countDates = count($dates);
+        if( $countDates < 3){
+            $dataRoomFilledStr = Availability::where('date', $dates[0])->value('roomFilled');
             if (!$dataRoomFilledStr) {
-                continue;
+               ;
             }
             $roomFilledData = explode(',', $dataRoomFilledStr);
             foreach ($roomFilledData as $room) {
                 if (in_array($room, $this->allRooms)) {
                     $this->allRooms = array_diff($this->allRooms, [$room]);
+                }
+            }
+        }else{
+            for($i=0;$i< $countDates-1;$i++){
+                $dataRoomFilledStr = Availability::where('date', $dates[$i])->value('roomFilled');
+                if (!$dataRoomFilledStr) {
+                    ;
+                }
+                $roomFilledData = explode(',', $dataRoomFilledStr);
+                foreach ($roomFilledData as $room) {
+                    if (in_array($room, $this->allRooms)) {
+                        $this->allRooms = array_diff($this->allRooms, [$room]);
+                    }
                 }
             }
         }
@@ -78,5 +92,43 @@ class AvailabilityHandler
         return ['standard'=> $this->standard,
             'delux'=>$this->delux,
             'royal'=>$this->royal];
+    }
+
+    public function updateRecord(array $dates, array $roomsToFilled){
+
+        $countDate = count($dates);
+
+        if($countDate < 3){
+            $this->fillRoomData($dates[0],$roomsToFilled);
+        }else{
+            for($i = 0;$i <$countDate - 1;$i++){
+                $this->fillRoomData($dates[$i],$roomsToFilled);
+            }
+        }
+
+    }
+
+    private function fillRoomData($dateOnly, array $roomsToFilled){
+            $dateInRecordStr = Availability::where('date',$dateOnly)->value('roomFilled');
+
+           // echo "Before loop dateInRecordStr; $dateInRecordStr";
+
+            if($dateInRecordStr){
+                $roomAlreadyFilledData = explode(',', $dateInRecordStr);
+                foreach ( $roomAlreadyFilledData as $room) {
+                    array_push($roomsToFilled,$room);
+                }
+                $roomsToFilledStr = implode(',',$roomsToFilled);
+               // echo "After loop roomsToFilledStr; $roomsToFilledStr";
+                Availability::where('date',$dateOnly)->update(['roomFilled'=>$roomsToFilledStr]);
+            }else{
+                $roomsToFilledStr = implode(',',$roomsToFilled);
+               // echo "After loop roomsToFilledStr; $roomsToFilledStr";
+                Availability::insert(['date'=> $dateOnly, 'roomFilled' => $roomsToFilledStr]);
+            }
+    }
+
+    public function getPersonalInfo(){
+
     }
 }

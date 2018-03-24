@@ -35,30 +35,40 @@ Leelas Motel - An Elegant Stay
                         </p>
                     </span>
                     <span>
-                        <form>
-                            <input placeholder="Arrival Date" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
-                            <input placeholder="Departure Date" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
-                            <select>
-                                <option value="1">Adult</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
-                            <select>
-                                <option value="1">Child</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
-                        </form>
-                    </span>
-                    <span>
-                        <button id="checkbtn">
+                        <form action="{{ path_for("availability.check") }}" method="post">
+                            <input name="checkin" id="checkInCheck" placeholder="Arrival Date" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+                            <input name="checkout" id="checkOutCheck" placeholder="Departure Date" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+                            <span>
+                        <button id="checkbtn" onclick="event.preventDefault();">
                             CHECK</button>
                     </span>
+                        </form>
+                    </span>
+
                 </center>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="checkAvailInfoBox">
+        <div>
+            <p><span>Check In : </span><span id="checkInDate">13-08-13</span></p>
+            <p><span>Check Out : </span><span id="checkOutDate">12-09-13</span></p>
+        </div>
+        <div id="availRooms">
+            <div id="stdRooms">
+                <h3>Standard Rooms</h3>
+                <p><span>Available : </span><span id="stdRoomsAvail">00</span></p>
+                <p><span>Price : </span><span id="stdRoomsPrice">800 Rs</span></p>
+            </div><div id="deluxRooms">
+                <h3>Delux Rooms</h3>
+                <p><span>Available : </span><span id="deluxRoomsAvail">00</span></p>
+                <p><span>Price : </span><span id="deluxRoomsPrice">1200 Rs</span></p>
+            </div><div id="superDeluxRooms">
+                <h3>SuperDelux Rooms</h3>
+                <p><span>Available : </span><span id="superDeluxRoomsAvail">00</span></p>
+                <p><span>Price : </span><span id="superDeluxRoomsPrice">1600 Rs</span></p>
             </div>
         </div>
     </div>

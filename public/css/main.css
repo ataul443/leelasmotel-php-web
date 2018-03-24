@@ -478,8 +478,9 @@ input, select{
     position: absolute;
     top: 100%;
     right: 0;
-    z-index: 22;
+    z-index: 222;
     display: none;
+    border: 0.2px solid #eee;
     background-color: #fff;
     height: auto;
     width: 150px;
@@ -514,4 +515,11 @@ input, select{
 #accountPopUp p:nth-of-type(1):hover,
 #accountPopUp p:nth-of-type(3):hover{ 
     color: #339ff8;
+}
+
+
+/* incorrect class for errors */
+
+.incorrect{
+    border: 1px solid #f00;
 }

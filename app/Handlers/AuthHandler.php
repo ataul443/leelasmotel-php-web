@@ -10,7 +10,7 @@ namespace App\Handlers;
 
 use \App\Models\User;
 use \App\Handlers\TokenHandler;
-
+use App\Handlers\CounterHandler;
 
 
 class AuthHandler
@@ -40,10 +40,12 @@ class AuthHandler
             $errorEmail = 'EMAIL_EXISTS';
             return $errorEmail;
         }else{
+            $customer = new CounterHandler();
             User::create([
                 'email'=>$this->email,
                 'password'=>$hashPassword,
                 'username'=>$this->username,
+                'customerId'=>$customer->getCustomerId()
             ]);
             $tokenGen = new TokenHandler;
             $token = $tokenGen->tokenGenerator($this->username);

@@ -21,6 +21,7 @@ $db = [
 ];
 
 $config['displayErrorDetails'] = true;
+$config['addContentLengthHeader'] = false;
 $config['db'] = $db;
 
 $app = new \Slim\App(['settings' => $config]);
@@ -65,6 +66,10 @@ $container['HomeController'] = function ($container) {
     return new \App\Controllers\HomeController($container);
 };
 
+$container['RoomAllotController'] = function ($container) {
+    return new \App\Controllers\RoomAllotController($container);
+};
+
 $container['AuthController'] = function ($container) {
     return new \App\Controllers\Auth\AuthController($container);
 };
@@ -74,6 +79,14 @@ $container['AuthCheck'] = function ($container) {
 
 $container['AvailabilityController'] = function ($container) {
     return new \App\Controllers\AvailabilityController($container);
+};
+
+$container['BookingController'] = function ($container) {
+    return new \App\Controllers\BookingController($container);
+};
+
+$container['AccountController'] = function ($container) {
+    return new \App\Controllers\AccountController($container);
 };
 
 $container['validator'] = function ($container) {
