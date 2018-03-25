@@ -61,15 +61,15 @@ Leelas Motel - An Elegant Stay
             <div id="stdRooms">
                 <h3>Standard Rooms</h3>
                 <p><span>Available : </span><span id="stdRoomsAvail">00</span></p>
-                <p><span>Price : </span><span id="stdRoomsPrice">800 Rs</span></p>
+                <p><span>Price : </span><span id="stdRoomsPrice">{{ auth.price.standard }} Rs</span></p>
             </div><div id="deluxRooms">
                 <h3>Delux Rooms</h3>
                 <p><span>Available : </span><span id="deluxRoomsAvail">00</span></p>
-                <p><span>Price : </span><span id="deluxRoomsPrice">1200 Rs</span></p>
+                <p><span>Price : </span><span id="deluxRoomsPrice">{{ auth.price.delux }} Rs</span></p>
             </div><div id="superDeluxRooms">
                 <h3>SuperDelux Rooms</h3>
                 <p><span>Available : </span><span id="superDeluxRoomsAvail">00</span></p>
-                <p><span>Price : </span><span id="superDeluxRoomsPrice">1600 Rs</span></p>
+                <p><span>Price : </span><span id="superDeluxRoomsPrice">{{ auth.price.royal }} Rs</span></p>
             </div>
         </div>
     </div>

@@ -3,18 +3,20 @@
 namespace App\Controllers;
 
 use App\Handlers\AvailabilityHandler;
+use App\Handlers\CounterHandler;
 
 class RoomAllotController extends Controller
 {
     protected $category,$price,$adult,$child,$standard,$delux,$royal,$checkIn,$checkOut;
     protected $errorStack;
-    protected $availabilityHandler,$roomStatus,$bookingStatus,$roomToFill;
+    protected $availabilityHandler,$roomStatus,$bookingStatus,$roomToFill,$counterHandler;
 
 
     public function __construct($container)
     {
         parent::__construct($container);
         $this->availabilityHandler = new AvailabilityHandler();
+        $this->counterHandler = new CounterHandler();
     }
 
     public function roomAllotStatus($req,$res){
@@ -36,7 +38,15 @@ class RoomAllotController extends Controller
             $this->errorStack = "";
         }
         $customerPersonalData = $this->AuthCheck->getUserPersonalInfo();
-        return $res->withJson(['errorStack'=>$this->errorStack,'adult'=>$this->adult,'child'=>$this->child,'roomAllotted'=>$this->roomToFill,'customerData'=>$customerPersonalData]);
+        $price = 0;
+        foreach ($this->roomToFill as $room){
+            if(!$room){
+                continue;
+            }
+            $roomPrice = $this->counterHandler->getRoomPrice($room);
+            $price += $roomPrice;
+        }
+        return $res->withJson(['errorStack'=>$this->errorStack,'adult'=>$this->adult,'child'=>$this->child,'roomAllotted'=>$this->roomToFill,'customerData'=>$customerPersonalData,'totalCost'=>$price]);
 
     }
 

@@ -14,7 +14,6 @@ $app->group('',function (){
     $this->post('/booking','BookingController:booking')->setName('bookingConfirm');
 })->add(new AuthStatus($container));
 $app->get('/auth/login','AuthController:getLogout')->setName('auth.logout');
-
 $app->post('/availabilityCheck','AvailabilityController:availabilityChecker')->setName('availability.check');
 $app->get('/account','AccountController:getUserData')->setName('account');
 

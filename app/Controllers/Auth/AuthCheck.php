@@ -12,6 +12,7 @@ use App\Controllers\Controller;
 
 use App\Models\User;
 use App\Models\Customers;
+use App\Handlers\CounterHandler;
 
 class AuthCheck extends Controller
 {
@@ -54,5 +55,11 @@ class AuthCheck extends Controller
         }else{
             return false;
         }
+    }
+
+    public function getPriceList(){
+        $counterHandler = new CounterHandler();
+        return $counterHandler->getPriceList();
+
     }
 }

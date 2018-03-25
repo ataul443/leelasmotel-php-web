@@ -9,6 +9,8 @@
 namespace App\Handlers;
 
 use App\Models\Counters;
+use App\Models\Price;
+use App\Models\Rooms;
 
 class CounterHandler {
     public $bookingId,$customerId;
@@ -30,5 +32,19 @@ class CounterHandler {
         $counter = (int)$counter;
         $counter++;
         Counters::where('id',1)->update([$type=>$counter]);
+    }
+
+    public function getPriceList(){
+        $standard = Price::where('category','standard')->value('price');
+        $delux = Price::where('category','delux')->value('price');
+        $royal = Price::where('category','royal')->value('price');
+
+        return ['standard'=>$standard,'delux'=>$delux,'royal'=>$royal];
+    }
+
+    public function getRoomPrice($room){
+    $category = Rooms::where('roomId',$room)->value('category');
+    $price = Price::where('category',$category)->value('category');
+    return (int) $price;
     }
 }

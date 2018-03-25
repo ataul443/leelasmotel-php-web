@@ -3,16 +3,20 @@
 namespace App\Controllers;
 use Respect\Validation\Rules\Date;
 
-use \App\Models\User;
 
 class HomeController extends Controller
 {
+    protected $counterHandler,$priceList;
+
+
     public function index($request, $response)
     {
 
         return $this->view->render($response, 'home.twig');
 
     }
+
+
 
 
 

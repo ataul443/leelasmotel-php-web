@@ -52,6 +52,7 @@ $container['view'] = function ($container) {
     $view->getEnvironment()->addGlobal('auth',[
         'user' => $container->AuthCheck->getUserData(),
         'check' => $container->AuthCheck->status(),
+        'price' => $container->AuthCheck->getPriceList()
     ]);
 
     return $view;

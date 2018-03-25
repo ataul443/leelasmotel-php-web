@@ -140,3 +140,8 @@ var rev = $('#reviews>div');
             $("#superDeluxRoomsAvail").text(royalRoomsAvailable);
 
         }
+
+
+        $(document).ready(function(){
+
+        })
