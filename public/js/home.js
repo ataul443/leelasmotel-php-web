@@ -69,19 +69,16 @@ var rev = $('#reviews>div');
         $("#checkbtn").click(function(){
             var flag = check();
             if(flag){
-                if($(window).width() <= 700){
-                    if($("#checkbtn").text() == "CHECK")
-                    {
-                        $("#checkAvailInfoBox").slideDown(400);
-                    }
-                }
-                else
-                    $("#checkAvailInfoBox").slideDown(400);
+                $("#checkAvailInfoBox").slideDown(400);
+                $("#checkbtn").prop("disabled", true);
+                $("#checkInCheck").prop({'value':'Arrival Date' , "disabled": true});
+                $("#checkOutCheck").prop({'value':'Departure Date' , "disabled": true});
+                $("#resetbtn").show(100);
+
+            }else{
+                return;
             }
-            $("#checkbtn").prop("disabled", true);            
-            $("#checkInCheck").prop({'value':'Arrival Date' , "disabled": true});        
-            $("#checkOutCheck").prop({'value':'Departure Date' , "disabled": true}); 
-            $("#resetbtn").show(100);
+
         });
 
         $("#resetbtn").click(function(){
@@ -119,18 +116,23 @@ var rev = $('#reviews>div');
                 {checkin: checkin,
                     checkout: checkout},function (data,result){
                 console.log(data);
-                    dataMapper(data);
+                    dataMapper(data,checkin,checkout);
                 });
 
             return true;
         };
 
 
-        function dataMapper(data){
+        function dataMapper(data,checkin,checkout){
             var standardRoomsAvailable = data.status.standard.length;
             var deluxRoomsAvailable = data.status.delux.length;
             var royalRoomsAvailable = data.status.royal.length;
-
+            var checkIn = new Date(checkin);
+            var checkOut = new Date(checkout);
+            checkIn = dateFormatter(checkIn);
+            checkOut = dateFormatter(checkOut);
+            $("#checkInDate").text(checkIn);
+            $("#checkOutDate").text(checkOut);
             $("#stdRoomsAvail").text(standardRoomsAvailable);
             $("#deluxRoomsAvail").text(deluxRoomsAvailable);
             $("#superDeluxRoomsAvail").text(royalRoomsAvailable);

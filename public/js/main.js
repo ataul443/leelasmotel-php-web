@@ -99,18 +99,21 @@ function checkInvalidElement(element,value) {
 function checkInvalidDateElement(checkInElement,checkOutElement){
     var checkIn = checkInElement.val();
     var checkOut = checkOutElement.val();
-    if( checkIn == "" || checkOut == ""){
+    if( checkIn == "" || checkOut == "" || checkIn == "Arrival Date" || checkOut == "Arrival Date" ){
         return false;
     }
     var checkInDate = new Date(checkIn);
     var checkOutDate = new Date(checkOut);
     var today = new Date();
 
-    if(checkInDate <= today || checkInDate >= checkOutDate || dateDiff(checkInDate,checkOutDate) > 45 ){
+    if((checkInDate <= today || checkInDate >= checkOutDate || dateDiff(checkInDate,checkOutDate) > 45 )){
         invalidIndicator(checkInElement);
         return false;
     }else{
         console.log(checkInDate,checkOutDate);
+        if(checkInElement.hasClass('incorrect')){
+            checkInElement.removeClass('incorrect');
+        }
         return true;
     }
 }
@@ -149,3 +152,7 @@ function errorMapper(element,error){
     element.text(error);
 }
 
+function dateFormatter(dateObject){
+                var dateString = dateObject.getDate() + '-' + dateObject.getMonth() + '-' + dateObject.getFullYear();
+                return dateString;
+}
