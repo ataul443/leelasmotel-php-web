@@ -192,8 +192,7 @@ p{
 #carousel0 {
     height: 100%;
     width: 100%;
-    margin: 0 auto;    
-    position: relative;
+    margin: 0 auto;
     cursor: pointer;
     overflow-y: hidden;
 }
@@ -408,9 +407,8 @@ p{
 }
 
 #checkAvailError{
-    margin: 0 auto 1in;
+    margin: 0 auto;
     background-color: #e4192a;
-    padding: 0.5in;
     display: none;
 }
 #checkAvailInfoBox > div, #checkAvailError>div{
@@ -426,9 +424,26 @@ p{
     font-size: 1.1em;
 }
 
-#checkAvailInfoBox > div:nth-of-type(1) p , #checkAvailError > div p, #checkAvailError > div li {
+#checkAvailInfoBox > div:nth-of-type(1) p {
     color: #eee;
     font-size: 1.1em;
+}
+
+#checkAvailError > div{
+    text-align: center;
+    color: #eee;
+    padding: 5px;
+}
+
+#checkAvailError  div p{
+    margin: 0;
+}
+
+#checkAvailError  div p:nth-of-type(1){
+    font-size: 1.1em;
+}
+#checkAvailError  div p:nth-of-type(2){
+    font-size: 0.9em;
 }
 
 #availRooms p {
