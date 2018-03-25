@@ -72,13 +72,26 @@ var rev = $('#reviews>div');
                 if($(window).width() <= 700){
                     if($("#checkbtn").text() == "CHECK")
                     {
-                        $("#checkAvailInfoBox").slideToggle(400);
+                        $("#checkAvailInfoBox").slideDown(400);
                     }
                 }
                 else
-                    $("#checkAvailInfoBox").slideToggle(400);
+                    $("#checkAvailInfoBox").slideDown(400);
             }
+            $("#checkbtn").prop("disabled", true);            
+            $("#checkInCheck").prop({'value':'Arrival Date' , "disabled": true});        
+            $("#checkOutCheck").prop({'value':'Departure Date' , "disabled": true}); 
+            $("#resetbtn").show(100);
         });
+
+        $("#resetbtn").click(function(){
+            $("#checkbtn").prop("disabled", false);            
+            $("#checkInCheck").prop("disabled", false);            
+            $("#checkOutCheck").prop("disabled", false);
+            $("#resetbtn").hide(100);
+            $("#checkAvailInfoBox").slideUp(400);
+        });
+
 
 
         function check(){
