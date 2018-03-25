@@ -85,13 +85,16 @@ function checkInvalidElement(element,value) {
     var elementVal = checkInvalidState(element);
     if(elementVal){
         if(elementVal >= value){
+            if(element.hasClass('incorrect')){
+                element.removeClass('incorrect');
+            }
             return elementVal;
         }else{
             invalidIndicator(element);
             return false;
         }
     }else{
-        invalidIndicator(element);
+        element.addClass('incorrect');
         return false;
     }
 }
@@ -106,7 +109,7 @@ function checkInvalidDateElement(checkInElement,checkOutElement){
     var checkOutDate = new Date(checkOut);
     var today = new Date();
 
-    if((checkInDate <= today || checkInDate >= checkOutDate || dateDiff(checkInDate,checkOutDate) > 45 )){
+    if((checkInDate < today || checkInDate >= checkOutDate || dateDiff(checkInDate,checkOutDate) > 45 )){
         invalidIndicator(checkInElement);
         return false;
     }else{
@@ -127,7 +130,7 @@ function dateDiff(checkInDate,checkOutDate){
 
 function invalidIndicator(element){
     if(element.hasClass('incorrect')){
-        element.removeClass('incorrect');
+        //element.removeClass('incorrect');
     }else{
         element.addClass('incorrect');
     }

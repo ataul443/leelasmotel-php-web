@@ -55,7 +55,8 @@ var rev = $('#reviews>div');
             });
             $("#typeDet").text(roomDet[bgimg].innerText);
             $("#typePrice").text(roomfullprice[bgimg]);
-            
+            $("#typePrice").text(roomPrice[bgimg].innerText);
+
         }
 
         $("#linkAccomo").click(function () { 
@@ -140,8 +141,3 @@ var rev = $('#reviews>div');
             $("#superDeluxRoomsAvail").text(royalRoomsAvailable);
 
         }
-
-
-        $(document).ready(function(){
-
-        })

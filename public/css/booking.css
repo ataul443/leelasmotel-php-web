@@ -145,7 +145,7 @@
 
 #wrapper input{
     border: none;
-    border-bottom: 1px solid #8b8a8a91;
+    border: 1px solid #8b8a8a91;
     width: 100%;
     display: block;
     padding: 10px;
@@ -328,7 +328,6 @@ font-family: 'Raleway', sans-serif;
 }
 
 #pricePerDay, #totalPrice, #roomType div input{
-    border: 1px solid rgb(141, 141, 141);
     padding: 10px;
     margin: 8px 0;
 }

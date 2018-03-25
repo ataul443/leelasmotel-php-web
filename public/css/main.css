@@ -521,5 +521,5 @@ input, select{
 /* incorrect class for errors */
 
 .incorrect{
-    border: 1px solid #f00;
+    border: 1px solid #f00 !important;
 }

@@ -55,6 +55,8 @@ bookroombtn.click(function(){
             }, 500);
         })
 
+    }else{
+        return;
     }
 })
 
