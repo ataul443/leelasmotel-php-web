@@ -114,7 +114,7 @@ function validatorUsernameEmailPass(errorElement,emailElement,passwordElement,us
 
 
 function validatorEmailPass(errorElement,emailElement,passwordElement){
-    var email =emailElement;
+    var email = emailElement;
     var password = passwordElement;
 
     email = checkInvalidState(email);

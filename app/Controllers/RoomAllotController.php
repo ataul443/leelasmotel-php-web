@@ -53,7 +53,8 @@ class RoomAllotController extends Controller
             $errorException = 'This number of Delux Rooms are not available in given date interval.';
         }elseif ($this->royal > $royalRoomCount){
             $errorException = 'This number of Royal Rooms are not available in given date interval.';
-        }else{
+        }
+        else{
 
             $errorException = false;
             $this->roomToFill = [];

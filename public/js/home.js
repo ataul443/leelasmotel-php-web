@@ -87,10 +87,12 @@ var rev = $('#reviews>div');
 
             //var adult = $("#selectGuestAdult").val();
             //var child = $("#selectGuestChild").val();
-
-            if(checkin == "" || checkout == ""){
-                alert('Invalid Check In and Check Out Dates!');
+            var flag = checkInvalidDateElement($("#checkInCheck"),$("#checkOutCheck"));
+            if(!flag){
+                $("#checkAvailError").slideDown(300);
                 return false;
+            }else{
+                $("#checkAvailError").slideUp(100);
             }
             var urlFull = window.location.href;
             var urlSplitArray = urlFull.split('public/');

@@ -84,6 +84,15 @@ bookDetBtn.click(function(){
 function payloadMakerForBooking(data,nameElement,addressElement,priceElement,checkInElement,checkOutElement,mobileElement){
     var adult = data.adult;
     var child = data.child;
+    if(data.roomAllotted == null){
+        var error = data.errorStack;
+        /**
+         *
+         * Please paste here code for indicating error for not availability of given numbers of rooms;
+         * error text is in variable error;
+         */
+        return
+    }
     var roomAllotted = (data.roomAllotted).toString();
     var customerId = data.customerData.customerId;
     var checkIn =checkInElement.val();
@@ -101,9 +110,9 @@ function payloadMakerForBooking(data,nameElement,addressElement,priceElement,che
     var mobile = mobileElement.val();
     var address = addressElement.val();
 
-    name = checkInvalidState(nameElement);
-    mobile = checkInvalidState(mobileElement);
-    address = checkInvalidState(addressElement);
+    name = personalInfoElementValidator(nameElement);
+    mobile = personalInfoElementValidator(mobileElement);
+    address = personalInfoElementValidator(addressElement);
 
     if(!(name && mobile && address)){
         console.log('wrong value 2');
@@ -173,6 +182,14 @@ function validate(rooms,standardRooms,deluxRooms,royalRooms,adults,childs,checkI
 
 }
 
+
+function personalInfoElementValidator(element){
+    if(!checkInvalidState(element)){
+        invalidIndicator(element);
+    }else{
+        return checkInvalidState(element);
+    }
+}
 /**
 function checkInvalidState(element){
     var elementVal = element.val();
