@@ -13,7 +13,7 @@ $app->post('/roomAllot','RoomAllotController:roomAllotStatus')->setName('roomAll
 $app->post('/booking','BookingController:booking')->setName('bookingConfirm');
 $app->get('/auth/login','AuthController:getLogout')->setName('auth.logout');
 
-$app->get('/roomAllot','RoomAllotController:getRoomAllot');
+$app->get('/roomAllot','RoomAllotController:getRoomAllot')->setName('booking.roomAllot');
 $app->post('/availabilityCheck','AvailabilityController:availabilityChecker')->setName('availability.check');
 $app->get('/account','AccountController:getUserData')->setName('account');
 
