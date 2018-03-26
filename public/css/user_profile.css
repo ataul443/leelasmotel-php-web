@@ -1,12 +1,12 @@
 body{
-    background-image: url("https://i.imgur.com/pesT6bv.jpg");
+    background-color: #eee;    
 }
 
 #userCont{
     height: auto;
     padding: 0.5in;
     box-sizing: border-box;
-    width: 80vw;
+    width: 70vw;
     margin: 20px auto;
     background-color: #fff;
     border-radius: 20px;
@@ -29,7 +29,6 @@ p{
 }
 
 table{
-    border: 1px solid#eee;
     border-collapse: collapse;
     width: 100%;
     margin: 10px auto;
@@ -44,7 +43,7 @@ th{
 }
 
 th, td{
-    border: 1px solid rgb(199, 198, 198);
+    border-bottom: 1px solid rgb(199, 198, 198);
     padding: 10px 20px;
 }
 
@@ -55,6 +54,10 @@ td{
 tr:nth-of-type(1):hover{
     background-color: transparent;
 }
-tr:hover{
+tr:nth-of-type(even){
+    background-color: rgb(240, 230, 230);
+}
+
+tr:hover, tr:nth-of-type(even):hover{
     background-color: #f8ffba;
 }

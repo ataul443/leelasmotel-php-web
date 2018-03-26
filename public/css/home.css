@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes');
+
 body{
     margin: 0;
     width: 100vw;
@@ -429,6 +431,26 @@ p{
     font-size: 1.1em;
 }
 
+#checkAvailInfoBox>div:nth-of-type(3){
+    display: flex;
+    justify-content: center;
+    padding: 20px 0 0;
+}
+
+.bookBtn {
+    background-color: #ecc81a;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1em;
+    border-radius: 0;
+    border: none;
+    width: max-content;
+}
+
+.bookBtn:hover{
+    background-color: goldenrod;
+}
+
 #checkAvailError > div{
     text-align: center;
     color: #eee;
@@ -482,4 +504,39 @@ p{
 #resetbtn{
     margin-left: 20px;
     display: none;
+}
+
+#whatAreYouWaiting {
+    margin: 0.5in auto;
+    background-image: url("https://www.franchiseindia.com//uploads/content/ri/art/reserved-50b9f48487.jpg");
+    width: 100vw;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+#whatAreYouWaiting >div{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    padding: 1in;
+    background-color: #00000076;
+    box-sizing: border-box;
+}
+
+#whatAreYouWaiting >div >div{
+    width: 70%;
+    height: 100%;
+    display: grid;
+    margin: 0 auto;
+}
+
+#whatAreYouWaiting h1{
+    color: #fff;
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.2em;
+    margin: 0;
+}
+
+#whatAreYouWaiting button{
+    justify-self: flex-end;
 }
