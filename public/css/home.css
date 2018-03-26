@@ -129,19 +129,19 @@ p{
     position: relative;
 }
 #rooms>div:nth-of-type(1){    
-    background-image: url("https://i.imgur.com/OvRQPrw.jpg");
+    background-image: url("https://i.imgur.com/OvRQPrw.jpg?2");
     grid-area: one;
 }
 #rooms>div:nth-of-type(2){    
-    background-image: url("http://www.dhdesigner.net/wp-content/uploads/2017/05/chic-wall-lamps-for-bedroom-wall-lamp-for-bedroom.jpg");
+    background-image: url("https://i.imgur.com/A7LrBAg.jpg?1");
     grid-area: two;
 }
 #rooms>div:nth-of-type(3){
-    background-image: url("https://vignette.wikia.nocookie.net/yakuza-mob-roleplay/images/9/93/Hotel-Room-With-A-View.jpg/revision/latest?cb=20141121164436");
+    background-image: url("https://i.imgur.com/v7bhJCf.jpg?1");
     grid-area: three;
 }
 #rooms>div:nth-of-type(4){
-    background-image: url("https://media.timeout.com/images/103639807/image.jpg");
+    background-image: url("https://i.imgur.com/48DUnM2.jpg?1");
     grid-area: four;
 }
 #rooms>div>div{
@@ -292,7 +292,7 @@ p{
 }
 #aboutUs>div:nth-of-type(1){
     grid-area: one;
-    background-image: url("http://streamafrica.com/wp-content/uploads/2016/01/hotels-4.jpg");
+    background-image: url("https://i.imgur.com/r8inH2Z.jpg?1");
 }
 #aboutUs>div:nth-of-type(2), #ourBest>div:nth-of-type(1){
     grid-area: two;
@@ -301,7 +301,7 @@ p{
 }
 #ourBest>div:nth-of-type(2){
     grid-area: one;
-    background-image: url("http://www.hotelroomsearch.net/im/hotels/it/hotel-table-1.jpg");    
+    background-image: url("https://i.imgur.com/osZtI6j.jpg?1");    
 }
 #ourBest{
     grid-auto-columns: 40% 60%;
@@ -314,7 +314,7 @@ p{
     position: relative;
     height: 50vh;
     margin: 0 auto 50px;
-    background-image: url("http://kimokran.ca/wp/wp-content/uploads/2015/05/hotel-table.jpg");
+    background-image: url("https://i.imgur.com/6zdOuS2.jpg?1");
 }
 
 #reviews div{
@@ -508,7 +508,7 @@ p{
 
 #whatAreYouWaiting {
     margin: 0.5in auto;
-    background-image: url("https://www.franchiseindia.com//uploads/content/ri/art/reserved-50b9f48487.jpg");
+    background-image: url("https://i.imgur.com/tRDreUO.jpg?1");
     width: 100vw;
     max-width: 100%;
     box-sizing: border-box;

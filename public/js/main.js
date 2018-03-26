@@ -1,4 +1,4 @@
-var slide = ["https://i.imgur.com/g5kvcni.jpg", "https://i.imgur.com/hcRgjvs.jpg", "https://i.imgur.com/vmmaTZq.jpg"];
+var slide = ["https://i.imgur.com/g5kvcni.jpg?1", "https://i.imgur.com/hcRgjvs.jpg?1", "https://i.imgur.com/vmmaTZq.jpg?1"];
         var slideDiv = $('#slider');
         var counter = 0;
 
