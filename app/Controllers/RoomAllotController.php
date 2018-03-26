@@ -19,7 +19,17 @@ class RoomAllotController extends Controller
         $this->counterHandler = new CounterHandler();
     }
 
+    public function getRoomAllot($req,$res){
+        if(!$this->container->AuthCheck->status()){
+            return $res->withRedirect($this->router->pathFor('home'));
+        }
+        return $this->view->render($res,'booking.twig');
+    }
+
     public function roomAllotStatus($req,$res){
+        if(!$this->container->AuthCheck->status()){
+            return $res->withJson(['errorStack'=> 'access denied'],401);
+        }
         $params = $req->getParams();
         $this->checkIn = html_entity_decode($params['checkIn']);
         $this->checkOut = html_entity_decode($params['checkOut']);
@@ -32,13 +42,14 @@ class RoomAllotController extends Controller
         $this->standard = html_entity_decode($params['standard']);
         $this->delux = html_entity_decode($params['delux']);
         $this->royal = html_entity_decode($params['royal']);
-
+        $customerPersonalData = $this->AuthCheck->getUserPersonalInfo();
+        $price = 0;
         $this->errorStack = $this->roomAllotter();
         if(!$this->errorStack){
             $this->errorStack = "";
+        }else{
+            return $res->withJson(['errorStack'=>$this->errorStack],401);
         }
-        $customerPersonalData = $this->AuthCheck->getUserPersonalInfo();
-        $price = 0;
         foreach ($this->roomToFill as $room){
             if(!$room){
                 continue;

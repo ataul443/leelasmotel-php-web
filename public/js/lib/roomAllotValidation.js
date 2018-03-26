@@ -36,23 +36,39 @@ bookroombtn.click(function(){
 
     if(data) {
         var url = window.location.href;
-        $.post(url,data,function(data){
-            var payload = payloadMakerForBooking(data,name,address,price,checkIn,checkOut,mobile);
-            if(!payload){
+        $.ajax({
+            type: 'POST',
+            data: data,
+            url: url,
+            success: function(data){
+                if(data.errorStack){
+                    alert(data.errorStack);
+                    return;
+                }
+                var payload = payloadMakerForBooking(data,name,address,price,checkIn,checkOut,mobile);
+                if(!payload){
+                    return;
+                }
+                window.localStorage.setItem('bookingPayload',JSON.stringify(payload));
+                bookRoom.css(
+                    'transform' , 'rotateY(90deg)'
+                );
+                bookDet.css(
+                    'transform', 'rotateY(0deg)'
+                );
+                $("#cssmenu ul li:nth-of-type(4)").removeClass("doing").addClass("done");
+                $("#cssmenu ul li:nth-of-type(3)").removeClass("nextStep").addClass("doing");
+                $('html, body').animate({
+                    scrollTop: $("#cssmenuCont").offset().top
+                }, 500);
+            },
+            error: function(data,request){
+                var errorStack = data.responseJSON.errorStack;
+                alert(errorStack);
+                window.location.reload();
                 return;
+
             }
-            window.localStorage.setItem('bookingPayload',JSON.stringify(payload));
-            bookRoom.css(
-                'transform' , 'rotateY(90deg)'
-            );
-            bookDet.css(
-                'transform', 'rotateY(0deg)'
-            );
-            $("#cssmenu ul li:nth-of-type(4)").removeClass("doing").addClass("done");
-            $("#cssmenu ul li:nth-of-type(3)").removeClass("nextStep").addClass("doing");
-            $('html, body').animate({
-                scrollTop: $("#cssmenuCont").offset().top
-            }, 500);
         })
 
     }else{
@@ -63,6 +79,14 @@ bookroombtn.click(function(){
 var bookDetBtn = $("#bookdetbtn");
 bookDetBtn.click(function(){
     var payload = JSON.parse(window.localStorage.getItem('bookingPayload'));
+    var name = personalInfoElementValidator($("#bookername"));
+    var mobile = personalInfoElementValidator($("#bookerno"));
+    var address = personalInfoElementValidator($("#bookerAdd"));
+
+    if(!(name && mobile && address)){
+        console.log('wrong value 2');
+        return
+    }
     if(!payload){
         alert('Info not complete');
         return;
@@ -187,8 +211,11 @@ function validate(rooms,standardRooms,deluxRooms,royalRooms,adults,childs,checkI
 
 function personalInfoElementValidator(element){
     if(!checkInvalidState(element)){
-        invalidIndicator(element);
+        if(!element.hasClass("incorrect")){
+            element.addClass("incorrect");
+        }
     }else{
+        element.removeClass("incorrect");
         return checkInvalidState(element);
     }
 }
