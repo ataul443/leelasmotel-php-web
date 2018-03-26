@@ -1,0 +1,82 @@
+{% extends 'templates/base.twig'  %}
+
+
+{% block title %}
+    Leelas Motel - An Elegant Stay |Booking
+{% endblock %}
+
+
+
+{% block pageCss %}
+    <link rel="stylesheet" href="{{ base_url() }}/css/user_profile.css">
+{% endblock %}
+
+
+{% block content %}
+    <div id="userCont">
+    {% if auth.profileError %}
+        <h4>No Data Found</h4>
+        {% else %}
+            <div>
+                <h3>{{ auth.profile.customer.name }}</h3>
+                <div>
+                    <p>{{ auth.profile.customer.customerId }}</p>
+                </div>
+            </div>
+            <div>
+                <h3>Contact Information</h3>
+                <p>Phone : <span id="contactNo">{{ auth.profile.customer.mobile }}</span></p>
+                <p>Address : <span id="address">{{ auth.profile.customer.address }}</span></p>
+            </div>
+            <div id="lastBooking">
+                <h3>Bookings</h3>
+                <table spacing = "0">
+                    {% for booking in auth.profile.allBooking %}
+                    <tr>
+                        <th>Booking Id</th>
+                        <th>Check In</th>
+                        <th>Check Out</th>
+                        <th>Price</th>
+                    </tr>
+                    <tr>
+                        <td>{{ booking.bookingId }}</td>
+                        <td>{{ booking.checkIn }}</td>
+                        <td>{{ booking.checkOut }}</td>
+                        <td>{{ booking.price }}</td>
+
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        {%  endif %}
+    </div>
+
+    <div id="signuppage">
+        <div id="cross">
+            <span>&nbsp;</span>
+            <span>&nbsp;</span>
+        </div>
+        <div id="centerBox">
+            <!-- This Box Will go here and there to change from Signup to login -->
+            <!-- No change From BackEnd -->
+            <div id="main">
+                <div  class="text-white" id="box">
+                    <h1 class="display-3" id="head">New Here?</h1>
+                    <p class="lead" id="para">Sign up and discover a great amount  of new opportunities.</p>
+                    <button type="button" class="btn-1 btn" id="btn" onclick="myfunction()">Sign Up</button>
+                </div>
+
+                <!--This is the Sign Up Block-->
+                {% include 'templates/partials/signup.twig' %}
+
+
+                <!-- This is the Log In Block-->
+                {% include 'templates/partials/login.twig' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block pageJs %}
+    <script src="{{ base_url() }}/js/booking.js"></script>
+{% endblock %}

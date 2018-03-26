@@ -71,6 +71,7 @@ $("#logOutBtn").click(function(){
 })
 
 
+
 function checkInvalidState(element){
     var elementVal = element.val();
     if(elementVal != '' || elementVal != undefined){

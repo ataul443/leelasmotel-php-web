@@ -15,7 +15,7 @@ $app->get('/auth/login','AuthController:getLogout')->setName('auth.logout');
 
 $app->get('/roomAllot','RoomAllotController:getRoomAllot')->setName('booking.roomAllot');
 $app->post('/availabilityCheck','AvailabilityController:availabilityChecker')->setName('availability.check');
-$app->get('/account','AccountController:getUserData')->setName('account');
+$app->get('/account','AccountController:getUserData')->setName('account')->setName('account');
 
 /*
 $app->group('/api', function () use ($app) {

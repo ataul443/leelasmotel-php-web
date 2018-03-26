@@ -77,7 +77,7 @@ $("#signup-btn").click(function(){
         success: function(data,textStatus,request){
             errorDisplay(errorIndicator,'block','none','');
             var urlRedirect = urlBuilder('')
-            //window.location.href = urlRedirect;
+            window.location.href = urlRedirect;
         },
         error: function(data,request){
             var errorStack = data.responseJSON.messages;

@@ -13,6 +13,7 @@ class AccountController extends Controller{
     protected $userData;
     protected $accountHandler;
     protected $bookingIdList;
+    public $userDataAll,$errorStack;
 
     public function __construct($container)
     {
@@ -21,12 +22,20 @@ class AccountController extends Controller{
     }
 
     public function getUserData($req,$res){
+        if(!$this->container->AuthCheck->status()){
+            return $res->withRedirect($this->router->pathFor('home'));
+        }
         $this->userData = $this->AuthCheck->getUserPersonalInfo();
-        if($this->userData['name'] && $this->userData['customerId']){
+        if(array_key_exists('name',$this->userData) && $this->userData['customerId']){
             $this->bookingIdList = $this->accountHandler->getAllBookingId($this->userData['customerId']);
-            return $res->withJson(['customer'=>$this->userData,'allBooking'=>$this->bookingIdList]);
+            $this->userDataAll = ['customer'=>$this->userData,'allBooking'=>$this->bookingIdList];
+            $this->errorStack = false;
+            print_r($this->userDataAll);
+            print_r($this->errorStack);
+            return $this->view->render($res,'userprofile.twig');
         }else{
-            return $res->withJson(['error'=>'No Bookings FOUND']);
+            $this->errorStack = 'Error';
+            return $this->view->render($res,'userprofile.twig');
         }
     }
 }

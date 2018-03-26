@@ -55,7 +55,7 @@ class RoomAllotController extends Controller
                 continue;
             }
             $roomPrice = $this->counterHandler->getRoomPrice($room);
-            $price += $roomPrice;
+            $price += (int) $roomPrice;
         }
         return $res->withJson(['errorStack'=>$this->errorStack,'adult'=>$this->adult,'child'=>$this->child,'roomAllotted'=>$this->roomToFill,'customerData'=>$customerPersonalData,'totalCost'=>$price]);
 

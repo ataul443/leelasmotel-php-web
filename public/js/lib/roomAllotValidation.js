@@ -108,6 +108,7 @@ bookDetBtn.click(function(){
 
 
 function payloadMakerForBooking(data,nameElement,addressElement,priceElement,checkInElement,checkOutElement,mobileElement){
+    console.log('payload data',data);
     var adult = data.adult;
     var child = data.child;
     if(data.roomAllotted == null){

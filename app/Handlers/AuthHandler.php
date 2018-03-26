@@ -47,6 +47,7 @@ class AuthHandler
                 'username'=>$this->username,
                 'customerId'=>$customer->getCustomerId()
             ]);
+            $customer->updateCounter('customerCounter');
             $tokenGen = new TokenHandler;
             $token = $tokenGen->tokenGenerator($this->username);
             return $token;

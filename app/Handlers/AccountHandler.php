@@ -13,7 +13,11 @@ use App\Models\Bookings;
 class AccountHandler{
 
     public function getAllBookingId($customerId){
-        $bookingIdList = Bookings::where('customerId',$customerId)->value('bookingId');
+        $allBookings = Bookings::where('customerId',$customerId)->get();
+        $bookingIdList = [];
+        foreach ($allBookings as $booking){
+            array_push($bookingIdList,['bookingId' => $booking->bookingId,'checkIn'=>$booking->checkIn,'checkOut'=>$booking->checkOut,'price'=>$booking->price]);
+        }
         return $bookingIdList;
     }
 }

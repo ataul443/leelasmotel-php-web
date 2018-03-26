@@ -44,7 +44,7 @@ class CounterHandler {
 
     public function getRoomPrice($room){
     $category = Rooms::where('roomId',$room)->value('category');
-    $price = Price::where('category',$category)->value('category');
+    $price = Price::where('category',$category)->value('price');
     return (int) $price;
     }
 }
