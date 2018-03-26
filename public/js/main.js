@@ -109,7 +109,7 @@ function checkInvalidDateElement(checkInElement,checkOutElement){
     var checkOutDate = new Date(checkOut);
     var today = new Date();
 
-    if((checkInDate < today || checkInDate >= checkOutDate || dateDiff(checkInDate,checkOutDate) > 45 )){
+    if((checkInDate.getDate() < today.getDate() || checkInDate >= checkOutDate || dateDiff(checkInDate,checkOutDate) > 45 )){
         invalidIndicator(checkInElement);
         return false;
     }else{
