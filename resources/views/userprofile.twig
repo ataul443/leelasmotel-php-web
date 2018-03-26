@@ -1,0 +1,113 @@
+{% extends 'templates/base.twig'  %}
+
+
+{% block title %}
+    Leelas Motel - An Elegant Stay |Booking
+{% endblock %}
+
+
+
+{% block pageCss %}
+    <link rel="stylesheet" href="{{ base_url() }}/css/user_profile.css">
+{% endblock %}
+
+
+{% block content %}
+    <div id="userCont">
+    <div>
+        <h3>Alex Russo</h3>
+        <div>
+            <p>Customer ID: 345</p>
+        </div>
+    </div>
+    <div>
+        <h3>Contact Information</h3>
+        <p>Phone : <span id="contactNo">9876526253</span></p>
+        <p>Address : <span id="address">kjdhkhercehkrkbvjtkcejnhxk kecghkreuxkj</span></p>
+    </div>
+    <div id="lastBooking">
+        <h3>Bookings</h3>
+        <table spacing = "0">
+            <tr>
+                <th>Head 1</th>
+                <th>Head 2</th>
+                <th>Head 3</th>
+                <th>Head 4</th>
+                <th>Head 5</th>
+                <th>Head 6</th>
+                <th>Head 7</th>
+                <th>Head 8</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                </tr>
+                <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                    </tr>
+        </table>
+    </div>
+</div>
+
+    <div id="signuppage">
+        <div id="cross">
+            <span>&nbsp;</span>
+            <span>&nbsp;</span>
+        </div>
+        <div id="centerBox">
+            <!-- This Box Will go here and there to change from Signup to login -->
+            <!-- No change From BackEnd -->
+            <div id="main">
+                <div  class="text-white" id="box">
+                    <h1 class="display-3" id="head">New Here?</h1>
+                    <p class="lead" id="para">Sign up and discover a great amount  of new opportunities.</p>
+                    <button type="button" class="btn-1 btn" id="btn" onclick="myfunction()">Sign Up</button>
+                </div>
+
+                <!--This is the Sign Up Block-->
+                {% include 'templates/partials/signup.twig' %}
+
+
+                <!-- This is the Log In Block-->
+                {% include 'templates/partials/login.twig' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block pageJs %}
+    <script src="{{ base_url() }}/js/booking.js"></script>
+{% endblock %}

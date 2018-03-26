@@ -20,12 +20,10 @@ var rev = $('#reviews>div');
         var roomfull = $('#roomFull');
         var roomdiv = $("#rooms>div");
         var roomfullimg =  ["url(https://i.imgur.com/OvRQPrw.jpg)", "url(http://www.dhdesigner.net/wp-content/uploads/2017/05/chic-wall-lamps-for-bedroom-wall-lamp-for-bedroom.jpg)", "url(https://vignette.wikia.nocookie.net/yakuza-mob-roleplay/images/9/93/Hotel-Room-With-A-View.jpg/revision/latest?cb=20141121164436)", "url(https://media.timeout.com/images/103639807/image.jpg)"];
-        var roomfullprice = ["$350", "$450", "$750", "$150"];
+        // var roomfullprice = ["$350", "$450", "$750", "$150"];
         var roomDet = $('#rooms #roomType');
         var roomPrice = $('#rooms #price');
         var bgimg;
-        var typeDet = $("#typeDet");        
-        var typePrice = $("#typePrice");
 
         $('#cross0').click(function () {
             roomfull.hide(500);
@@ -54,7 +52,7 @@ var rev = $('#reviews>div');
                 'background-image': roomfullimg[bgimg]
             });
             $("#typeDet").text(roomDet[bgimg].innerText);
-            $("#typePrice").text(roomfullprice[bgimg]);
+            /* $("#typePrice").text(roomfullprice[bgimg]); */
             
         }
 
