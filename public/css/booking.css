@@ -195,6 +195,10 @@ font-family: 'Raleway', sans-serif;
     padding: 10px;
 }
 
+.summary > div >div{
+    margin: 10px auto;
+}
+
 #checkIn{
     width: 100%;
 }
@@ -205,22 +209,12 @@ font-family: 'Raleway', sans-serif;
     width: 50%;
 }
 
-.summary button, .summary input{
+.summary button{
     float: none !important;
     margin: 10px auto;
     width: 100%;
     border: 1px solid rgb(141, 141, 141) !important;
     border-radius: 0;
-}
-
-.summary input{
-    margin: 0;
-    margin-bottom: 10px !important;
-}
-
-.summary label{
-    font-size: 0.9em;
-    margin: 10px auto;
 }
 
 .summary p{
@@ -234,6 +228,15 @@ font-family: 'Raleway', sans-serif;
     color: #999;
     margin: 10px 0;
 }
+.sumRoomtypes{
+    display: flex;
+    justify-content: space-between;
+}
+
+.sumRoomtypes p{
+    width: 32%;
+    display: inline-block;
+}
 
 .summary>div>p:nth-of-type(1){
     color: rgb(43, 42, 42);
@@ -241,12 +244,7 @@ font-family: 'Raleway', sans-serif;
     margin: 10px 0;
 }
 
-.sumRoom, .sumCheckIn, .sumCheckOut, .sumguest, .sumroomno{
-    border: 1px solid #eae9e9;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 10px;
-}
+
 
 
 #bookDet,
@@ -364,3 +362,14 @@ font-family: 'Raleway', sans-serif;
 #navCont ul li:nth-of-type(2){
     display: none;
 }
+
+
+.hl{
+    display: block;
+    height: 1px;
+    border-bottom: 1px solid #555;
+    margin: 10px 0;
+    width: 100%;
+    content: " ";
+}
+

@@ -17,7 +17,7 @@ var payConBtn = $("payConbtn");
 var payCon = $("#payCon");
 var paySum = $("#bookComplete");
 
-/*
+
 bookroombtn.click(function(){
     summaryDet();
     bookRoom.css(
@@ -32,7 +32,7 @@ bookroombtn.click(function(){
         scrollTop: $("#cssmenuCont").offset().top
     }, 500);
 });
-*/
+
 
 
  payConBtn.click(function(){
@@ -73,14 +73,17 @@ function summaryDet(){
     var dateOut = $(".sumCheckOut");            
     var guest = $(".sumguest");
     var roomno = $(".sumroomno");
+    var adult = $(".adult");
+    var child = $(".child");
     for(z=0; z<2; z++)
     {
-        x[z].innerText = a; 
         dateIn[z].innerText = $("#indate").val();
         dateOut[z].innerText = $("#outdate").val();
-        guest[z].innerText = $("#selectGuest").val();
-        roomno[z].innerText = $("#selectRoomNo").val();
+        adult[z].innerText = $("#selectGuestAdult").val();
+        child[z].innerText = $("#selectGuestChild").val();
+        $(".sumRoomStd")[z].innerText = $("#selectStdRoom").val();
+        $(".sumRoomDlx")[z].innerText = $("#selectDeluxRoom").val();
+        $(".sumRoomRyl")[z].innerText = $("#selectSuperRoom").val();
     }
 }
-
 

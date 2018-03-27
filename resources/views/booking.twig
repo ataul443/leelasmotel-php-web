@@ -57,8 +57,8 @@
             <div id="second">
                 <label>Guest</label>
                 <div id="selectGuest">
-                    <input name="adult" id="selectGuestAdult" type="number" placeholder="Adult">
-                    <input name="child" id="selectGuestChild" type="number" placeholder="Child">
+                    <input name="adult" min="0" id="selectGuestAdult" type="number" placeholder="Adult">
+                    <input name="child" min="0" id="selectGuestChild" type="number" placeholder="Child">
                 </div>
                 <div id="check">
                     <div>
@@ -98,26 +98,28 @@
                 <div>
                     <p>Summary</p>
                     <p>Below is the summary of the room type, date and number of guest.</p>
-                    <p>Total Rooms</p>
-                    <p class="sumRoom">Hello</p>
-                    <div id="checkIn">
-                        <div>
-                            <p>Check In</p>
-                            <p class="sumCheckIn"></p>
-                        </div><div>
-                            <p>Check Out</p>
-                            <p class="sumCheckOut"></p>
-                        </div>
+                    <p>Room Type : </p>
+                    <div class="sumRoomtypes">                    
+                        <p><span>Standard : </span><span class="sumRoomStd">12</span></p>
+                        <p><span>Delux : </span><span class="sumRoomDlx">12</span></p>
+                        <p><span>Royal : </span><span class="sumRoomRyl">12</span></p>
                     </div>
                     <div id="checkIn">
                         <div>
-                            <p>Guest</p>
-                            <p class="sumguest"></p>
+                            <p><span>Adult : </span><span class="adult">12</span></p>
                         </div><div>
-                            <p>Rooms</p>
-                            <p class="sumroomno"></p>
-                        </div>
+                            <p><span>Child : </span><span class="child">12</span></p>
+                        </div>                                            
                     </div>
+                    <div id="checkIn">
+                        <div>
+                            <p><span>Check In : </span><span class="sumCheckIn"></span></p>
+                        </div><div>
+                            <p><span>Check Out : </span><span class="sumCheckOut"></span></p>
+                        </div>                                            
+                    </div>
+                    <div class="hl"></div>
+                    <p style="display: flex; justify-content:space-between"><span>Total Price</span> <span style="font-weight:bold" id="totalPriceSum">$150</span></p>
                 </div>
             </div>
         </div>
@@ -136,26 +138,28 @@
                 <div>
                     <p>Summary</p>
                     <p>Below is the summary of the room type, date and number of guest.</p>
-                    <p>Room Type</p>
-                    <p class="sumRoom">Hello</p>
-                    <div id="checkIn">
-                        <div>
-                            <p>Check In</p>
-                            <p class="sumCheckIn"></p>
-                        </div><div>
-                            <p>Check Out</p>
-                            <p class="sumCheckOut"></p>
-                        </div>
+                    <p>Room Type : </p>
+                    <div class="sumRoomtypes">                    
+                        <p><span>Standard : </span><span class="sumRoomStd">12</span></p>
+                        <p><span>Delux : </span><span class="sumRoomDlx">12</span></p>
+                        <p><span>Royal : </span><span class="sumRoomRyl">12</span></p>
                     </div>
                     <div id="checkIn">
                         <div>
-                            <p>Guest</p>
-                            <p class="sumguest"></p>
+                            <p><span>Adult : </span><span class="adult"></span></p>
                         </div><div>
-                            <p>Rooms</p>
-                            <p class="sumroomno"></p>
-                        </div>
+                            <p><span>Child : </span><span class="child"></span></p>
+                        </div>                                            
                     </div>
+                    <div id="checkIn">
+                        <div>
+                            <p><span>Check In : </span><span class="sumCheckIn"></span></p>
+                        </div><div>
+                            <p><span>Check Out : </span><span class="sumCheckOut"></span></p>
+                        </div>                                            
+                    </div>
+                    <div class="hl"></div>
+                    <p style="display: flex; justify-content:space-between"><span>Total Price</span> <span style="font-weight:bold" id="totalPriceSum">$150</span></p>
                 </div>
             </div>
         </div>
