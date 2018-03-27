@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Great+Vibes');
-
 body{
     margin: 0;
     width: 100vw;
@@ -508,7 +506,7 @@ p{
 
 #whatAreYouWaiting {
     margin: 0.5in auto;
-    background-image: url("https://i.imgur.com/tRDreUO.jpg?1");
+    background-image: url("https://i.imgur.com/qHQk9aC.jpg?1");
     width: 100vw;
     max-width: 100%;
     box-sizing: border-box;
@@ -519,24 +517,24 @@ p{
     width: 100%;
     height: 100%;
     padding: 1in;
-    background-color: #00000076;
+    background-color: #0000008a;
     box-sizing: border-box;
 }
 
-#whatAreYouWaiting >div >div{
+#whatAreYouWaiting >div >div {
     width: 70%;
     height: 100%;
     display: grid;
     margin: 0 auto;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
 }
 
 #whatAreYouWaiting h1{
     color: #fff;
-    font-family: 'Great Vibes', cursive;
+    font-family: 'Raleway', sans-serif;
     font-size: 3.2em;
-    margin: 0;
-}
-
-#whatAreYouWaiting button{
-    justify-self: flex-end;
+    margin: 0 auto 20px;
 }

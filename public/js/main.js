@@ -35,10 +35,10 @@ var slide = ["https://i.imgur.com/g5kvcni.jpg?1", "https://i.imgur.com/hcRgjvs.j
         });
         $("#logIn").click(function(){            
             $("#signuppage").slideDown(500, myLogIn());
-        });
-        $("#accountPopUp").slideUp();
+        });   
+        $("#accountPopUp").slideUp(00);
         $("#account").click(function(){            
-            $("#accountPopUp").slideToggle(500);
+            $("#accountPopUp").slideToggle(100);
         });
 
             if($(window).width() <= 700){

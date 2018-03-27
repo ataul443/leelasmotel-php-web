@@ -360,3 +360,7 @@ font-family: 'Raleway', sans-serif;
     width: 25%;
 }
 
+
+#navCont ul li:nth-of-type(2){
+    display: none;
+}

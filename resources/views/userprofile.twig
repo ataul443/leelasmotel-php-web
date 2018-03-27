@@ -16,7 +16,18 @@
 {% block content %}
     <div id="userCont">
     {% if auth.profileError %}
-        <h4>No Data Found</h4>
+        <div id="updateProfile">
+            <h3>Update Profile</h3>
+            <form>
+                <p>Name : </p>
+                <input id="custname" type="text" required>
+                <p>Address : </p>
+                <input type="text" required>
+                <p>Contact No : </p>
+                <input id="custphno" type="tel" pattern="^\d{10}$" minlength="10" maxlength="10" required>
+                <button id="update"  onclick="event.preventDefault();" class="bookBtn">Update Profile</button>
+            </form>
+        </div>
         {% else %}
             <div>
                 <h3>{{ auth.profile.customer.name }}</h3>
@@ -80,4 +91,5 @@
 
 {% block pageJs %}
     <script src="{{ base_url() }}/js/booking.js"></script>
+    <script src="{{ base_url() }}/js/userprofile.js"></script>
 {% endblock %}
