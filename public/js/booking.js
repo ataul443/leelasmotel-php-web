@@ -17,6 +17,7 @@ var payConBtn = $("payConbtn");
 var payCon = $("#payCon");
 var paySum = $("#bookComplete");
 
+/*
 bookroombtn.click(function(){
     summaryDet();
     bookRoom.css(
@@ -31,7 +32,7 @@ bookroombtn.click(function(){
         scrollTop: $("#cssmenuCont").offset().top
     }, 500);
 });
-
+*/
 
 
  payConBtn.click(function(){

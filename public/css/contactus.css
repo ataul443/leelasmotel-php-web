@@ -1,0 +1,80 @@
+#contUs{
+    height: 80vh;
+    width: 100vw;
+    max-width: 100%;
+    box-sizing: border-box;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-areas:
+    "one one two two . three three three three three .    .   "
+    "one one two two . three three three three three four four"
+    "one one two two . three three three three three four four"
+    "one one two two . three three three three three four four"
+    "one one two two . three three three three three four four"
+    "one one two two . three three three three three four four"
+    "one one two two . three three three three three four four"
+    "one one .   .   . three three three three three .    .";
+}
+
+#contUs>div{
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+}
+
+#contUs>div:nth-of-type(1){
+    grid-area: one;
+    background-image: url("http://xdesktopwallpapers.com/wp-content/uploads/2011/07/Hotel-Reception.jpg");
+}
+
+#contUs>div:nth-of-type(2){
+    grid-area: two;
+    background-image: url("http://xdesktopwallpapers.com/wp-content/uploads/2011/07/Hotel-Reception.jpg");
+}
+
+#contUs>div:nth-of-type(3){
+    grid-area: three;
+    padding: 10px;
+}
+
+#contUs>div:nth-of-type(4){
+    grid-area: four;
+    background-image: url("http://xdesktopwallpapers.com/wp-content/uploads/2011/07/Hotel-Reception.jpg");
+}
+
+#contUs h3{
+    font-family: 'Raleway', sans-serif;
+    font-size: 2.5em;
+    margin: 10px;
+}   
+
+#contUs p{
+    font-family: "open Sans", sans serif;
+    padding: 10px;
+}
+
+#contUs ul{
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#contUs li{
+    margin: 20px;
+    font-family: "open Sans", sans serif;
+}
+
+#contUs li p{
+    display: inline-block;
+    margin: 0;
+    margin-left: 20px;
+}
+
+.blackbox{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #00000071;
+}

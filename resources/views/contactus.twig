@@ -1,0 +1,66 @@
+{% extends 'templates/base.twig'  %}
+
+
+{% block title %}
+    Leelas Motel - An Elegant Stay |Contact Us
+{% endblock %}
+
+
+
+{% block pageCss %}
+    <link rel="stylesheet" href="{{ base_url() }}/css/contactus.css">
+{% endblock %}
+
+
+{% block content %}
+    <div id="contUs">
+        <div><div class="blackbox"></div></div>
+        <div><div class="blackbox"></div></div>
+        <div>
+            <h3 style="text-transform:uppercase">Leelas MOtel</h3>
+            <p>We would love to hearfrom you, whether you want more information on any of our acts or wish to discover us more.</p>
+            <div>
+                <ul>
+                    <li>
+                        <i class="material-icons">location_on</i><p>Lorem ipsum</p></li>
+    
+                    <li>
+                        <i class="material-icons">phone</i><p>+91 334 556 2314</p></li>
+    
+                    <li>
+                        <i class="material-icons">mail_outline</i><p>Lorem ipsum</p></li>
+                </ul>
+            </div>
+        </div>
+        <div><div class="blackbox"></div></div>
+    </div>
+
+    <div id="signuppage">
+        <div id="cross">
+            <span>&nbsp;</span>
+            <span>&nbsp;</span>
+        </div>
+        <div id="centerBox">
+            <!-- This Box Will go here and there to change from Signup to login -->
+            <!-- No change From BackEnd -->
+            <div id="main">
+                <div  class="text-white" id="box">
+                    <h1 class="display-3" id="head">New Here?</h1>
+                    <p class="lead" id="para">Sign up and discover a great amount  of new opportunities.</p>
+                    <button type="button" class="btn-1 btn" id="btn" onclick="myfunction()">Sign Up</button>
+                </div>
+
+                <!--This is the Sign Up Block-->
+                {% include 'templates/partials/signup.twig' %}
+
+
+                <!-- This is the Log In Block-->
+                {% include 'templates/partials/login.twig' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block pageJs %}
+    <script src="{{ base_url() }}/js/main.js"></script>
+{% endblock %}
