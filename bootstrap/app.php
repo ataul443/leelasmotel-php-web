@@ -110,4 +110,8 @@ $container['AdminWebEditController'] = function ($container) {
     return new \App\Controllers\Admin\WebEditAdmin($container);
 };
 
+$container['AdminBookingsController'] = function ($container) {
+    return new \App\Controllers\Admin\BookingsAdmin($container);
+};
+
 require __DIR__ . '/../app/routes.php';

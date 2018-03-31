@@ -25,6 +25,8 @@ $app->post('/admin/auth','AdminAuthController:postAuth');
 $app->get('/admin/webedit','AdminWebEditController:getWebEdit')->setName('admin.webedit');
 $app->post('/admin/webedit','AdminWebEditController:postPic');
 $app->post('/admin/webedit/setprice','AdminWebEditController:postPrice');
+$app->post('/admin/bookings','AdminBookingsController:postBookingList');
+$app->get('/admin/bookings','AdminBookingsController:getBookings');
 /*
 $app->group('/api', function () use ($app) {
     $app->get('/secret', function ($request, $response) {
