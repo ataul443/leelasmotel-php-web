@@ -96,4 +96,18 @@ $container['validator'] = function ($container) {
     return new \App\Validation\Validator;
 };
 
+//Admin Routes
+
+$container['AdminAuthController'] = function ($container) {
+    return new \App\Controllers\Admin\AuthAdmin($container);
+};
+
+$container['AdminDashboardController'] = function ($container) {
+    return new \App\Controllers\Admin\DashboardAdmin($container);
+};
+
+$container['AdminWebEditController'] = function ($container) {
+    return new \App\Controllers\Admin\WebEditAdmin($container);
+};
+
 require __DIR__ . '/../app/routes.php';

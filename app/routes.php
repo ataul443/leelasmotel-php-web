@@ -17,6 +17,14 @@ $app->get('/roomAllot','RoomAllotController:getRoomAllot')->setName('booking.roo
 $app->post('/availabilityCheck','AvailabilityController:availabilityChecker')->setName('availability.check');
 $app->get('/account','AccountController:getUserData')->setName('account')->setName('account');
 
+
+$app->get('/admin/auth','AdminAuthController:getAuth')->setName('admin.getAuth');
+$app->get('/admin/dashboard','AdminDashboardController:getDashboard')->setName('admin.dashboard');
+$app->post('/admin/auth','AdminAuthController:postAuth');
+
+$app->get('/admin/webedit','AdminWebEditController:getWebEdit')->setName('admin.webedit');
+$app->post('/admin/webedit','AdminWebEditController:postPic');
+$app->post('/admin/webedit/setprice','AdminWebEditController:postPrice');
 /*
 $app->group('/api', function () use ($app) {
     $app->get('/secret', function ($request, $response) {

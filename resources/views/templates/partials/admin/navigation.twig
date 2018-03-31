@@ -1,0 +1,56 @@
+<div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+
+    <!--
+
+        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+        Tip 2: you can also add an image using data-image tag
+
+            -->
+
+    <div class="sidebar-wrapper">
+        <div class="logo">
+            <a href="{{ path_for('admin.dashboard') }}" class="simple-text">
+                Recent Opticals
+            </a>
+        </div>
+
+        <ul class="nav">
+            <li id="dashboard">
+                <a href="{{ path_for('admin.dashboard') }}">
+                    <i class="pe-7s-graph"></i>
+                    <p>Dashboard</p>
+                </a>
+            </li>
+
+            <li id="orders">
+                <a href="order.html">
+                    <i class="pe-7s-shopbag"></i>
+                    <p>New Order</p>
+                </a>
+            </li>
+
+            <li id="status">
+                <a href="status.html">
+                    <i class="pe-7s-info"></i>
+                    <p>Status</p>
+                </a>
+            </li>
+
+            <li id="webEdit">
+                <a href="{{ path_for('admin.webedit') }}">
+                    <i class="pe-7s-settings"></i>
+                    <p>Website Management</p>
+                </a>
+            </li>
+
+
+            <li id="customers">
+                <a href="customer.html">
+                    <i class="pe-7s-users"></i>
+                    <p>Customers</p>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</div>
