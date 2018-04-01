@@ -118,4 +118,8 @@ $container['AdminCustomersController'] = function ($container) {
     return new \App\Controllers\Admin\CustomersAdmin($container);
 };
 
+$container['AdminNewBookingController'] = function ($container) {
+    return new \App\Controllers\Admin\NewBookingAdmin($container);
+};
+
 require __DIR__ . '/../app/routes.php';

@@ -19,7 +19,12 @@ class BookingController extends Controller{
         $this->bookingHandler = new BookingHandler();
     }
 
-    public function booking($req,$res){
+    public function booking($req,$res,$admin=null){
+        if($admin){
+            if(!$this->container->AuthCheck->statusAdmin()){
+                return $res->withJson(['errorStack'=> 'access denied'],401);
+            }
+        }
         if(!$this->container->AuthCheck->status()){
             return $res->withJson(['errorStack'=> 'access denied'],401);
         }

@@ -35,6 +35,10 @@ class AuthCheck extends Controller
         return isset($_SESSION['userEmail']);
     }
 
+    public function statusAdmin(){
+        return isset($_SESSION['adminEmail']);
+    }
+
     public function getUserPersonalInfo(){
         $customer =$this->getUserData();
         $customerId = $customer['customerId'];

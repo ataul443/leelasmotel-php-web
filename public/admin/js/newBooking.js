@@ -19,20 +19,6 @@ bookroombtn.click(function(){
     var name = $("#bookername");
     var address = $("#bookerAdd");
     var mobile = $("#bookerno");
-    /*
-   data1 = {
-       customerId: 'LMC10001',
-       checkIn: '2018-03-22',
-       checkOut: '2018-03-23',
-       name: 'Shekh Ataul',
-       address: '64 Nanakpuri, LPU, Phagwara',
-       mobile: '8299729791',
-       adult: '3',
-       child: '0',
-       price: '1380',
-       roomAllot: 'L4,L5'
-   }
-   */
 
     if(data) {
         var url = window.location.href;
@@ -49,18 +35,23 @@ bookroombtn.click(function(){
                 if(!payload){
                     return;
                 }
-                window.localStorage.setItem('bookingPayload',JSON.stringify(payload));
-                bookRoom.css(
-                    'transform' , 'rotateY(90deg)'
-                );
-                bookDet.css(
-                    'transform', 'rotateY(0deg)'
-                );
-                $("#cssmenu ul li:nth-of-type(4)").removeClass("doing").addClass("done");
-                $("#cssmenu ul li:nth-of-type(3)").removeClass("nextStep").addClass("doing");
-                $('html, body').animate({
-                    scrollTop: $("#cssmenuCont").offset().top
-                }, 500);
+                var name = personalInfoElementValidator(name);
+                var mobile = personalInfoElementValidator(mobile);
+                var address = personalInfoElementValidator(address);
+
+                if(!(name && mobile && address)){
+                    console.log('wrong value 2');
+                    return
+                }
+                if(!payload){
+                    alert('Info not complete');
+                    return;
+                }
+
+                bookingConfirm(payload);
+
+
+
             },
             error: function(data,request){
                 var errorStack = data.responseJSON.errorStack;
@@ -75,36 +66,6 @@ bookroombtn.click(function(){
         return;
     }
 })
-
-var bookDetBtn = $("#bookdetbtn");
-bookDetBtn.click(function(){
-    var payload = JSON.parse(window.localStorage.getItem('bookingPayload'));
-    var name = personalInfoElementValidator($("#bookername"));
-    var mobile = personalInfoElementValidator($("#bookerno"));
-    var address = personalInfoElementValidator($("#bookerAdd"));
-
-    if(!(name && mobile && address)){
-        console.log('wrong value 2');
-        return
-    }
-    if(!payload){
-        alert('Info not complete');
-        return;
-    }
-
-    bookingConfirm(payload);
-    bookDet.css(
-        'transform', 'rotateY(90deg)'
-    );
-    payCon.css(
-        'transform' , 'rotateY(0deg)'
-    );
-    $("#cssmenu ul li:nth-of-type(3)").removeClass("doing").addClass("done");
-    $("#cssmenu ul li:nth-of-type(2)").removeClass("nextStep").addClass("doing");
-    $('html, body').animate({
-        scrollTop: $("#cssmenuCont").offset().top
-    }, 500);
-});
 
 
 function payloadMakerForBooking(data,nameElement,addressElement,priceElement,checkInElement,checkOutElement,mobileElement){
@@ -202,7 +163,7 @@ function validate(rooms,standardRooms,deluxRooms,royalRooms,adults,childs,checkI
 
 
     }else{
-            console.log("main wrong");
+        console.log("main wrong");
         return false;
     }
 
