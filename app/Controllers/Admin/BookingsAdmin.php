@@ -81,7 +81,7 @@ class BookingsAdmin extends Controller
                                                 <td id="checkout-{$id}">{$booking->checkOut}</td>
                                                 <td id="price-{$id}">{$booking->price}</td>
                                                 <td id="roomAllotted-{$id}">{$booking->roomAllotted}</td>
-                                                <td id="morelink-{$id}"><a id="more-{$id}" href="#">More<script>
+                                                <td id="morelink-{$id}"><a id="more-{$id}" href="#">More..<script>
                                                 var url = urlBuilder('admin/bookings/detail/{$id}');
                                                 $("#more-{$id}").attr("href",url);
 </script></a></td>
