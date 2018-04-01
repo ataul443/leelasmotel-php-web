@@ -1,0 +1,10 @@
+.row p{
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+.row > div > p{
+    color: #444;
+    text-transform: uppercase;
+    font-weight: 300;
+}
