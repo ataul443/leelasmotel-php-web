@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block pageCss %}
+    <link rel="stylesheet" href="{{ base_url() }}/admin/css/bookingDetails.css">
 {% endblock %}
 
 {% block content %}
@@ -22,6 +23,31 @@
                             <div class="header">
                                 <h4 id="status-heading" class="title"> All Bookings</h4>
                                 <p class="category">Below bookings are in order of new to old.</p>
+                            </div>
+
+                            <div class="content">
+                                    <div>
+                                        <div class="row">
+                                            <p class="col-sm-2 col-xs-3">name</p>
+                                            <div class="col-sm-4 col-xs-3">
+                                                <p>L875RG<p>
+                                            </div>
+                                            <p class="col-sm-2 col-xs-3">Customer ID</p>
+                                            <div class="col-sm-4 col-xs-3">
+                                                <p>cu56hn<p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <p class="col-sm-2 col-xs-3">Mobile No</p>
+                                            <div class="col-sm-4 col-xs-3">
+                                                <p>9876543219<p>
+                                            </div>
+                                            <p class="col-sm-2 col-xs-3">Address</p>
+                                            <div class="col-sm-4 col-xs-3">
+                                                <p>Address of the customer<p>
+                                            </div>
+                                        </div>
+                                    </div>
                             </div>
 
                             <!-- Booking Table-->
