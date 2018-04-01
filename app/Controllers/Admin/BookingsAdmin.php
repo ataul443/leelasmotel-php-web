@@ -24,17 +24,36 @@ class BookingsAdmin extends Controller
         $params = $req->getParams();
         $offset = $params['offset'];
         $data = $this->getBookingsList($offset);
-        $size = Bookings::count();
+
         if(!$data){
             return $res->withJson(['error'=>'NO_BOOKINGS'],401);
         }
-        return $res->withJson(['bookingsList'=>$data,'size'=>$size],200);
+        return $res->withJson($data,200);
+    }
+
+    public function postSearch($req,$res){
+        $params = $req->getParams();
+        $search = $params['searchTerm'];
+        $data = $this->getBookingsList(0,$search);
+        if(!$data){
+            return $res->withJson(['error'=>'NO_BOOKINGS'],401);
+        }
+        return $res->withJson($data,200);
     }
 
 
-    private function getBookingsList($offset){
+    private function getBookingsList($offset,$searchTerm = null){
         $limit = 10;
-        $bookings = Bookings::offset($offset)->limit($limit)->get();
+        $bookings = null;
+        $size = null;
+        if($searchTerm){
+            $bookings = Bookings::where('name','like',"%$searchTerm%")->orderBy('name','asc')->get();
+            $size = count($bookings);
+        }else{
+            $bookings = Bookings::offset($offset)->limit($limit)->get();
+            $size = Bookings::count();
+        }
+
         $data = "";
         foreach ($bookings as $booking){
             $id = $booking->bookingId;
@@ -55,7 +74,7 @@ class BookingsAdmin extends Controller
                                             </tr>
 EOD;
         }
-        return $data;
+        return ['bookingsList'=>$data,'size'=>$size];
 
     }
 
