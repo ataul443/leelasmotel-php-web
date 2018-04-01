@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-    {% include 'templates/partials/admin/navigation.twig' %}
+    {% include 'templates/partials/admin/navigation.twig' with {'webedit': 'active'} %}
     <div class="main-panel">
         <nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">

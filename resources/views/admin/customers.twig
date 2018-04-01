@@ -1,11 +1,11 @@
 {% extends 'templates/baseAdmin.twig' %}
 
 {% block title %}
-    Bookings | Leelas Motel
+    Customers | Leelas Motel
 {% endblock %}
 
 {% block content %}
-    {% include 'templates/partials/admin/navigation.twig' with {'bookings': 'active'} %}
+    {% include 'templates/partials/admin/navigation.twig' with {'customers': 'active'} %}
     <div class="main-panel">
         <nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">
@@ -16,7 +16,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Bookings</a>
+                    <a class="navbar-brand" href="#">Customers</a>
                 </div>
                 <div class="collapse navbar-collapse">
 
@@ -40,8 +40,8 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 id="status-heading" class="title"> All Bookings</h4>
-                                <p class="category">Below bookings are in order of new to old.</p>
+                                <h4 id="status-heading" class="title"> All Customers</h4>
+                                <p class="category">Below Customers are in order of new to old.</p>
                             </div>
 
                             <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
@@ -63,14 +63,11 @@
                                 <table class="table table-hover table-striped">
                                     <thead>
                                     <th scope="col">Action</th>
-                                    <th scope="col">Booking Id</th>
+                                    <th scope="col">Customer Id</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Mobile</th>
 
-                                    <th scope="col">Check In</th>
-                                    <th scope="col">Check Out</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Room</th>
+                                    <th scope="col">Address</th>
                                     <th scope="col">Detail</th>
                                     </thead>
                                     <tbody id="tBody">
@@ -81,9 +78,7 @@
                                         <td>...</td>
                                         <td>...</td>
                                         <td>...</td>
-                                        <td>...</td>
-                                        <td>...</td>
-                                        <td>...</td>
+
                                     </tr>
                                     </tbody>
                                 </table>
@@ -131,7 +126,7 @@
 
 {% block pageJs %}
     <script type="text/javascript" src="{{ base_url() }}/admin/js/jquery.simplePagination.js"></script>
-    <script type="text/javascript" src="{{ base_url() }}/admin/js/bookings.js"></script>
+    <script type="text/javascript" src="{{ base_url() }}/admin/js/customers.js"></script>
 
 {% endblock %}
 

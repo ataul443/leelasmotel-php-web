@@ -15,7 +15,7 @@
         </div>
 
         <ul class="nav">
-            <li id="dashboard">
+            <li id="dashboard"  >
                 <a href="{{ path_for('admin.dashboard') }}">
                     <i class="pe-7s-graph"></i>
                     <p>Dashboard</p>
@@ -29,14 +29,27 @@
                 </a>
             </li>
 
-            <li id="status">
-                <a href="status.html">
+            <li id="bookings" {% if bookings %}
+            class="active"
+            {% endif %}>
+                <a href="{{ path_for('admin.bookings') }}">
                     <i class="pe-7s-info"></i>
-                    <p>Status</p>
+                    <p>Bookings</p>
                 </a>
             </li>
 
-            <li id="webEdit">
+            <li id="customers" {% if customers %}
+                class="active"
+                    {% endif %}>
+                <a href="{{ path_for('admin.customers') }}">
+                    <i class="pe-7s-users"></i>
+                    <p>Customers</p>
+                </a>
+            </li>
+
+            <li id="webEdit" {% if webedit %}
+                class="active"
+                    {% endif %}>
                 <a href="{{ path_for('admin.webedit') }}">
                     <i class="pe-7s-settings"></i>
                     <p>Website Management</p>
@@ -44,12 +57,7 @@
             </li>
 
 
-            <li id="customers">
-                <a href="customer.html">
-                    <i class="pe-7s-users"></i>
-                    <p>Customers</p>
-                </a>
-            </li>
+
 
         </ul>
     </div>
