@@ -9,6 +9,7 @@ use App\Models\Bookings;
 
 class BookingsAdmin extends Controller
 {
+    public $bookingDetail;
 
     public function __construct($container)
     {
@@ -17,6 +18,20 @@ class BookingsAdmin extends Controller
 
     public function getBookings($req,$res){
         return $this->view->render($res,'admin/bookings.twig');
+    }
+
+    public function getDetail($req,$res){
+        $route = $req->getAttribute('route');
+        $bookingId = $route->getArgument('id');
+        $booking = Bookings::where('bookingId',$bookingId)->get();
+        $booking = $booking->first();
+        $this->bookingDetail = ['bookingId'=>$bookingId,'name'=>$booking->name,
+            'customerId'=>$booking->customerId,'checkIn'=>$booking->checkIn,
+            'checkOut'=>$booking->checkOut,'mobile'=>$booking->mobile,
+            'price'=>$booking->price,'address'=>$booking->address,
+            'adult'=>$booking->adult,'child'=>$booking->child,
+            'roomAllotted'=>$booking->roomAllotted];
+        return $this->view->render($res,'admin/bookingDetail.twig',['booking'=>$this->bookingDetail]);
     }
 
 
@@ -58,7 +73,7 @@ class BookingsAdmin extends Controller
         foreach ($bookings as $booking){
             $id = $booking->bookingId;
             $data = $data.<<< EOD
-            <tr>                                <td id=" -{$id}"><input class="styled-checkbox" id=" --{$id}" type="checkbox" value="value2"><label for=" --{$id}"> </label></td>
+            <tr>                                <td id=" -{$id}"><input name="actionBox" class="styled-checkbox" id=" --{$id}" type="checkbox" value="value2"><label for=" --{$id}"> </label></td>
                                                 <td id="id-{$id}">{$id}</td>
                                                 <td id="name-{$id}">{$booking->name}</td>
                                                 <td id="mobile-{$id}">{$booking->mobile}</td>
@@ -67,7 +82,7 @@ class BookingsAdmin extends Controller
                                                 <td id="price-{$id}">{$booking->price}</td>
                                                 <td id="roomAllotted-{$id}">{$booking->roomAllotted}</td>
                                                 <td id="morelink-{$id}"><a id="more-{$id}" href="#">More<script>
-                                                var url = urlBuilder('admin/bookings/get/{$id}');
+                                                var url = urlBuilder('admin/bookings/detail/{$id}');
                                                 $("#more-{$id}").attr("href",url);
 </script></a></td>
                                                 

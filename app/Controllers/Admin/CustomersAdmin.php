@@ -58,7 +58,7 @@ class CustomersAdmin extends Controller
         foreach ($customers as $customer){
             $id = $customer->customerId;
             $data = $data.<<< EOD
-            <tr>                                <td id=" -{$id}">...</td>
+            <tr>                                <td id=" -{$id}"><input name="actionBox" class="styled-checkbox" id=" --{$id}" type="checkbox" value="value2"><label for=" --{$id}"> </label></td>
                                                 <td id="id-{$id}">{$id}</td>
                                                 <td id="name-{$id}">{$customer->name}</td>
                                                 <td id="mobile-{$id}">{$customer->mobile}</td>

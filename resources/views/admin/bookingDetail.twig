@@ -1,0 +1,68 @@
+{% extends 'templates/baseAdmin.twig' %}
+
+{% block title %}
+    Bookings | Leelas Motel
+{% endblock %}
+
+{% block pageCss %}
+{% endblock %}
+
+{% block content %}
+    {% include 'templates/partials/admin/navigation.twig' with {'bookings': 'active'} %}
+    <div class="main-panel">
+        <nav class="navbar navbar-default navbar-fixed">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Booking Detail</a>
+                </div>
+                <div class="collapse navbar-collapse">
+
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li onclick="logout();">
+                            <a id="logout" href="#">
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 id="status-heading" class="title"> All Bookings</h4>
+                                <p class="category">Below bookings are in order of new to old.</p>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    {% include 'templates/partials/admin/footer.twig' %}
+{% endblock %}
+
+{% block pageJs %}
+    <script type="text/javascript" src="{{ base_url() }}/admin/js/bookingDetail.js"></script>
+
+{% endblock %}
+

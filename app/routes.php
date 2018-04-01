@@ -30,6 +30,7 @@ $app->post('/admin/webedit/setprice','AdminWebEditController:postPrice');
 
 $app->post('/admin/bookings','AdminBookingsController:postBookingList');
 $app->post('/admin/bookings/search','AdminBookingsController:postSearch');
+$app->get('/admin/bookings/detail/{id}','AdminBookingsController:getDetail');
 $app->get('/admin/bookings','AdminBookingsController:getBookings')->setName('admin.bookings');
 
 
