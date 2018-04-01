@@ -13,9 +13,8 @@ $("#auth-btn").click(function(){
       data: payload,
       success: function(data,textStatus,request){
           errorDisplay(errorIndicator,'block','none','');
-          var urlRedirect = urlBuilder('')
-          alert('Success!');
-          //window.location.href = urlRedirect;
+          var urlRedirect = urlBuilder('admin/dashboard')
+          window.location.href = urlRedirect;
       },
       error: function(data,request){
           var errorStack = data.responseJSON.messages;
