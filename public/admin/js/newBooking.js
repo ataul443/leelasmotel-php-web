@@ -1,27 +1,22 @@
-var bookroombtn = $("#bookRoomBtn");
+var bookroombtn = $("#book-btn");
 var bookRoom = $("#bookRoom")
 var bookDet = $("#bookDet");
 
+
 bookroombtn.click(function(){
-    var rooms = $("#selectRoomNo");
-    var standardRooms = $("#selectStdRoom");
-    var deluxRooms = $("#selectDeluxRoom");
-    var royalRooms = $("#selectSuperRoom");
-    var adults = $("#selectGuestAdult");
-    var childs = $("#selectGuestChild");
+    var standardRooms = $("#custStandardRooms");
+    var deluxRooms = $("#custDeluxRooms");
+    var royalRooms = $("#custRoyalRooms");
+    var adults = $("#custAdult");
+    var childs = $("#custChild");
+    var checkIn = $("#custCheckIn");
+    var checkOut = $("#custCheckOut");
+    var data = validate(standardRooms,deluxRooms,royalRooms,adults,childs,checkIn,checkOut);
 
 
-    var checkIn = $("#indate");
-    var checkOut = $("#outdate");
-    var price = $("#totalPrice");
-    var data = validate(rooms,standardRooms,deluxRooms,royalRooms,adults,childs,checkIn,checkOut);
-
-    var name = $("#bookername");
-    var address = $("#bookerAdd");
-    var mobile = $("#bookerno");
 
     if(data) {
-        var url = window.location.href;
+        var url = urlBuilder('roomAllot');
         $.ajax({
             type: 'POST',
             data: data,
@@ -31,18 +26,10 @@ bookroombtn.click(function(){
                     alert(data.errorStack);
                     return;
                 }
-                var payload = payloadMakerForBooking(data,name,address,price,checkIn,checkOut,mobile);
-                if(!payload){
-                    return;
-                }
-                var name = personalInfoElementValidator(name);
-                var mobile = personalInfoElementValidator(mobile);
-                var address = personalInfoElementValidator(address);
-
-                if(!(name && mobile && address)){
-                    console.log('wrong value 2');
-                    return
-                }
+                var name = $("#custBookingFormName");
+                var address = $("#custBookingFormAddress");
+                var mobile = $("#custBookingFormContact");
+                var payload = payloadMakerForBooking(data,name,address,checkIn,checkOut,mobile);
                 if(!payload){
                     alert('Info not complete');
                     return;
@@ -68,7 +55,7 @@ bookroombtn.click(function(){
 })
 
 
-function payloadMakerForBooking(data,nameElement,addressElement,priceElement,checkInElement,checkOutElement,mobileElement){
+function payloadMakerForBooking(data,nameElement,addressElement,checkInElement,checkOutElement,mobileElement){
     console.log('payload data',data);
     var adult = data.adult;
     var child = data.child;
@@ -82,25 +69,15 @@ function payloadMakerForBooking(data,nameElement,addressElement,priceElement,che
         return
     }
     var roomAllotted = (data.roomAllotted).toString();
-    var customerId = data.customerData.customerId;
+    var customerId = data.customerId;
     var checkIn =checkInElement.val();
     var checkOut = checkOutElement.val();
-    var price = priceElement.text();
+    var price = data.totalCost;
 
-    if(Object.keys(data).length > 2){
-        console.log('Running');
-        nameElement.val(data.customerData.name);
-        mobileElement.val(data.customerData.mobile);
-        addressElement.val(data.customerData.address);
 
-    }
-    var name = nameElement.val();
-    var mobile = mobileElement.val();
-    var address = addressElement.val();
-
-    name = personalInfoElementValidator(nameElement);
-    mobile = personalInfoElementValidator(mobileElement);
-    address = personalInfoElementValidator(addressElement);
+    var name = personalInfoElementValidator(nameElement);
+    var mobile = personalInfoElementValidator(mobileElement);
+    var address = personalInfoElementValidator(addressElement);
 
     if(!(name && mobile && address)){
         console.log('wrong value 2');
@@ -133,9 +110,9 @@ function bookingConfirm(payloadBooking){
 }
 
 
-function validate(rooms,standardRooms,deluxRooms,royalRooms,adults,childs,checkIn,checkOut){
+function validate(standardRooms,deluxRooms,royalRooms,adults,childs,checkIn,checkOut){
     var flag = true;
-    rooms = checkInvalidElement(rooms,1);
+
     standardRooms = checkInvalidElement(standardRooms,0);
     deluxRooms = checkInvalidElement(deluxRooms,0);
     royalRooms = checkInvalidElement(royalRooms,0);
@@ -144,9 +121,9 @@ function validate(rooms,standardRooms,deluxRooms,royalRooms,adults,childs,checkI
 
     var dateFlag = checkInvalidDateElement(checkIn,checkOut);
     console.log(adults,childs,dateFlag);
-    if(rooms && standardRooms && deluxRooms && royalRooms && adults && childs && dateFlag){
+    if(standardRooms && deluxRooms && royalRooms && adults && childs && dateFlag){
         var totalRooms = Number(standardRooms) + Number(deluxRooms) + Number(royalRooms);
-        if(Number(rooms) == totalRooms){
+        if(totalRooms > 0){
             console.log("AllChecked");
             var data = {checkIn: checkIn.val(),
                 checkOut: checkOut.val(),

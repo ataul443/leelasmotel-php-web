@@ -46,7 +46,7 @@ class AuthCheck extends Controller
         if($customerId){
             $customerIdFromCustomers = Customers::where('customerId',$customerId)->value('customerId');
             if($customerIdFromCustomers){
-                $name = Customers::where('customerId',$customerId)->value('customerName');
+                $name = Customers::where('customerId',$customerId)->value('name');
                 $mobile = Customers::where('customerId',$customerId)->value('mobile');
                 $address = Customers::where('customerId',$customerId)->value('address');
                 $this->userPersonalData = ['name'=>$name,'mobile'=>$mobile,'address'=>$address,'customerId'=>$customerId];

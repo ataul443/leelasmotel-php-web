@@ -27,8 +27,15 @@ class RoomAllotController extends Controller
     }
 
     public function roomAllotStatus($req,$res){
-        if(!$this->container->AuthCheck->status()){
-            return $res->withJson(['errorStack'=> 'access denied'],401);
+        $admin = isset($_SESSION['adminEmail']);
+        if($admin){
+            if(!$this->container->AuthCheck->statusAdmin()){
+                return $res->withJson(['errorStack'=> 'access denied'],401);
+            }
+        }else{
+            if(!$this->container->AuthCheck->status()){
+                return $res->withJson(['errorStack'=> 'access denied'],401);
+            }
         }
         $params = $req->getParams();
         $this->checkIn = html_entity_decode($params['checkIn']);
@@ -42,7 +49,10 @@ class RoomAllotController extends Controller
         $this->standard = html_entity_decode($params['standard']);
         $this->delux = html_entity_decode($params['delux']);
         $this->royal = html_entity_decode($params['royal']);
-        $customerPersonalData = $this->AuthCheck->getUserPersonalInfo();
+        if(!$admin){
+            $customerPersonalData = $this->AuthCheck->getUserPersonalInfo();
+        }
+        $customerPersonalData = 'ADMINXXX';
         $price = 0;
         $this->errorStack = $this->roomAllotter();
         if(!$this->errorStack){

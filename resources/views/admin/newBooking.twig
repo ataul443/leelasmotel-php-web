@@ -94,13 +94,13 @@
                                                 <label>Number Of Rooms </label>
                                             </div>
                                             <div class="col-sm-3">
-                                                <input type="text" class="form-control" id="" placeholder="Standard Rooms">
+                                                <input type="number" min="0" value="0" class="form-control" id="custStandardRooms" placeholder="Standard Rooms">
                                             </div>
                                             <div class="col-sm-3">
-                                                <input type="text" class="form-control" id="" placeholder="Delux rooms">
+                                                <input type="number" min="0" value="0" class="form-control" id="custDeluxRooms" placeholder="Delux rooms">
                                             </div>
                                             <div class="col-sm-3">
-                                                <input type="text" class="form-control" id="" placeholder="Royal Rooms">
+                                                <input type="number" min="0" value="0" class="form-control" id="custRoyalRooms" placeholder="Royal Rooms">
                                             </div>
                                         </div>
                                         <div class="row">
@@ -108,10 +108,10 @@
                                                 <label>Guest</label>
                                             </div>
                                             <div class="col-sm-3">
-                                                <input type="text" class="form-control" id="" placeholder="Adults">
+                                                <input type="number" min="1" value="1" class="form-control" id="custAdult" placeholder="Adults">
                                             </div>
                                             <div class="col-sm-3">
-                                                <input type="text" class="form-control" id="" placeholder="Children">
+                                                <input type="number" min="0" value="0"class="form-control" id="custChild" placeholder="Children">
                                             </div>
                                         </div>
                                         <div class="row">
@@ -119,13 +119,13 @@
                                                 <label>Check In</label>
                                             </div>
                                             <div class="col-sm-3">
-                                                <input type="text" class="form-control" id="" placeholder="Check In">
+                                                <input type="date" class="form-control" id="custCheckIn" placeholder="Check In">
                                             </div>
                                             <div class="col-sm-3">
                                                 <label>Check Out</label>
                                             </div>
                                             <div class="col-sm-3">
-                                                <input type="text" class="form-control" id="" placeholder="Check Out">
+                                                <input type="date" class="form-control" id="custCheckOut" placeholder="Check Out">
                                             </div>
                                         </div>
                                     </div>
@@ -134,7 +134,7 @@
                             </div>
                         </div>
 
-                        <button id="price-btn" class="filebtn" type="button" >Book Rooms</button>
+                        <button id="book-btn" class="filebtn" type="button" >Book Rooms</button>
                     </div>
 
 

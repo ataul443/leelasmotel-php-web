@@ -10,6 +10,20 @@
     color: #fff;
     padding: 10px;
     border-radius: 4px;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+.filebtn:hover {
+    background-color: #fff;
+    border: 1px solid #00b0ff;
+    color: #00b0ff;
+}
+
+::-webkit-file-upload-button:hover{
+    background-color: white;
+    border: 1px solid #aaa;
+    color: #828282;   
 }
 
 ::-webkit-file-upload-button{
@@ -18,4 +32,16 @@
 
 ::-webkit-input-placeholder{
     color: #00b0ff;
+}
+
+#upload-btn{
+    display: none;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
 }

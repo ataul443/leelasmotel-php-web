@@ -11,7 +11,7 @@ use App\Handlers\CounterHandler;
 use App\Handlers\BookingHandler;
 
 class BookingController extends Controller{
-    private $bookingHandler,$counterHandler;
+    private $bookingHandler,$counterHandler,$returnData;
 
     public function __construct($container)
     {
@@ -19,15 +19,18 @@ class BookingController extends Controller{
         $this->bookingHandler = new BookingHandler();
     }
 
-    public function booking($req,$res,$admin=null){
+    public function booking($req,$res){
+        $admin = isset($_SESSION['adminEmail']);
         if($admin){
             if(!$this->container->AuthCheck->statusAdmin()){
                 return $res->withJson(['errorStack'=> 'access denied'],401);
             }
+        }else{
+            if(!$this->container->AuthCheck->status()){
+                return $res->withJson(['errorStack'=> 'access denied'],401);
+            }
         }
-        if(!$this->container->AuthCheck->status()){
-            return $res->withJson(['errorStack'=> 'access denied'],401);
-        }
+
         $params = $req->getParams();
         $this->counterHandler = new CounterHandler();
         $bookingId = $this->counterHandler->getBookingId();
@@ -54,6 +57,7 @@ class BookingController extends Controller{
         $params['bookingId'] = $bookingId;
 
         $data = $params;
+        $this->returnData =$data;
         $this->bookingHandler->addBookingRecord($data);
         $this->counterHandler->updateCounter('bookingCounter');
         return $res->withJson($data);
