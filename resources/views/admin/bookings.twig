@@ -4,6 +4,11 @@
     Bookings | Leelas Motel
 {% endblock %}
 
+{% block pageCss %}
+    <link rel="stylesheet" href="{{ base_url() }}/admin/css/webEdit.css">
+    <link rel="stylesheet" href="{{ base_url() }}/admin/css/bookingForm.css">
+{% endblock %}
+
 {% block content %}
     {% include 'templates/partials/admin/navigation.twig' with {'bookings': 'active'} %}
     <div class="main-panel">
@@ -99,8 +104,8 @@
                                     <div id="action-container" style="display: flex;">
                                         <select id="action-selector" class="form-control" id="recordsPerPage" style="width:180px;">
                                             <option selected>What to do?</option>
-                                            <option>Completed</option>
-                                            <option>Cancel</option>
+                                            <option>Send Message</option>
+                                            <option>Cancel Booking</option>
                                         </select>
                                         <button style="display: inline-block;" class="form-control btn-info btn-fill" id="action-btn">Submit
                                             <style type="text/css">

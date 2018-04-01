@@ -58,7 +58,7 @@ class BookingsAdmin extends Controller
         foreach ($bookings as $booking){
             $id = $booking->bookingId;
             $data = $data.<<< EOD
-            <tr>                                <td id=" -{$id}">...</td>
+            <tr>                                <td id=" -{$id}"><input class="styled-checkbox" id="styled-checkbox-2" type="checkbox" value="value2"><label for="styled-checkbox-2"> </label></td>
                                                 <td id="id-{$id}">{$id}</td>
                                                 <td id="name-{$id}">{$booking->name}</td>
                                                 <td id="mobile-{$id}">{$booking->mobile}</td>

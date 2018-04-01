@@ -19,3 +19,19 @@ $("#price-btn").click(function(){
         }
     })
 })
+
+var uploadFile  = $("input[type=file]");
+
+// if(uploadFile[0].val()!=""){
+//     $("#upload-btn").hide(200);
+// }
+
+$(uploadFile[0]).change(function(e) {
+    var val = $(this).val();
+   if (val != "") {
+    $("#upload-btn").show();
+   }
+   else{
+    $("#upload-btn").hide();       
+   }
+});
