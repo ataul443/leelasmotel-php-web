@@ -1,0 +1,21 @@
+.form-control, .input-group-addon {
+    border: 1px solid #b5b5b5;
+    background-color: #FFF;
+}
+
+::-webkit-file-upload-button, .filebtn{
+    background-color: #00b0ff;
+    border: 0;
+    outline: 0;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+::-webkit-file-upload-button{
+    background-color: #999999;
+}
+
+::-webkit-input-placeholder{
+    color: #00b0ff;
+}
