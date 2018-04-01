@@ -158,3 +158,12 @@ function personalInfoElementValidator(element){
         return checkInvalidState(element);
     }
 }
+
+// function for disabling every input field
+
+function disableAll(value){
+    if(value){
+        var x = $("input");
+        $(x).attr("disabled", "disabled");
+    }
+}
