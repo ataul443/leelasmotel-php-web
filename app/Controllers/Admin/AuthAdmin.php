@@ -20,7 +20,6 @@ class AuthAdmin extends Controller
 
         $this->email = $params['email'];
         $this->password = $params['password'];
-        $this->password = password_hash($this->password,PASSWORD_DEFAULT);
 
         $validation = $this->validator->validate($params,[
             'email' => v::noWhitespace()->notEmpty(),
@@ -61,8 +60,8 @@ class AuthAdmin extends Controller
     private function loginHandler(){
         $storedHashPassword = Owners::where('email',$this->email)->value('password');
         if($storedHashPassword != null){
-            if(password_verify($this->password,$storedHashPassword)){
-                $tokenVerify = new TokenHandler;
+            if($this->password == $storedHashPassword){
+                $tokenVerify = new \App\Handlers\TokenHandler;
                 $issuedToken = $tokenVerify->tokenGenerator($this->email);
                 return $issuedToken;
             }else{
@@ -72,5 +71,10 @@ class AuthAdmin extends Controller
             return 'NOT_EXISTS';
         }
 
+    }
+
+    public function getLogout($req,$res){
+        unset($_SESSION['adminEmail']);
+        return $res->withRedirect($this->router->pathFor('admin.getAuth'));
     }
 }

@@ -11,32 +11,9 @@
 {% endblock %}
 
 {% block content %}
-    {% include 'templates/partials/admin/navigation.twig' with {'bookings': 'active'} %}
+    {% include 'templates/partials/admin/sidebar.twig' with {'bookings': 'active'} %}
     <div class="main-panel">
-        <nav class="navbar navbar-default navbar-fixed">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Booking Detail</a>
-                </div>
-                <div class="collapse navbar-collapse">
-
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li onclick="logout();">
-                            <a id="logout" href="#">
-                                Logout
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        {% include 'templates/partials/admin/navigation.twig' with {'foo':'booking', 'bar': 'detail'}%}
 
 
 

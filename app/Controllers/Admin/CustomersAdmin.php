@@ -98,8 +98,10 @@ EOD;
         $data = "";
         foreach ($customers as $customer){
             $id = $customer->customerId;
+            //<td id=" -{$id}"><input name="actionBox" class="styled-checkbox" id=" --{$id}" type="checkbox" value="value2"><label for=" --{$id}"> </label></td>
             $data = $data.<<< EOD
-            <tr>                                <td id=" -{$id}"><input name="actionBox" class="styled-checkbox" id=" --{$id}" type="checkbox" value="value2"><label for=" --{$id}"> </label></td>
+
+            <tr>                                
                                                 <td id="id-{$id}">{$id}</td>
                                                 <td id="name-{$id}">{$customer->name}</td>
                                                 <td id="mobile-{$id}">{$customer->mobile}</td>

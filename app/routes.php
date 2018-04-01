@@ -21,6 +21,7 @@ $app->get('/admin/dashboard','AdminDashboardController:getDashboard')->setName('
 
 
 $app->get('/admin/auth','AdminAuthController:getAuth')->setName('admin.getAuth');
+$app->get('/admin/auth/logout','AdminAuthController:getLogout')->setName('admin.logout');
 $app->post('/admin/auth','AdminAuthController:postAuth');
 
 $app->get('/admin/webedit','AdminWebEditController:getWebEdit')->setName('admin.webedit');
