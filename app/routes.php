@@ -26,6 +26,7 @@ $app->get('/admin/webedit','AdminWebEditController:getWebEdit')->setName('admin.
 $app->post('/admin/webedit','AdminWebEditController:postPic');
 $app->post('/admin/webedit/setprice','AdminWebEditController:postPrice');
 $app->post('/admin/bookings','AdminBookingsController:postBookingList');
+$app->post('/admin/bookings/search','AdminBookingsController:postSearch');
 $app->get('/admin/bookings','AdminBookingsController:getBookings');
 /*
 $app->group('/api', function () use ($app) {
