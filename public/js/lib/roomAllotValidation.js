@@ -118,6 +118,8 @@ function payloadMakerForBooking(data,nameElement,addressElement,priceElement,che
          * Please paste here code for indicating error for not availability of given numbers of rooms;
          * error text is in variable error;
          */
+        alert(error);
+        window.location.reload();
         return
     }
     var roomAllotted = (data.roomAllotted).toString();

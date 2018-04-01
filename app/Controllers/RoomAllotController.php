@@ -52,7 +52,7 @@ class RoomAllotController extends Controller
         if(!$admin){
             $customerPersonalData = $this->AuthCheck->getUserPersonalInfo();
         }
-        $customerPersonalData = 'ADMINXXX';
+        $customerPersonalData = ['customerId'=>'ADMINXXX'];
         $price = 0;
         $this->errorStack = $this->roomAllotter();
         if(!$this->errorStack){
