@@ -81,3 +81,103 @@ function searchByName(offset){
     })
     }
 }
+
+function actionManager() {
+    var action = $("#action-selector option:selected").val();
+
+    if (action == "What to do?") {
+        return null;
+    } else if (action == "Check Out") {
+        action = "checkout";
+    } else if (action == "Cancel") {
+        action = "canceled";
+    }
+    return action;
+}
+
+function selectedId() {
+    var selectedRows = $("tr input[name='actionBox']:checked");
+        mobiles = {};
+
+    for (var item of selectedRows) {
+        var temp = item.id.split(" --");
+        var id = temp[1];
+        var mobile = $('#mobile-'+id).text();
+        var customerName = $('#name-'+id).text();
+        mobiles[customerName] = [mobile];
+        console.log(mobiles);
+    }
+    return  mobiles;
+}
+
+
+$("#action-btn").click(function() {
+    var mobilesArray = selectedId();
+    var names = Object.keys(mobiles);
+
+    checkOut(mobilesArray,names);
+    return;
+});
+
+function checkOut(mobilesArray,names){
+    $("#action-btn").text("Submitting");
+    for(var name of names){
+        // noinspection JSAnnotator
+        var mobile = mobilesArray[`${name}`][0];
+        var msgCheckout = `Dear ${name}\n\nThank you for your stay.\n\nLeelas Motel`;
+        var action = actionManager();
+        if (action != "checkout") {
+            //var msg = Canceled;
+            return;
+        } else {
+            msg = msgCheckout;
+        }
+        msg = encodeURI(msg);
+        makeCorsRequest(mobile, msg);
+        $("#action-btn").text("Submit");
+    }
+}
+
+function createCORSRequest(method, url) {
+    var xhr = new XMLHttpRequest();
+    if ("withCredentials" in xhr) {
+        // XHR for Chrome/Firefox/Opera/Safari.
+        xhr.open(method, url, true);
+    } else if (typeof XDomainRequest != "undefined") {
+        // XDomainRequest for IE.
+        xhr = new XDomainRequest();
+        xhr.open(method, url);
+    } else {
+        // CORS not supported.
+        xhr = null;
+    }
+    return xhr;
+}
+
+// Helper method to parse the title tag from the response.
+function getTitle(text) {
+    return text.match("<title>(.*)?</title>")[1];
+}
+
+// Make the actual CORS request.
+function makeCorsRequest(mobile, msg) {
+    // This is a sample server that supports CORS.
+    // noinspection JSAnnotator
+    var url = `http://203.129.225.68/API/WebSMS/Http/v1.0a/index.php?username=recentopt&password=123456&sender=LEELASMOTEL&to=${mobile}&message=${msg}&reqid=1&format={json|text}&route_id=334`;
+
+    var xhr = createCORSRequest("GET", url);
+    if (!xhr) {
+        alert("CORS not supported");
+        return;
+    }
+
+    // Response handlers.
+    xhr.onload = function() {
+        var text = xhr.responseText;
+        var title = getTitle(text);
+    };
+
+    xhr.onerror = function() {};
+
+    xhr.send();
+}

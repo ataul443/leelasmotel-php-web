@@ -30,11 +30,13 @@ $app->post('/admin/webedit/setprice','AdminWebEditController:postPrice');
 
 $app->post('/admin/bookings','AdminBookingsController:postBookingList');
 $app->post('/admin/bookings/search','AdminBookingsController:postSearch');
+$app->get('/admin/bookings/detail/{id}','AdminBookingsController:getDetail');
 $app->get('/admin/bookings','AdminBookingsController:getBookings')->setName('admin.bookings');
 
 
 $app->get('/admin/customers','AdminCustomersController:getCustomers')->setName('admin.customers');
 $app->post('/admin/customers','AdminCustomersController:postCustomerList');
+$app->get('/admin/customers/detail/{id}','AdminCustomersController:getDetail');
 $app->post('/admin/customers/search','AdminCustomersController:postSearch');
 
 $app->get('/admin/newbooking','AdminNewBookingController:getNewBooking')->setName('admin.newbooking');

@@ -12,6 +12,14 @@ bookroombtn.click(function(){
     var checkIn = $("#custCheckIn");
     var checkOut = $("#custCheckOut");
     var data = validate(standardRooms,deluxRooms,royalRooms,adults,childs,checkIn,checkOut);
+    var name = personalInfoElementValidator($("#custBookingFormName"));
+    var mobile = personalInfoElementValidator($("#custBookingFormContact"));
+    var address = personalInfoElementValidator($("#custBookingFormAddress"));
+
+    if(!(name && mobile && address)){
+        console.log('wrong value 2');
+        return
+    }
 
 
 
@@ -66,10 +74,12 @@ function payloadMakerForBooking(data,nameElement,addressElement,checkInElement,c
          * Please paste here code for indicating error for not availability of given numbers of rooms;
          * error text is in variable error;
          */
+        alert(error);
+        window.location.reload();
         return
     }
     var roomAllotted = (data.roomAllotted).toString();
-    var customerId = data.customerId;
+    var customerId = data.customerData.customerId;
     var checkIn =checkInElement.val();
     var checkOut = checkOutElement.val();
     var price = data.totalCost;
