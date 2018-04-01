@@ -36,6 +36,8 @@ $app->get('/admin/bookings','AdminBookingsController:getBookings')->setName('adm
 $app->get('/admin/customers','AdminCustomersController:getCustomers')->setName('admin.customers');
 $app->post('/admin/customers','AdminCustomersController:postCustomerList');
 $app->post('/admin/customers/search','AdminCustomersController:postSearch');
+
+$app->get('/admin/newbooking','AdminNewBookingController:getNewBooking')->setName('admin.newbooking');
 /*
 $app->group('/api', function () use ($app) {
     $app->get('/secret', function ($request, $response) {

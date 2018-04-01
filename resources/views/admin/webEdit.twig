@@ -1,18 +1,16 @@
 {% extends 'templates/baseAdmin.twig' %}
 
 {% block title %}
-    Dashboard | Leelas Motel
+    Website Management | Leelas Motel
 {% endblock %}
 
 {% block pageCss %}
     <link rel="stylesheet" href="{{ base_url() }}/admin/css/webEdit.css">
-
-    <link rel="stylesheet" href="{{ base_url() }}/admin/css/bookingForm.css">
 {% endblock %}
 
 {% block content %}
     {% include 'templates/partials/admin/navigation.twig' with {'webedit': 'active'} %}
-    <div class="main-panel" style="height: auto; max-height: fit-content">
+    <div class="main-panel">
         <nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -47,32 +45,21 @@
                     <div class="col-md-10 col-md-offset-1">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Enter Your Details</h4>
+                                <h4 class="title">Upload Images</h4>
                             </div>
                             <span id="customerSpan" style="margin:15px;color:red;font-size:12px;" class="hidden">Fields Marked * are required!</span>
                             <div class="content">
                                 <form id="form-box" action="{{ path_for('admin.webedit') }}" method="post" enctype="multipart/form-data">
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <label for="custBookingFormName" class="col-sm-2 col-form-label">Name</label>
-                                            <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="custBookingFormName" placeholder="Your Name">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <label for="custBookingFormContact" class="col-sm-2 col-form-label">Contact No.</label>
-                                            <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="custBookingFormContact" placeholder="Your Contact number">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <label for="custBookingFormAddress" class="col-sm-2 col-form-label">Address</label>
-                                            <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="custBookingFormAddress" placeholder="Your Address">
+                                    <div class="row">
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <p>
+                                                    <label>Add files (up to 3): </label><br/>
+                                                    <input type="file" name="example2[]" multiple="multiple"/><br/>
+                                                    <input type="text" id="category" name="category" value="mainBanner" style="display:none;">
+                                                </p>
+                                                <input type="submit" id="upload-btn" class="filebtn"  name="submit" value="Upload File Now" >
                                             </div>
                                         </div>
                                     </div>
@@ -83,58 +70,30 @@
 
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Enter Booking Details</h4>
+                                <h4 class="title">Set Price</h4>
                             </div>
                             <span id="customerSpan" style="margin:15px;color:red;font-size:12px;" class="hidden">Fields Marked * are required!</span>
                             <div class="content">
                                 <form class="form-inline" id="form-box" action="{{ path_for('admin.webedit') }}" method="post" enctype="multipart/form-data">
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-sm-2">
-                                            <label>Number Of Rooms </label>
-                                            </div>
-                                            <div class="col-sm-3">
-                                            <input type="text" class="form-control" id="" placeholder="Standard Rooms">
-                                            </div>
-                                            <div class="col-sm-3">
-                                            <input type="text" class="form-control" id="" placeholder="Delux rooms">
-                                            </div>
-                                            <div class="col-sm-3">
-                                            <input type="text" class="form-control" id="" placeholder="Royal Rooms">
+                                    <div class="row">
+                                        <p style="padding: 0 15px;">Set category and enter the price : </p>
+                                        <div class="col-md-4">
+                                            <div style="display: flex; margin: 15px;">
+                                                <select id="status-selector" class="form-control" id="recordsPerPage" style="width:150px;">
+                                                    <option selected>Category</option>
+                                                    <option>Standard Rooms</option>
+                                                    <option>Delux Rooms</option>
+                                                    <option>Royal Rooms</option>
+                                                </select>
+                                                <input style="margin-left: 20px;" type="number" class="form-control"placeholder="Price">
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-sm-2">
-                                            <label>Guest</label>
-                                            </div>
-                                            <div class="col-sm-3">
-                                            <input type="text" class="form-control" id="" placeholder="Adults">
-                                            </div>
-                                            <div class="col-sm-3">
-                                            <input type="text" class="form-control" id="" placeholder="Children">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-2">
-                                            <label>Check In</label>
-                                            </div>
-                                            <div class="col-sm-3">
-                                            <input type="text" class="form-control" id="" placeholder="Check In">
-                                            </div>
-                                            <div class="col-sm-3">
-                                            <label>Check Out</label>
-                                            </div>
-                                            <div class="col-sm-3">
-                                            <input type="text" class="form-control" id="" placeholder="Check Out">
-                                            </div>
-                                        </div>
-                                    </div>    
+                                    </div>
                                     <div class="clearfix"></div>
                                 </form>
+                                <button id="price-btn" class="filebtn" type="button" >Set Price</button>
                             </div>
                         </div>
-                        
-                        <button id="price-btn" class="filebtn" type="button" >Book Rooms</button>
                     </div>
 
 
