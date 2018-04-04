@@ -2,11 +2,18 @@ var bookroombtn = $("#bookRoomBtn");
 var bookRoom = $("#bookRoom")
 var bookDet = $("#bookDet");
 
+//Room Count by Category Wise
+var standardRooms = $("#selectStdRoom");
+var deluxRooms = $("#selectDeluxRoom");
+var royalRooms = $("#selectSuperRoom");
+//------------------------------------
+
+
+
+
 bookroombtn.click(function(){
     var rooms = $("#selectRoomNo");
-    var standardRooms = $("#selectStdRoom");
-    var deluxRooms = $("#selectDeluxRoom");
-    var royalRooms = $("#selectSuperRoom");
+
     var adults = $("#selectGuestAdult");
     var childs = $("#selectGuestChild");
 
@@ -46,9 +53,37 @@ bookroombtn.click(function(){
                     return;
                 }
                 var payload = payloadMakerForBooking(data,name,address,price,checkIn,checkOut,mobile);
+                console.log(payload);
                 if(!payload){
                     return;
                 }
+                /**
+                 * Code For Updating summary will go here;
+                 */
+                var adult = payload.adult;
+                var child = payload.child;
+                var checkin = payload.checkIn;
+                var checkout = payload.checkOut;
+                var cost = payload.price;
+
+                $("#standardCount").text(standardRooms.val());
+                $("#deluxCount").text(deluxRooms.val());
+                $("#royalCount").text(royalRooms.val());
+
+                $("#adultCount").text(adult);
+                checkin = new Date(checkin);
+                checkout = new Date(checkout);
+                checkin = dateFormatter(checkin);
+                checkout = dateFormatter(checkout);
+                $("#checkinCount").text(checkin);
+                $("#checkoutCount").text(checkout);
+                $("#childCount").text(child);
+                $("#totalPriceSum").text(cost);
+
+                //---------------
+
+
+
                 window.localStorage.setItem('bookingPayload',JSON.stringify(payload));
                 bookRoom.css(
                     'transform' , 'rotateY(90deg)'
@@ -112,7 +147,7 @@ bookDetBtn.click(function(){
 
 
 function payloadMakerForBooking(data,nameElement,addressElement,priceElement,checkInElement,checkOutElement,mobileElement){
-    console.log('payload data',data);
+    //console.log('payload data',data);
     var adult = data.adult;
     var child = data.child;
     if(data.roomAllotted == null){
@@ -130,7 +165,8 @@ function payloadMakerForBooking(data,nameElement,addressElement,priceElement,che
     var customerId = data.customerData.customerId;
     var checkIn =checkInElement.val();
     var checkOut = checkOutElement.val();
-    var price = priceElement.text();
+    var price = data.totalCost;
+    priceElement.text(price);
 
     if(Object.keys(data.customerData).length > 2){
         console.log('Running');
@@ -185,7 +221,7 @@ function validate(rooms,standardRooms,deluxRooms,royalRooms,adults,childs,checkI
     console.log(adults,childs,dateFlag);
     if(rooms && standardRooms && deluxRooms && royalRooms && adults && childs && dateFlag){
         var totalRooms = Number(standardRooms) + Number(deluxRooms) + Number(royalRooms);
-        if(Number(rooms) == totalRooms){
+        if(Number(rooms) == totalRooms && (totalRooms <=16 && totalRooms >0)){
             roomElement.css({border: ''});
             console.log("AllChecked");
             var data = {checkIn: checkIn.val(),

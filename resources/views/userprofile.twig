@@ -43,13 +43,14 @@
             <div id="lastBooking">
                 <h3>Bookings</h3>
                 <table spacing = "0">
-                    {% for booking in auth.profile.allBooking %}
                     <tr>
                         <th>Booking Id</th>
                         <th>Check In</th>
                         <th>Check Out</th>
                         <th>Price</th>
                     </tr>
+                    {% for booking in auth.profile.allBooking %}
+
                     <tr>
                         <td>{{ booking.bookingId }}</td>
                         <td>{{ booking.checkIn }}</td>

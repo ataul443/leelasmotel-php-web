@@ -51,10 +51,12 @@ class RoomAllotController extends Controller
         $this->royal = html_entity_decode($params['royal']);
         if(!$admin){
             $customerPersonalData = $this->AuthCheck->getUserPersonalInfo();
+        }else{
+            $customerPersonalData = ['customerId'=>'ADMINXXX'];
         }
-        $customerPersonalData = ['customerId'=>'ADMINXXX'];
+
         $price = 0;
-        $this->errorStack = $this->roomAllotter();
+        $this->errorStack = $this->roomAllotter(false);
         if(!$this->errorStack){
             $this->errorStack = "";
         }else{
@@ -67,11 +69,14 @@ class RoomAllotController extends Controller
             $roomPrice = $this->counterHandler->getRoomPrice($room);
             $price += (int) $roomPrice;
         }
+
+        $_SESSION['bookingCriticalData']['price'] = $price;
+
         return $res->withJson(['errorStack'=>$this->errorStack,'adult'=>$this->adult,'child'=>$this->child,'roomAllotted'=>$this->roomToFill,'customerData'=>$customerPersonalData,'totalCost'=>$price]);
 
     }
 
-    private function roomAllotter(){
+    private function roomAllotter($dataUpdateTrigger){
         $this->roomStatus = $this->availabilityHandler->availableRoomData($this->checkIn,$this->checkOut);
 
         $standardRoomCount = count($this->roomStatus['standard']);
@@ -111,7 +116,9 @@ class RoomAllotController extends Controller
 
             $dates = $this->availabilityHandler->date_range($this->checkIn,$this->checkOut);
            // print_r($dates);
+            $_SESSION['bookingCriticalData'] = ['dates'=>$dates,'roomToFill'=>$this->roomToFill,'price'=>null];
             $this->availabilityHandler->updateRecord($dates,$this->roomToFill);
+
 
         }
         return $errorException;

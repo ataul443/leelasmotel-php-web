@@ -9,6 +9,7 @@
 namespace App\Controllers;
 use App\Handlers\CounterHandler;
 use App\Handlers\BookingHandler;
+use App\Handlers\AvailabilityHandler;
 
 class BookingController extends Controller{
     private $bookingHandler,$counterHandler,$returnData;
@@ -32,6 +33,31 @@ class BookingController extends Controller{
         }
 
         $params = $req->getParams();
+        $_SESSION['confirmBookingData'] = $params;
+        $_SESSION['paymentStatus'] = true;
+
+        //Payment Gateway Setup Here;
+
+
+        //---------------------------
+        $flag = $this->confirmBooking();
+        if($flag == 'CANCEL_SUCCESS'){
+            return $res->withJson(['error'=>'cancel_rooms'],401);
+        }else{
+            return $res->withJson(['bookingTicket'=>$flag]);
+        }
+
+    }
+
+    private function confirmBooking(){
+        if($_SESSION['paymentStatus'] == false){
+            $dates = $_SESSION['bookingCriticalData']['dates'];
+            $roomToFill = $_SESSION['bookingCriticalData']['roomToFill'];
+            $availabilityHandler = new AvailabilityHandler();
+            return $availabilityHandler->cancelBooking($dates,$roomToFill);
+
+        }
+        $params = $_SESSION['confirmBookingData'];
         $this->counterHandler = new CounterHandler();
         $bookingId = $this->counterHandler->getBookingId();
 
@@ -57,11 +83,14 @@ class BookingController extends Controller{
         $params['bookingId'] = $bookingId;
 
         $data = $params;
-        $this->returnData =$data;
+        $this->returnData = $data;
         $this->bookingHandler->addBookingRecord($data);
         $this->counterHandler->updateCounter('bookingCounter');
-        return $res->withJson($data);
+        return $data;
 
 
     }
+
+
 }
+

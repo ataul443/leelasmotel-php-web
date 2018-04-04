@@ -131,4 +131,40 @@ class AvailabilityHandler
     public function getPersonalInfo(){
 
     }
+
+    public function cancelBooking(array $dates, array $roomsToFilled){
+        $countDate = count($dates);
+
+        if($countDate < 3){
+            $this->popRoomData($dates[0],$roomsToFilled);
+        }else{
+            for($i = 0;$i <$countDate - 1;$i++){
+                $this->popRoomData($dates[$i],$roomsToFilled);
+            }
+        }
+        return "CANCEL_SUCCESS";
+    }
+
+    private function popRoomData($dateOnly, array $roomsToFilled){
+        $dateInRecordStr = Availability::where('date',$dateOnly)->value('roomFilled');
+
+        // echo "Before loop dateInRecordStr; $dateInRecordStr";
+
+        if($dateInRecordStr){
+            $roomAlreadyFilledData = explode(',', $dateInRecordStr);
+            foreach ( $roomAlreadyFilledData as $room) {
+                $newRoomsToFilled = array_diff($roomAlreadyFilledData,$roomsToFilled);
+            }
+            if(count($newRoomsToFilled) > 0){
+                $roomsToFilledStr = implode(',',$newRoomsToFilled);
+                // echo "After loop roomsToFilledStr; $roomsToFilledStr";
+                Availability::where('date',$dateOnly)->update(['roomFilled'=>$roomsToFilledStr]);
+            }else{
+                Availability::where('date',$dateOnly)->delete();
+            }
+
+        }else{
+            return false;
+        }
+    }
 }
