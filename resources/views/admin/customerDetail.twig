@@ -19,10 +19,10 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
+                        <!--Personal Information -->
                         <div class="card">
                             <div class="header">
-                                <h4 id="status-heading" class="title"> All Bookings</h4>
-                                <p class="category">Below bookings are in order of new to old.</p>
+                                <h4 id="status-heading" class="title"> Personal Information</h4>
                             </div>
 
                             <div class="content">
@@ -30,7 +30,7 @@
                                         <div class="row">
                                             <p class="col-sm-2 col-xs-3">name</p>
                                             <div class="col-sm-4 col-xs-3">
-                                                <p>L875RG<p>
+                                                <p>Somya Jain<p>
                                             </div>
                                             <p class="col-sm-2 col-xs-3">Customer ID</p>
                                             <div class="col-sm-4 col-xs-3">
@@ -48,6 +48,15 @@
                                             </div>
                                         </div>
                                     </div>
+                            </div>
+
+
+                        </div>
+                        
+                        <div class="card">
+                            <div class="header">
+                                <h4 id="status-heading" class="title"> All Bookings</h4>
+                                <p class="category">Below bookings are in order of new to old.</p>
                             </div>
 
                             <!-- Booking Table-->
@@ -82,17 +91,17 @@
                             </div>
 
 
-                        </div>
+                        </div>                        
+
+                        {% include 'templates/partials/admin/footer.twig' %}
+
                     </div>
                 </div>
             </div>
         </div>
-
-
-
     </div>
 
-    {% include 'templates/partials/admin/footer.twig' %}
+
 {% endblock %}
 
 {% block pageJs %}
