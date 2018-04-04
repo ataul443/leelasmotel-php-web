@@ -56,6 +56,8 @@ bookroombtn.click(function(){
                 bookDet.css(
                     'transform', 'rotateY(0deg)'
                 );
+
+
                 $("#cssmenu ul li:nth-of-type(4)").removeClass("doing").addClass("done");
                 $("#cssmenu ul li:nth-of-type(3)").removeClass("nextStep").addClass("doing");
                 $('html, body').animate({
@@ -82,7 +84,9 @@ bookDetBtn.click(function(){
     var name = personalInfoElementValidator($("#bookername"));
     var mobile = personalInfoElementValidator($("#bookerno"));
     var address = personalInfoElementValidator($("#bookerAdd"));
-
+    payload.name = name;
+    payload.mobile = mobile;
+    payload.address = address;
     if(!(name && mobile && address)){
         console.log('wrong value 2');
         return
@@ -128,25 +132,18 @@ function payloadMakerForBooking(data,nameElement,addressElement,priceElement,che
     var checkOut = checkOutElement.val();
     var price = priceElement.text();
 
-    if(Object.keys(data).length > 2){
+    if(Object.keys(data.customerData).length > 2){
         console.log('Running');
         nameElement.val(data.customerData.name);
         mobileElement.val(data.customerData.mobile);
         addressElement.val(data.customerData.address);
 
-    }
-    var name = nameElement.val();
-    var mobile = mobileElement.val();
-    var address = addressElement.val();
+        var name = nameElement.val();
+        var mobile = mobileElement.val();
+        var address = addressElement.val();
 
-    name = personalInfoElementValidator(nameElement);
-    mobile = personalInfoElementValidator(mobileElement);
-    address = personalInfoElementValidator(addressElement);
-
-    if(!(name && mobile && address)){
-        console.log('wrong value 2');
-        return
     }
+
 
     var payload = {
         adult : adult,
@@ -176,6 +173,7 @@ function bookingConfirm(payloadBooking){
 
 function validate(rooms,standardRooms,deluxRooms,royalRooms,adults,childs,checkIn,checkOut){
     var flag = true;
+    roomElement = rooms;
     rooms = checkInvalidElement(rooms,1);
     standardRooms = checkInvalidElement(standardRooms,0);
     deluxRooms = checkInvalidElement(deluxRooms,0);
@@ -188,16 +186,18 @@ function validate(rooms,standardRooms,deluxRooms,royalRooms,adults,childs,checkI
     if(rooms && standardRooms && deluxRooms && royalRooms && adults && childs && dateFlag){
         var totalRooms = Number(standardRooms) + Number(deluxRooms) + Number(royalRooms);
         if(Number(rooms) == totalRooms){
+            roomElement.css({border: ''});
             console.log("AllChecked");
             var data = {checkIn: checkIn.val(),
-                checkOut: checkOut.val(),
-                child: childs,
-                adult: adults,
-                standard: standardRooms,
-                delux: deluxRooms,
-                royal: royalRooms}
+                        checkOut: checkOut.val(),
+                        child: childs,
+                        adult: adults,
+                        standard: standardRooms,
+                        delux: deluxRooms,
+                        royal: royalRooms}
             return data;
         }else{
+            roomElement.css({border: '1px solid red'});
             console.log("wrong");
             return false;
         }

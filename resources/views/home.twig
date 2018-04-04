@@ -98,24 +98,24 @@ Leelas Motel - An Elegant Stay
         <div id="rooms">
             <div>
                 <div>
-                    <p id="roomType">Luxury Room</p>
-                    <span id="price">$150</span>
+                    <p id="roomType">Standard Rooms</p>
+                    <span id="price">{{ price.standard }}</span>
                     <span>/day</span>
                 </div>
                 <p id="show">Show More...</p>
             </div>
             <div>
                 <div>
-                    <p id="roomType">Luxury Room</p>
-                    <span id="price">$150</span>
+                    <p id="roomType">Deluxe Room</p>
+                    <span id="price">{{ price.delux }}</span>
                     <span>/day</span>
                 </div>
                 <p id="show">Show More...</p>
             </div>
             <div>
                 <div>
-                    <p id="roomType">Luxury Room</p>
-                    <span id="price">$150</span>
+                    <p id="roomType">Royal Rooms</p>
+                    <span id="price">{{ price.royal }}</span>
                     <span>/day</span>
                 </div>
                 <p id="show">Show More...</p>
@@ -143,7 +143,9 @@ Leelas Motel - An Elegant Stay
                     <div id="roomDet">
                         <div>
                             <p id="typePrice">$150</p>
-                            <button>BOOK</button>
+                            <form action="{{ path_for('booking.roomAllot') }}" method="get">
+                                <button>Book</button>
+                            </form>
                         </div>
                     </div>
                 </div>

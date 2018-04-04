@@ -144,3 +144,6 @@ var rev = $('#reviews>div');
             $("#superDeluxRoomsAvail").text(royalRoomsAvailable);
 
         }
+
+
+        function getPrice(){}
