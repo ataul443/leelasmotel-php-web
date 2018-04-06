@@ -17,7 +17,7 @@ class BookingHandler {
         $this->updateCustomer($data);
     }
 
-    private function updateCustomer($params){
+    public function updateCustomer($params,$update=null){
         $customerId = html_entity_decode($params['customerId']);
         $name = html_entity_decode($params['name']);
         $mobile = html_entity_decode($params['mobile']);
@@ -25,6 +25,8 @@ class BookingHandler {
 
         if(!Customers::where('customerId',$customerId)->exists()){
             Customers::insert(['customerId'=>$customerId,'name'=>$name,'mobile'=>$mobile,'address'=>$address]);
+        }else if($update){
+            Customers::where('customerId',$customerId)->update(['name'=>$name,'mobile'=>$mobile,'address'=>$address]);
         }else{
             return;
         }

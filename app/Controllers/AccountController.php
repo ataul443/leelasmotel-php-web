@@ -7,8 +7,8 @@
  */
 
 namespace App\Controllers;
+use App\Handlers\BookingHandler;
 use App\Handlers\AccountHandler;
-
 class AccountController extends Controller{
     protected $userData;
     protected $accountHandler;
@@ -37,5 +37,21 @@ class AccountController extends Controller{
             $this->errorStack = 'Error';
             return $this->view->render($res,'userprofile.twig');
         }
+    }
+
+    public function updateAccount($req,$res){
+        $user = $this->AuthCheck->getUserData();
+        $bookingHandler = new BookingHandler();
+        $params = $req->getParams();
+        $params['customerId'] = $user['customerId'];
+        $bookingHandler->updateCustomer($params,true);
+        return $res->withJson(['status'=>'ok',200]);
+    }
+
+    public function getUpdateProfile($req,$res){
+        if(!$this->container->AuthCheck->status()){
+            return $res->withJson(['errorStack'=> 'access denied'],401);
+        }
+        return $this->view->render($res,'updateProfile.twig');
     }
 }

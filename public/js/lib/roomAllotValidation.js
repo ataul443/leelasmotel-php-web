@@ -122,9 +122,16 @@ bookDetBtn.click(function(){
     payload.name = name;
     payload.mobile = mobile;
     payload.address = address;
-    if(!(name && mobile && address)){
+    if(!(name && address)){
         console.log('wrong value 2');
         return
+    }
+    if(mobile.length != 10){
+        if(!$("#bookerno").hasClass('incorrect')){
+            $("#bookerno").addClass('incorrect');
+        }
+    }else{
+        $("#bookerno").removeClass('incorrect');
     }
     if(!payload){
         alert('Info not complete');
@@ -220,6 +227,9 @@ function validate(rooms,standardRooms,deluxRooms,royalRooms,adults,childs,checkI
     var dateFlag = checkInvalidDateElement(checkIn,checkOut);
     console.log(adults,childs,dateFlag);
     if(rooms && standardRooms && deluxRooms && royalRooms && adults && childs && dateFlag){
+        if(checkIn.hasClass('incorrect')){
+            checkIn.removeClass('incorrect');
+        }
         var totalRooms = Number(standardRooms) + Number(deluxRooms) + Number(royalRooms);
         if(Number(rooms) == totalRooms && (totalRooms <=16 && totalRooms >0)){
             roomElement.css({border: ''});
@@ -240,6 +250,9 @@ function validate(rooms,standardRooms,deluxRooms,royalRooms,adults,childs,checkI
 
 
     }else{
+        if(!checkIn.hasClass('incorrect')){
+            checkIn.addClass('incorrect');
+        }
             console.log("main wrong");
         return false;
     }

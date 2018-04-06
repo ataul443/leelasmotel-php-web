@@ -160,3 +160,14 @@ function dateFormatter(dateObject){
                 var dateString = dateObject.getDate() + '-' + dateObject.getMonth() + '-' + dateObject.getFullYear();
                 return dateString;
 }
+
+function personalInfoElementValidator(element){
+    if(!checkInvalidState(element)){
+        if(!element.hasClass("incorrect")){
+            element.addClass("incorrect");
+        }
+    }else{
+        element.removeClass("incorrect");
+        return checkInvalidState(element);
+    }
+}

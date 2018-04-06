@@ -1,6 +1,7 @@
 <?php
 
 use \App\Middlewares\AuthStatus;
+use \App\Middlewares\AuthValid;
 
 $app->get('/', 'HomeController:index')->setName('home');
 
@@ -9,13 +10,21 @@ $app->group('',function (){
     $this->post('/auth/login','AuthController:postLogin')->setName('auth.login');
 })->add(new AuthStatus($container));
 
-$app->post('/roomAllot','RoomAllotController:roomAllotStatus')->setName('roomAllot');
-$app->post('/booking','BookingController:booking')->setName('bookingConfirm');
+$app->group('',function(){
+$this->get('/roomAllot','RoomAllotController:getRoomAllot')->setName('booking.roomAllot');
+$this->post('/roomAllot','RoomAllotController:roomAllotStatus')->setName('roomAllot');
+$this->post('/booking','BookingController:booking')->setName('bookingConfirm');
+$this->get('/account','AccountController:getUserData')->setName('account');
+$this->get('/account/update','AccountController:getUpdateProfile')->setName('account.update');
+$this->post('/account/update','AccountController:updateAccount');
+})->add(new AuthValid($container));
+
+
 $app->get('/auth/login','AuthController:getLogout')->setName('auth.logout');
 
-$app->get('/roomAllot','RoomAllotController:getRoomAllot')->setName('booking.roomAllot');
+
 $app->post('/availabilityCheck','AvailabilityController:availabilityChecker')->setName('availability.check');
-$app->get('/account','AccountController:getUserData')->setName('account')->setName('account');
+
 
 $app->get('/admin/dashboard','AdminDashboardController:getDashboard')->setName('admin.dashboard');
 
