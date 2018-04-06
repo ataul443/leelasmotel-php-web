@@ -78,7 +78,11 @@ tr:hover, tr:nth-of-type(even):hover{
     grid-column: 1 / 3;
 }
 
-#updateProfile form input {
+#updateProfile textarea{
+    height: 150px;
+}
+
+#updateProfile form input, #updateProfile textarea{
     border: 1px solid rgb(168, 167, 167);
     width: 80%;
     color: rgb(68, 68, 68);

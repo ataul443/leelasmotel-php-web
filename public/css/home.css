@@ -113,14 +113,14 @@ p{
     display: grid;
     position: relative;
     grid-area: two;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 200px);
     grid-auto-rows: 200px;
     grid-gap: 20px;
     padding: 2.5vw;
     grid-template-areas:
-    "one two"
-    "three four";
+    "one one two two"
+    ". three three .";
 }
 #rooms>div{
     height: 200px;
@@ -236,13 +236,10 @@ p{
     margin-bottom: 10px;
 }
 #roomDet button{
-    color: #fff;
-    font-size: 0.9em !important;
+    color: #ecc81a;
+    font-size: 0.8em !important;
     border-radius: 20px;
     padding: 5px 10px;
-}
-
-#roomDet button:hover{    
 }
 
 #prev, #next{
@@ -362,15 +359,12 @@ p{
 
 
 #rooms>div{
-    transition: all ease 0.5s;
+    transition: all ease 0.2s;
     box-sizing: border-box;
 }
 
 #rooms>div:hover{
-    /* background-position: bottom; */
     z-index: 11;
-    /* border: 5px solid rgba(0, 0, 0, 0.873); */
-    /* border-bottom: 5px solid #000; */
     outline: 5px solid #053c698e;
     box-shadow: inset 0px -5px 20px #000000b2;
 }
