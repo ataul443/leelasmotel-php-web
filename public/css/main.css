@@ -368,6 +368,7 @@ footer>div{
     width: 100vw;
     max-width: 100%;
     display: grid;
+    grid-gap: 20px;
     grid-template-columns: repeat(5, 1fr);
     color: #fff;
     padding-top: 0.5in; 
@@ -406,7 +407,8 @@ footer>div:nth-of-type(2) ul li:nth-child(1){
 
 footer a{
     text-decoration: none;
-    color: #fff;    
+    color: #fff;   
+    font-family: 'Raleway', sans-serif; 
 }
 
 #cross, #cross0{
@@ -514,4 +516,4 @@ input, select{
 
 .incorrect{
     border: 1px solid #f00 !important;
-}
+} 
