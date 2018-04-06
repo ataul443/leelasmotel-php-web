@@ -29,16 +29,20 @@
                                 <form id="form-box" action="{{ path_for('admin.webedit') }}" method="post" enctype="multipart/form-data">
                                     <div class="row">
 
-                                        <div class="col-md-4">
+                                        <div class="col-md-10">
                                             <div class="form-group">
                                             <div>
                                                     <p>Set Category: </p>
-                                                <select id="status-selector" class="form-control" id="recordsPerPage" style="width:150px;margin-bottom: 15px;">
+                                                    
+                                                <div>
+                                                <p style="padding: 0 15px;display: inline-block">Upload Pictures of </p>
+                                                <select id="status-selector" class="form-control" id="recordsPerPage" style="width:150px;margin-bottom: 15px; display: inline-block">
                                                     <option selected>Category</option>
                                                     <option>Standard Rooms</option>
                                                     <option>Delux Rooms</option>
                                                     <option>Royal Rooms</option>
                                                 </select>
+                                                </div>
                                             </div>
                                                 <p>
                                                     <label>Add files (up to 3): </label><br/>

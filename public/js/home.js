@@ -21,11 +21,10 @@ var rev = $('#reviews>div');
         var roomdiv = $("#rooms>div");
         
         var roomfullimgStandard =  ["url('http://localhost/motel/leelasmotel-php-web/public/images/standardRoom/01.jpg')", "url('http://localhost/motel/leelasmotel-php-web/public/images/standardRoom/02.jpg')", "url('http://localhost/motel/leelasmotel-php-web/public/images/standardRoom/03.jpg')"];
-        var roomfullpriceStandard = ["$350", "$450", "$750"];
+        var roomfullprice= ["$300", "$800", "$1200"];
         var roomfullimgDelux =  ["url('http://localhost/motel/leelasmotel-php-web/public/images/deluxRoom/01.jpg')", "url('http://localhost/motel/leelasmotel-php-web/public/images/deluxRoom/02.jpg')", "url('http://localhost/motel/leelasmotel-php-web/public/images/deluxRoom/03.jpg')"];        
-        var roomfullpriceDelux = ["$550", "$850", "$2750"];
+        
         var roomfullimgRoyal =  ["url('http://localhost/motel/leelasmotel-php-web/public/images/royalRoom/01.jpg')", "url('http://localhost/motel/leelasmotel-php-web/public/images/royalRoom/02.jpg')", "url('http://localhost/motel/leelasmotel-php-web/public/images/royalRoom/03.jpg')"];
-        var roomfullpriceRoyal = ["$3530", "$2450", "$7550"];
         var roomDet = $('#rooms #roomType');
         var roomPrice = $('#rooms #price');
         var bgimg;
@@ -59,20 +58,20 @@ var rev = $('#reviews>div');
                 roomfull.css({
                     'background-image': roomfullimgStandard[counter]
                 }); 
-                $("#typePrice").text(roomfullpriceStandard[counter]); 
             } 
             if(bgimg == 1){
                 roomfull.css({
                     'background-image': roomfullimgDelux[counter]
                 }); 
-                $("#typePrice").text(roomfullpriceDelux[counter]); 
             } 
             if(bgimg == 2){
                 roomfull.css({
                     'background-image': roomfullimgRoyal[counter]
                 }); 
-                $("#typePrice").text(roomfullpriceRoyal[counter]); 
             } 
+
+            
+            $("#typePrice").text(roomfullprice[bgimg]); 
         }
 
         $("#linkAccomo").click(function () { 
