@@ -66,8 +66,8 @@
                                 <form class="form-inline" id="form-box" action="{{ path_for('admin.webedit') }}" method="post" enctype="multipart/form-data">
                                     <div class="form-group" style="width:100%">
                                         <div class="row">
-                                            <div class="col-sm-4" style="display:flex; justify-content: space-around">
-                                                <p style="display: inline-block;">Standard Rooms</p>
+                                            <div class="col-sm-4" style="display:flex;">
+                                                <label style="display: inline-block;">Standard Rooms</label>
                                                 <select class="form-control custom-select" style="width: auto; display: inline-block">
                                                 <option selected>0</option>
                                                 <option value="1">1</option>
@@ -76,8 +76,8 @@
                                                 <option value="4">4</option>
                                                 </select>   
                                             </div>
-                                            <div class="col-sm-4" style="display:flex; justify-content: space-around" >
-                                                <p style="display: inline-block;">Delux Rooms</p>
+                                            <div class="col-sm-4" style="display:flex;" >
+                                                <label style="display: inline-block;">Delux Rooms</label>
                                                 <select class="form-control custom-select" style="width: auto; display: inline-block">
                                                 <option selected>0</option>
                                                 <option value="1">1</option>
@@ -85,33 +85,8 @@
                                                 <option value="3">3</option>
                                                 <option value="4">4</option>
                                                 </select>   
-                                            </div><div class="col-sm-4"  style="display:flex; justify-content: space-around">
-                                                <p style="display: inline-block;">Royal Rooms</p>
-                                                <select class="form-control custom-select" style="width: auto; display: inline-block">
-                                                <option selected>0</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                </select>   
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-2">
-                                                <label>Guest</label>
-                                            </div>
-                                            <div class="col-sm-4" style="display:flex; justify-content: space-between" >
-                                                <p style="display: inline-block;">Adults</p>
-                                                <select class="form-control custom-select" style="width: auto; display: inline-block">
-                                                <option selected>0</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                </select>   
-                                            </div>
-                                            <div class="col-sm-4" style="display:flex; justify-content: space-between" >
-                                                <p style="display: inline-block;">Child</p>
+                                            </div><div class="col-sm-4"  style="display:flex;">
+                                                <label style="display: inline-block;">Royal Rooms</label>
                                                 <select class="form-control custom-select" style="width: auto; display: inline-block">
                                                 <option selected>0</option>
                                                 <option value="1">1</option>
@@ -122,16 +97,35 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-sm-2">
-                                                <label>Check In</label>
+                                            <div class="col-sm-4" style="display:flex;" >
+                                                <label style="display: inline-block;">Adults</label>
+                                                <select class="form-control custom-select" style="width: auto; display: inline-block; margin-left: 20px;">
+                                                <option selected>0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                </select>   
                                             </div>
-                                            <div class="col-sm-3">
-                                                <input type="date" class="form-control" id="custCheckIn" placeholder="Check In">
+                                            <div class="col-sm-4" style="display:flex;" >
+                                                <label style="display: inline-block;">Child</label>
+                                                <select class="form-control custom-select" style="width: auto; display: inline-block; margin-left: 20px;">
+                                                <option selected>0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                </select>   
                                             </div>
-                                            <div class="col-sm-3">
-                                                <label>Check Out</label>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-4" style="display:flex;" >
+                                                <label style="display: inline-block;">Check In</label>                                                
+                                                <input type="date" class="form-control" id="custCheckIn" placeholder="Check In">   
                                             </div>
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-4" style="display:flex;" >
+                                                <label style="display: inline-block;">Check Out</label>
+                                                  
                                                 <input type="date" class="form-control" id="custCheckOut" placeholder="Check Out">
                                             </div>
                                         </div>
@@ -141,9 +135,9 @@
                             </div>
                         </div>
 
-                        <div style="display: flex; justify-content: space-between;padding: 0 20px;">
+                        <div style="display: flex; justify-content: space-between;">
                             <button id="book-btn" class="filebtn" type="button" >Continue</button>
-                            <p><span style="font-weight: bold;border-bottom: 1px solid  #cfcfcf;">Price</span><br><span>300</span></p>
+                            <p style="padding: 10px 20px;border: 1px solid  #000;border-radius: 4px;margin: 0;"><span style="font-weight: bold;">Price </span>:<span> $300</span></p>
                         </div>
                     </div>
 
