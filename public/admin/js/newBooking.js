@@ -1,14 +1,14 @@
 var bookroombtn = $("#book-btn");
-var bookRoom = $("#bookRoom")
+var cbook = $("#confirm-book-btn")
 var bookDet = $("#bookDet");
 
 
 bookroombtn.click(function(){
-    var standardRooms = $("#custStandardRooms");
-    var deluxRooms = $("#custDeluxRooms");
-    var royalRooms = $("#custRoyalRooms");
-    var adults = $("#custAdult");
-    var childs = $("#custChild");
+    var standardRooms = "#std-select";
+    var deluxRooms = "#delux-select";
+    var royalRooms = "#royal-select";
+    var adults = "#adult-select";
+    var childs = "#child-select";
     var checkIn = $("#custCheckIn");
     var checkOut = $("#custCheckOut");
     var data = validate(standardRooms,deluxRooms,royalRooms,adults,childs,checkIn,checkOut);
@@ -25,6 +25,7 @@ bookroombtn.click(function(){
 
     if(data) {
         var url = urlBuilder('roomAllot');
+        bookroombtn.text('Submitting data...');
         $.ajax({
             type: 'POST',
             data: data,
@@ -34,6 +35,8 @@ bookroombtn.click(function(){
                     alert(data.errorStack);
                     return;
                 }
+                bookroombtn.css({display: 'none'});
+                cbook.css({display: ''});
                 var name = $("#custBookingFormName");
                 var address = $("#custBookingFormAddress");
                 var mobile = $("#custBookingFormContact");
@@ -43,7 +46,13 @@ bookroombtn.click(function(){
                     return;
                 }
 
-                bookingConfirm(payload);
+                cbook.click(function () {
+                    cbook.text('Confirming Booking...');
+                    bookingConfirm(payload);
+                })
+
+
+                return;
 
 
 
@@ -83,6 +92,9 @@ function payloadMakerForBooking(data,nameElement,addressElement,checkInElement,c
     var checkIn =checkInElement.val();
     var checkOut = checkOutElement.val();
     var price = data.totalCost;
+    $('#price-booking').text(price);
+    $('#price-p').css({display: ''});
+
 
 
     var name = personalInfoElementValidator(nameElement);
@@ -122,18 +134,21 @@ function bookingConfirm(payloadBooking){
 
 function validate(standardRooms,deluxRooms,royalRooms,adults,childs,checkIn,checkOut){
     var flag = true;
-
-    standardRooms = checkInvalidElement(standardRooms,0);
-    deluxRooms = checkInvalidElement(deluxRooms,0);
-    royalRooms = checkInvalidElement(royalRooms,0);
-    adults = checkInvalidElement(adults,1);
-    childs = checkInvalidElement(childs,0);
+    standardRooms = selectValidator(standardRooms,0);
+    deluxRooms = selectValidator(deluxRooms,0);
+    royalRooms = selectValidator(royalRooms,0);
+    adults = selectValidator(adults,1);
+    childs = selectValidator(childs,0);
 
     var dateFlag = checkInvalidDateElement(checkIn,checkOut);
     console.log(adults,childs,dateFlag);
     if(standardRooms && deluxRooms && royalRooms && adults && childs && dateFlag){
+        if(checkIn.hasClass('incorrect')){
+            checkIn.removeClass('incorrect');
+        }
         var totalRooms = Number(standardRooms) + Number(deluxRooms) + Number(royalRooms);
-        if(totalRooms > 0){
+        if(totalRooms <=16 && totalRooms >0){
+            $(standardRooms).removeClass('incorrect');
             console.log("AllChecked");
             var data = {checkIn: checkIn.val(),
                 checkOut: checkOut.val(),
@@ -144,12 +159,16 @@ function validate(standardRooms,deluxRooms,royalRooms,adults,childs,checkIn,chec
                 royal: royalRooms}
             return data;
         }else{
+            $(standardRooms).addClass('incorrect');
             console.log("wrong");
             return false;
         }
 
 
     }else{
+        if(!checkIn.hasClass('incorrect')){
+            checkIn.addClass('incorrect');
+        }
         console.log("main wrong");
         return false;
     }
@@ -175,5 +194,18 @@ function disableAll(value){
     if(value){
         var x = $("input");
         $(x).attr("disabled", "disabled");
+    }
+}
+
+function selectValidator(element,min){
+    var optionSelectorString = `${element} option:selected`;
+    var selectorString = `${element}`;
+    var value = $(optionSelectorString).text();
+    if(value == undefined || value == null || value < min){
+        $(selectorString).addClass('incorrect');
+        return false;
+    }else{
+        $(selectorString).removeClass('incorrect');
+        return value;
     }
 }

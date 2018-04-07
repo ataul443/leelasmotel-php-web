@@ -36,18 +36,16 @@
                                                     
                                                 <div>
                                                 <p style="padding: 0 15px;display: inline-block">Upload Pictures of </p>
-                                                <select id="status-selector" class="form-control" id="recordsPerPage" style="width:150px;margin-bottom: 15px; display: inline-block">
-                                                    <option selected>Category</option>
-                                                    <option>Standard Rooms</option>
-                                                    <option>Delux Rooms</option>
-                                                    <option>Royal Rooms</option>
+                                                <select name="category" id="status-selector-pictures" class="form-control" id="recordsPerPage" style="width:150px;margin-bottom: 15px; display: inline-block">
+                                                    <option value="standardRoom">Standard Rooms</option>
+                                                    <option value="deluxRoom">Delux Rooms</option>
+                                                    <option value="royalRoom">Royal Rooms</option>
                                                 </select>
                                                 </div>
                                             </div>
                                                 <p>
                                                     <label>Add files (up to 3): </label><br/>
                                                     <input type="file" name="example2[]" multiple="multiple"/><br/>
-                                                    <input type="text" id="category" name="category" value="mainBanner" style="display:none;">
                                                 </p>
                                                 <input type="submit" id="upload-btn" class="filebtn"  name="submit" value="Upload File Now" >
                                             </div>
@@ -70,12 +68,12 @@
                                         <div class="col-md-4">
                                             <div style="display: flex; margin: 15px;">
                                                 <select id="status-selector" class="form-control" id="recordsPerPage" style="width:150px;">
-                                                    <option selected>Category</option>
-                                                    <option>Standard Rooms</option>
-                                                    <option>Delux Rooms</option>
-                                                    <option>Royal Rooms</option>
+                                                    <option value="Category">Category</option>
+                                                    <option value="standard">Standard Rooms</option>
+                                                    <option value="delux">Delux Rooms</option>
+                                                    <option value="royal">Royal Rooms</option>
                                                 </select>
-                                                <input style="margin-left: 20px;" type="number" class="form-control"placeholder="Price">
+                                                <input id="price-input" style="margin-left: 20px;" type="number" class="form-control"placeholder="Price">
                                             </div>
                                         </div>
                                     </div>

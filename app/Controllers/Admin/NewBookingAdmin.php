@@ -24,7 +24,7 @@ class NewBookingAdmin
 
     public function postNewBookig($req,$res){
 
-        $this->BookingController->booking($req,$res,$admin);
+        $this->BookingController->booking($req,$res);
         return;
     }
 

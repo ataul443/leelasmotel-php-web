@@ -62,10 +62,10 @@ class BookingsAdmin extends Controller
         $bookings = null;
         $size = null;
         if($searchTerm){
-            $bookings = Bookings::where('name','like',"%$searchTerm%")->orderBy('name','dsc')->get();
+            $bookings = Bookings::where('name','like',"%$searchTerm%")->orderBy('name','asc')->get();
             $size = count($bookings);
         }else{
-            $bookings = Bookings::offset($offset)->limit($limit)->orderBy('name','dsc')->get();
+            $bookings = Bookings::offset($offset)->limit($limit)->orderBy('updated_at','dsc')->get();
             $size = Bookings::count();
         }
 

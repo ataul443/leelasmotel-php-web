@@ -171,3 +171,4 @@ function personalInfoElementValidator(element){
         return checkInvalidState(element);
     }
 }
+

@@ -68,17 +68,17 @@
                                         <div class="row">
                                             <div class="col-sm-4" style="display:flex;">
                                                 <label style="display: inline-block;">Standard Rooms</label>
-                                                <select class="form-control custom-select" style="width: auto; display: inline-block">
+                                                <select id="std-select"class="form-control custom-select" style="width: auto; display: inline-block">
                                                 <option selected>0</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
                                                 <option value="4">4</option>
-                                                </select>   
+                                                </select>
                                             </div>
                                             <div class="col-sm-4" style="display:flex;" >
                                                 <label style="display: inline-block;">Delux Rooms</label>
-                                                <select class="form-control custom-select" style="width: auto; display: inline-block">
+                                                <select id="delux-select" class="form-control custom-select" style="width: auto; display: inline-block">
                                                 <option selected>0</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
@@ -87,7 +87,7 @@
                                                 </select>   
                                             </div><div class="col-sm-4"  style="display:flex;">
                                                 <label style="display: inline-block;">Royal Rooms</label>
-                                                <select class="form-control custom-select" style="width: auto; display: inline-block">
+                                                <select id="royal-select"class="form-control custom-select" style="width: auto; display: inline-block">
                                                 <option selected>0</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
@@ -99,7 +99,7 @@
                                         <div class="row">
                                             <div class="col-sm-4" style="display:flex;" >
                                                 <label style="display: inline-block;">Adults</label>
-                                                <select class="form-control custom-select" style="width: auto; display: inline-block; margin-left: 20px;">
+                                                <select id="adult-select" class="form-control custom-select" style="width: auto; display: inline-block; margin-left: 20px;">
                                                 <option selected>0</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
@@ -109,7 +109,7 @@
                                             </div>
                                             <div class="col-sm-4" style="display:flex;" >
                                                 <label style="display: inline-block;">Child</label>
-                                                <select class="form-control custom-select" style="width: auto; display: inline-block; margin-left: 20px;">
+                                                <select id="child-select"class="form-control custom-select" style="width: auto; display: inline-block; margin-left: 20px;">
                                                 <option selected>0</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
@@ -136,8 +136,9 @@
                         </div>
 
                         <div style="display: flex; justify-content: space-between;">
-                            <button id="book-btn" class="filebtn" type="button" >Continue</button>
-                            <p style="padding: 10px 20px;border: 1px solid  #000;border-radius: 4px;margin: 0;"><span style="font-weight: bold;">Price </span>:<span> $300</span></p>
+                            <button id="book-btn" class="filebtn" type="button" >Continue Booking</button>
+                            <button id="confirm-book-btn" class="filebtn" style="display: none" type="button" >Confirm Booking</button>
+                            <p id="price-p"style="padding: 10px 20px;border: 1px solid  #000;border-radius: 4px;margin: 0;display: none"><span style="font-weight: bold;">Price </span>: <span id="price-booking"> </span><span> Rs</span></p>
                         </div>
                     </div>
 

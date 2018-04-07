@@ -91,7 +91,7 @@ EOD;
             $customers = Customers::where('name','like',"%$searchTerm%")->orderBy('name','dsc')->get();
             $size = count($customers);
         }else{
-            $customers = customers::offset($offset)->limit($limit)->orderBy('name','dsc')->get();
+            $customers = customers::offset($offset)->limit($limit)->orderBy('updated_at','dsc')->get();
             $size = Customers::count();
         }
 

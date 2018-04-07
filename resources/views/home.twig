@@ -73,9 +73,15 @@ Leelas Motel - An Elegant Stay
             </div>
         </div>
         <div>
-            <form action="{{ path_for('booking.roomAllot') }}" method="get">
-        <button class="bookBtn">Book Now</button>
-            </form>
+            {% if auth.check %}
+                <form action="{{ path_for('booking.roomAllot') }}" method="get">
+                    <button class="bookBtn">Book Now</button>
+                </form>
+            {% else %}
+
+                <button class="bookBtn" id="#logIn-btn1">Book Now</button>
+
+            {% endif %}
         </div>
     </div>
 
@@ -135,9 +141,13 @@ Leelas Motel - An Elegant Stay
                     <div id="roomDet">
                         <div>
                             <p id="typePrice">$150</p>
-                            <form action="{{ path_for('booking.roomAllot') }}" method="get">
-                                <button>Book</button>
-                            </form>
+                            {% if auth.check %}
+                                <form action="{{ path_for('booking.roomAllot') }}" method="get">
+                                    <button class="bookBtn">Book Now</button>
+                                </form>
+                            {% else %}
+                                <button class="bookBtn" id="#logIn-btn2">Book Now</button>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -225,9 +235,13 @@ Leelas Motel - An Elegant Stay
     <div>
     <div>
         <h1>What Are You Waiting For?</h1>
-        <form action="{{ path_for('booking.roomAllot') }}" method="get">
-            <button class="bookBtn">Book Now</button>
-        </form>
+        {% if auth.check %}
+            <form action="{{ path_for('booking.roomAllot') }}" method="get">
+                <button class="bookBtn">Book Now</button>
+            </form>
+        {% else %}
+            <button class="bookBtn" id="#logIn-btn3">Book Now</button>
+        {% endif %}
     </div>
     </div>
     </div>
